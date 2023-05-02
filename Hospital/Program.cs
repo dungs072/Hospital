@@ -16,7 +16,7 @@ namespace Hospital
         /// </summary>
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
-        public static String connstr_publisher = "Data Source=DESKTOP-0M15LMD\\GHOSTNHD;Initial Catalog=THI_TN;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=DESKTOP-0M15LMD\\GHOSTNHD;Initial Catalog=QLBV;Integrated Security=True";
 
         public static SqlDataReader myReader;
         public static String serverName = "";
@@ -24,7 +24,7 @@ namespace Hospital
         public static String mLogin = "";
         public static String password = "";
 
-        public static String database = "THI_TN";
+        public static String database = "QLBV";
         public static String remoteLogin = "T";
         public static String remotePassword = "123";
         public static String mLoginDN = "";
@@ -35,9 +35,6 @@ namespace Hospital
         public static BindingSource bds_fragList = new BindingSource();
         public static frmMain fMain;
 
-        public static string facilityId { get { return mFacility == 0 ? "CS1" : "CS2"; } }
-
-        public static bool IsSchoolAuthority { get { return mGroup == "Truong"; } }
 
         public static int Connect()
         {
