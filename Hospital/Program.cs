@@ -19,7 +19,7 @@ namespace Hospital
         public static String connstr_publisher = "Data Source=DESKTOP-0M15LMD\\GHOSTNHD;Initial Catalog=QLBV;Integrated Security=True";
 
         public static SqlDataReader myReader;
-        public static String serverName = "";
+        public static String serverName = "DESKTOP-0M15LMD\\GHOSTNHD";
         public static String userName = "";
         public static String mLogin = "";
         public static String password = "";
