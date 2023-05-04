@@ -40,11 +40,10 @@ namespace Hospital
             else
             {
                 Form f;
-                if (tForm == typeof(frmLogin))
+                if (tForm == typeof(frmRegisterLivingRoom))
                 {
-                    f = new frmLogin();
+                    f = new frmRegisterLivingRoom();
                 }
-               
                 else
                 {
                     f = new frmLogin();
@@ -58,6 +57,11 @@ namespace Hospital
         private void btnBarLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ShowForm(typeof(frmLogin));
+        }
+
+        private void btnBarRegisterLivingRoom_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmRegisterLivingRoom));
         }
     }
 }

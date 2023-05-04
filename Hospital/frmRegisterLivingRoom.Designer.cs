@@ -30,65 +30,68 @@ namespace Hospital
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegisterLivingRoom));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.sP_GET_VACANT_ROOMGridControl = new DevExpress.XtraGrid.GridControl();
+            this.sP_GET_VACANT_ROOMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLBVDataSet = new Hospital.QLBVDataSet();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAGIUONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOGIUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bar1 = new DevExpress.XtraBars.Bar();
-            this.cmbType = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbArea = new System.Windows.Forms.ComboBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbRoom = new System.Windows.Forms.ComboBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.qLBVDataSet = new Hospital.QLBVDataSet();
-            this.bENHNHANBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bENHNHANTableAdapter = new Hospital.QLBVDataSetTableAdapters.BENHNHANTableAdapter();
-            this.tableAdapterManager = new Hospital.QLBVDataSetTableAdapters.TableAdapterManager();
-            this.bENHNHANBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bENHNHANBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.bENHNHANGridControl = new DevExpress.XtraGrid.GridControl();
+            this.fKPHONGKHUCHUATRIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kHUCHUATRIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbArea = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl = new DevExpress.XtraGrid.GridControl();
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMABN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLOAI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbType = new System.Windows.Forms.ComboBox();
+            this.tableAdapterManager = new Hospital.QLBVDataSetTableAdapters.TableAdapterManager();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.kHUCHUATRITableAdapter = new Hospital.QLBVDataSetTableAdapters.KHUCHUATRITableAdapter();
+            this.pHONGTableAdapter = new Hospital.QLBVDataSetTableAdapters.PHONGTableAdapter();
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter = new Hospital.QLBVDataSetTableAdapters.PATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter();
+            this.sP_GET_VACANT_ROOMTableAdapter = new Hospital.QLBVDataSetTableAdapters.SP_GET_VACANT_ROOMTableAdapter();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_GET_VACANT_ROOMGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_GET_VACANT_ROOMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bENHNHANBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bENHNHANBindingNavigator)).BeginInit();
-            this.bENHNHANBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bENHNHANGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPHONGKHUCHUATRIBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHUCHUATRIBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,52 +101,75 @@ namespace Hospital
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1159, 282);
+            this.panel1.Size = new System.Drawing.Size(1729, 282);
             this.panel1.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.cmbRoom);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.cmbArea);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(566, 68);
-            this.panel5.TabIndex = 0;
             // 
             // panel3
             // 
+            this.panel3.AutoScroll = true;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.sP_GET_VACANT_ROOMGridControl);
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.panel5);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(593, 0);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(994, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(566, 282);
+            this.panel3.Size = new System.Drawing.Size(735, 282);
             this.panel3.TabIndex = 1;
             // 
-            // panel4
+            // sP_GET_VACANT_ROOMGridControl
             // 
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.cmbType);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(587, 68);
-            this.panel4.TabIndex = 0;
+            this.sP_GET_VACANT_ROOMGridControl.DataSource = this.sP_GET_VACANT_ROOMBindingSource;
+            this.sP_GET_VACANT_ROOMGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sP_GET_VACANT_ROOMGridControl.Location = new System.Drawing.Point(0, 104);
+            this.sP_GET_VACANT_ROOMGridControl.MainView = this.gridView2;
+            this.sP_GET_VACANT_ROOMGridControl.MenuManager = this.barManager1;
+            this.sP_GET_VACANT_ROOMGridControl.Name = "sP_GET_VACANT_ROOMGridControl";
+            this.sP_GET_VACANT_ROOMGridControl.Size = new System.Drawing.Size(733, 176);
+            this.sP_GET_VACANT_ROOMGridControl.TabIndex = 2;
+            this.sP_GET_VACANT_ROOMGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
             // 
-            // panel2
+            // sP_GET_VACANT_ROOMBindingSource
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.bENHNHANGridControl);
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(587, 282);
-            this.panel2.TabIndex = 0;
+            this.sP_GET_VACANT_ROOMBindingSource.DataMember = "SP_GET_VACANT_ROOM";
+            this.sP_GET_VACANT_ROOMBindingSource.DataSource = this.qLBVDataSet;
+            // 
+            // qLBVDataSet
+            // 
+            this.qLBVDataSet.DataSetName = "QLBVDataSet";
+            this.qLBVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAGIUONG,
+            this.colSOGIUONG});
+            this.gridView2.GridControl = this.sP_GET_VACANT_ROOMGridControl;
+            this.gridView2.Name = "gridView2";
+            // 
+            // colMAGIUONG
+            // 
+            this.colMAGIUONG.Caption = "Mã giường";
+            this.colMAGIUONG.FieldName = "MAGIUONG";
+            this.colMAGIUONG.MinWidth = 30;
+            this.colMAGIUONG.Name = "colMAGIUONG";
+            this.colMAGIUONG.OptionsColumn.AllowEdit = false;
+            this.colMAGIUONG.Visible = true;
+            this.colMAGIUONG.VisibleIndex = 0;
+            this.colMAGIUONG.Width = 112;
+            // 
+            // colSOGIUONG
+            // 
+            this.colSOGIUONG.Caption = "Số giường";
+            this.colSOGIUONG.FieldName = "SOGIUONG";
+            this.colSOGIUONG.MinWidth = 30;
+            this.colSOGIUONG.Name = "colSOGIUONG";
+            this.colSOGIUONG.OptionsColumn.AllowEdit = false;
+            this.colSOGIUONG.Visible = true;
+            this.colSOGIUONG.VisibleIndex = 1;
+            this.colSOGIUONG.Width = 112;
             // 
             // barManager1
             // 
@@ -155,21 +181,29 @@ namespace Hospital
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             // 
+            // bar1
+            // 
+            this.bar1.BarName = "Tools";
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.Text = "Tools";
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1159, 20);
+            this.barDockControlTop.Size = new System.Drawing.Size(1729, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 481);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 683);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1159, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1729, 0);
             // 
             // barDockControlLeft
             // 
@@ -177,56 +211,47 @@ namespace Hospital
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 461);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 663);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1159, 20);
+            this.barDockControlRight.Location = new System.Drawing.Point(1729, 20);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 461);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 663);
             // 
-            // bar1
+            // panel7
             // 
-            this.bar1.BarName = "Tools";
-            this.bar1.DockCol = 0;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar1.Text = "Tools";
+            this.panel7.Controls.Add(this.label5);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 68);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(733, 36);
+            this.panel7.TabIndex = 1;
             // 
-            // cmbType
+            // label5
             // 
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(84, 20);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(179, 27);
-            this.cmbType.TabIndex = 0;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(229, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(285, 19);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "DANH SÁCH GIƯỜNG CÒN TRỐNG";
             // 
-            // label1
+            // panel5
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Kiểu:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 19);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Khu:";
-            // 
-            // cmbArea
-            // 
-            this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.Location = new System.Drawing.Point(56, 20);
-            this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(247, 27);
-            this.cmbArea.TabIndex = 2;
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.cmbRoom);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.cmbArea);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(733, 68);
+            this.panel5.TabIndex = 0;
             // 
             // label3
             // 
@@ -239,222 +264,80 @@ namespace Hospital
             // 
             // cmbRoom
             // 
+            this.cmbRoom.DataSource = this.fKPHONGKHUCHUATRIBindingSource;
+            this.cmbRoom.DisplayMember = "SOPHONG";
+            this.cmbRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoom.FormattingEnabled = true;
             this.cmbRoom.Location = new System.Drawing.Point(375, 20);
             this.cmbRoom.Name = "cmbRoom";
             this.cmbRoom.Size = new System.Drawing.Size(179, 27);
             this.cmbRoom.TabIndex = 4;
+            this.cmbRoom.ValueMember = "MAPHONG";
+           
+            this.cmbRoom.SelectedValueChanged += new System.EventHandler(this.cmbRoom_SelectedValueChanged);
             // 
-            // panel6
+            // fKPHONGKHUCHUATRIBindingSource
             // 
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 68);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(587, 36);
-            this.panel6.TabIndex = 1;
+            this.fKPHONGKHUCHUATRIBindingSource.DataMember = "FK_PHONG_KHUCHUATRI";
+            this.fKPHONGKHUCHUATRIBindingSource.DataSource = this.kHUCHUATRIBindingSource;
             // 
-            // panel7
+            // kHUCHUATRIBindingSource
             // 
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 68);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(566, 36);
-            this.panel7.TabIndex = 1;
+            this.kHUCHUATRIBindingSource.DataMember = "KHUCHUATRI";
+            this.kHUCHUATRIBindingSource.DataSource = this.qLBVDataSet;
             // 
-            // label4
+            // label2
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(167, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(210, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "DANH SÁCH BỆNH NHÂN";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 19);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Khu:";
             // 
-            // label5
+            // cmbArea
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(146, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(285, 19);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "DANH SÁCH GIƯỜNG CÒN TRỐNG";
+            this.cmbArea.DataSource = this.kHUCHUATRIBindingSource;
+            this.cmbArea.DisplayMember = "TEN";
+            this.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbArea.FormattingEnabled = true;
+            this.cmbArea.Location = new System.Drawing.Point(56, 20);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(247, 27);
+            this.cmbArea.TabIndex = 2;
+            this.cmbArea.ValueMember = "DANHDINHKHU";
             // 
-            // qLBVDataSet
+            // panel2
             // 
-            this.qLBVDataSet.DataSetName = "QLBVDataSet";
-            this.qLBVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.panel2.AutoScroll = true;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl);
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(994, 282);
+            this.panel2.TabIndex = 0;
             // 
-            // bENHNHANBindingSource
+            // pATIENT_NOT_REGISTER_LIVING_ROOMGridControl
             // 
-            this.bENHNHANBindingSource.DataMember = "BENHNHAN";
-            this.bENHNHANBindingSource.DataSource = this.qLBVDataSet;
-            // 
-            // bENHNHANTableAdapter
-            // 
-            this.bENHNHANTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BENHNHANTableAdapter = this.bENHNHANTableAdapter;
-            this.tableAdapterManager.CHITIETCHUATRITableAdapter = null;
-            this.tableAdapterManager.CHITIETGIOLAMVIECTableAdapter = null;
-            this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
-            this.tableAdapterManager.CHITIETOTableAdapter = null;
-            this.tableAdapterManager.CHITIETSUDUNGVTTableAdapter = null;
-            this.tableAdapterManager.CHUCVUTableAdapter = null;
-            this.tableAdapterManager.GIUONGTableAdapter = null;
-            this.tableAdapterManager.KHUCHUATRITableAdapter = null;
-            this.tableAdapterManager.LOAICHUATRITableAdapter = null;
-            this.tableAdapterManager.NHANVIENTableAdapter = null;
-            this.tableAdapterManager.PHONGTableAdapter = null;
-            this.tableAdapterManager.TUANTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VATTUTableAdapter = null;
-            // 
-            // bENHNHANBindingNavigator
-            // 
-            this.bENHNHANBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bENHNHANBindingNavigator.BindingSource = this.bENHNHANBindingSource;
-            this.bENHNHANBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.bENHNHANBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bENHNHANBindingNavigator.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.bENHNHANBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.bENHNHANBindingNavigatorSaveItem});
-            this.bENHNHANBindingNavigator.Location = new System.Drawing.Point(0, 302);
-            this.bENHNHANBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bENHNHANBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bENHNHANBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bENHNHANBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bENHNHANBindingNavigator.Name = "bENHNHANBindingNavigator";
-            this.bENHNHANBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.bENHNHANBindingNavigator.Size = new System.Drawing.Size(1159, 33);
-            this.bENHNHANBindingNavigator.TabIndex = 5;
-            this.bENHNHANBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 20);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 20);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 31);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 25);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 28);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 28);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bENHNHANBindingNavigatorSaveItem
-            // 
-            this.bENHNHANBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bENHNHANBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("bENHNHANBindingNavigatorSaveItem.Image")));
-            this.bENHNHANBindingNavigatorSaveItem.Name = "bENHNHANBindingNavigatorSaveItem";
-            this.bENHNHANBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
-            this.bENHNHANBindingNavigatorSaveItem.Text = "Save Data";
-            this.bENHNHANBindingNavigatorSaveItem.Click += new System.EventHandler(this.bENHNHANBindingNavigatorSaveItem_Click);
-            // 
-            // bENHNHANGridControl
-            // 
-            this.bENHNHANGridControl.DataSource = this.bENHNHANBindingSource;
-            this.bENHNHANGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bENHNHANGridControl.Location = new System.Drawing.Point(0, 104);
-            this.bENHNHANGridControl.MainView = this.gridView1;
-            this.bENHNHANGridControl.MenuManager = this.barManager1;
-            this.bENHNHANGridControl.Name = "bENHNHANGridControl";
-            this.bENHNHANGridControl.Size = new System.Drawing.Size(587, 178);
-            this.bENHNHANGridControl.TabIndex = 2;
-            this.bENHNHANGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.DataSource = this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource;
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Location = new System.Drawing.Point(0, 104);
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.MainView = this.gridView1;
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.MenuManager = this.barManager1;
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Name = "pATIENT_NOT_REGISTER_LIVING_ROOMGridControl";
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Size = new System.Drawing.Size(992, 176);
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.TabIndex = 2;
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource
+            // 
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource.DataMember = "PATIENT_NOT_REGISTER_LIVING_ROOM";
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource.DataSource = this.qLBVDataSet;
             // 
             // gridView1
             // 
@@ -462,8 +345,9 @@ namespace Hospital
             this.colMABN,
             this.colHO,
             this.colTEN,
-            this.colNGAYSINH});
-            this.gridView1.GridControl = this.bENHNHANGridControl;
+            this.colNGAYSINH,
+            this.colLOAI});
+            this.gridView1.GridControl = this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl;
             this.gridView1.Name = "gridView1";
             // 
             // colMABN
@@ -472,6 +356,7 @@ namespace Hospital
             this.colMABN.FieldName = "MABN";
             this.colMABN.MinWidth = 30;
             this.colMABN.Name = "colMABN";
+            this.colMABN.OptionsColumn.AllowEdit = false;
             this.colMABN.Visible = true;
             this.colMABN.VisibleIndex = 0;
             this.colMABN.Width = 112;
@@ -482,6 +367,7 @@ namespace Hospital
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 30;
             this.colHO.Name = "colHO";
+            this.colHO.OptionsColumn.AllowEdit = false;
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 1;
             this.colHO.Width = 112;
@@ -492,6 +378,7 @@ namespace Hospital
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 30;
             this.colTEN.Name = "colTEN";
+            this.colTEN.OptionsColumn.AllowEdit = false;
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
             this.colTEN.Width = 112;
@@ -502,16 +389,125 @@ namespace Hospital
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 30;
             this.colNGAYSINH.Name = "colNGAYSINH";
+            this.colNGAYSINH.OptionsColumn.AllowEdit = false;
             this.colNGAYSINH.Visible = true;
             this.colNGAYSINH.VisibleIndex = 3;
             this.colNGAYSINH.Width = 112;
+            // 
+            // colLOAI
+            // 
+            this.colLOAI.Caption = "Loại";
+            this.colLOAI.FieldName = "LOAI";
+            this.colLOAI.MinWidth = 30;
+            this.colLOAI.Name = "colLOAI";
+            this.colLOAI.Width = 112;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label4);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 68);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(992, 36);
+            this.panel6.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(251, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(413, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "DANH SÁCH BỆNH NHÂN CHƯA ĐĂNG KÍ GIƯỜNG";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.cmbType);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(992, 68);
+            this.panel4.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Kiểu:";
+            // 
+            // cmbType
+            // 
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Location = new System.Drawing.Point(84, 20);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(179, 27);
+            this.cmbType.TabIndex = 0;
+            this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BENHNHANTableAdapter = null;
+            this.tableAdapterManager.CHITIETCHUATRITableAdapter = null;
+            this.tableAdapterManager.CHITIETGIOLAMVIECTableAdapter = null;
+            this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
+            this.tableAdapterManager.CHITIETOTableAdapter = null;
+            this.tableAdapterManager.CHITIETSUDUNGVTTableAdapter = null;
+            this.tableAdapterManager.CHUCVUTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.GIUONGTableAdapter = null;
+            this.tableAdapterManager.KHUCHUATRITableAdapter = null;
+            this.tableAdapterManager.LOAICHUATRITableAdapter = null;
+            this.tableAdapterManager.NHANVIENTableAdapter = null;
+            this.tableAdapterManager.PHONGTableAdapter = null;
+            this.tableAdapterManager.TUANTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VATTUTableAdapter = null;
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Manager = this.barManager1;
+            this.popupMenu1.Name = "popupMenu1";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Location = new System.Drawing.Point(0, 302);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(529, 381);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // kHUCHUATRITableAdapter
+            // 
+            this.kHUCHUATRITableAdapter.ClearBeforeFill = true;
+            // 
+            // pHONGTableAdapter
+            // 
+            this.pHONGTableAdapter.ClearBeforeFill = true;
+            // 
+            // pATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter
+            // 
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter.ClearBeforeFill = true;
+            // 
+            // sP_GET_VACANT_ROOMTableAdapter
+            // 
+            this.sP_GET_VACANT_ROOMTableAdapter.ClearBeforeFill = true;
             // 
             // frmRegisterLivingRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1159, 481);
-            this.Controls.Add(this.bENHNHANBindingNavigator);
+            this.ClientSize = new System.Drawing.Size(1729, 683);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -521,24 +517,27 @@ namespace Hospital
             this.Text = "Đăng kí phòng ở";
             this.Load += new System.EventHandler(this.frmRegisterLivingRoom_Load);
             this.panel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sP_GET_VACANT_ROOMGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_GET_VACANT_ROOMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bENHNHANBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bENHNHANBindingNavigator)).EndInit();
-            this.bENHNHANBindingNavigator.ResumeLayout(false);
-            this.bENHNHANBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bENHNHANGridControl)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPHONGKHUCHUATRIBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHUCHUATRIBindingSource)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,28 +566,28 @@ namespace Hospital
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private System.Windows.Forms.BindingNavigator bENHNHANBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.BindingSource bENHNHANBindingSource;
         private QLBVDataSet qLBVDataSet;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton bENHNHANBindingNavigatorSaveItem;
-        private QLBVDataSetTableAdapters.BENHNHANTableAdapter bENHNHANTableAdapter;
         private QLBVDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl bENHNHANGridControl;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.BindingSource kHUCHUATRIBindingSource;
+        private QLBVDataSetTableAdapters.KHUCHUATRITableAdapter kHUCHUATRITableAdapter;
+        private System.Windows.Forms.BindingSource fKPHONGKHUCHUATRIBindingSource;
+        private QLBVDataSetTableAdapters.PHONGTableAdapter pHONGTableAdapter;
+        private System.Windows.Forms.BindingSource pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource;
+        private QLBVDataSetTableAdapters.PATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter pATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter;
+        private DevExpress.XtraGrid.GridControl pATIENT_NOT_REGISTER_LIVING_ROOMGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMABN;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
+        private DevExpress.XtraGrid.Columns.GridColumn colLOAI;
+        private System.Windows.Forms.BindingSource sP_GET_VACANT_ROOMBindingSource;
+        private QLBVDataSetTableAdapters.SP_GET_VACANT_ROOMTableAdapter sP_GET_VACANT_ROOMTableAdapter;
+        private DevExpress.XtraGrid.GridControl sP_GET_VACANT_ROOMGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAGIUONG;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOGIUONG;
     }
 }
