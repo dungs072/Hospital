@@ -87,6 +87,9 @@ namespace Hospital
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbBed = new System.Windows.Forms.ComboBox();
+            this.fKGIUONGPHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fKPHONGKHUCHUATRIBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.kHUCHUATRIBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.cmbGrRoom = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -95,8 +98,6 @@ namespace Hospital
             this.pHONGTableAdapter = new Hospital.QLBVDataSetTableAdapters.PHONGTableAdapter();
             this.pATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter = new Hospital.QLBVDataSetTableAdapters.PATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter();
             this.sP_GET_VACANT_ROOMTableAdapter = new Hospital.QLBVDataSetTableAdapters.SP_GET_VACANT_ROOMTableAdapter();
-            this.cHITIETOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cHITIETOTableAdapter = new Hospital.QLBVDataSetTableAdapters.CHITIETOTableAdapter();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
@@ -114,9 +115,6 @@ namespace Hospital
             this.colSOPHONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTHOIGIANBATDAU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTHOIGIANKETTHUC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.kHUCHUATRIBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKPHONGKHUCHUATRIBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKGIUONGPHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gIUONGTableAdapter = new Hospital.QLBVDataSetTableAdapters.GIUONGTableAdapter();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -141,7 +139,9 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.txtEndTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStartTime.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStartTime.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cHITIETOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKGIUONGPHONGBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPHONGKHUCHUATRIBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHUCHUATRIBindingSource2)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kHUCHUATRIBindingSource1)).BeginInit();
@@ -149,9 +149,6 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.sP_GET_DETAIL_LIVING_ROOMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_GET_DETAIL_LIVING_ROOMGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kHUCHUATRIBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKPHONGKHUCHUATRIBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKGIUONGPHONGBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -271,6 +268,7 @@ namespace Hospital
             this.btnBarRegister.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarRegister.ImageOptions.Image")));
             this.btnBarRegister.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarRegister.ImageOptions.LargeImage")));
             this.btnBarRegister.Name = "btnBarRegister";
+            this.btnBarRegister.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarRegister_ItemClick);
             // 
             // btnBarCancelRegister
             // 
@@ -279,6 +277,7 @@ namespace Hospital
             this.btnBarCancelRegister.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarCancelRegister.ImageOptions.Image")));
             this.btnBarCancelRegister.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarCancelRegister.ImageOptions.LargeImage")));
             this.btnBarCancelRegister.Name = "btnBarCancelRegister";
+            this.btnBarCancelRegister.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarCancelRegister_ItemClick);
             // 
             // btnBarUpdate
             // 
@@ -287,6 +286,7 @@ namespace Hospital
             this.btnBarUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarUpdate.ImageOptions.Image")));
             this.btnBarUpdate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarUpdate.ImageOptions.LargeImage")));
             this.btnBarUpdate.Name = "btnBarUpdate";
+            this.btnBarUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarUpdate_ItemClick);
             // 
             // btnBarWrite
             // 
@@ -295,6 +295,7 @@ namespace Hospital
             this.btnBarWrite.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarWrite.ImageOptions.Image")));
             this.btnBarWrite.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarWrite.ImageOptions.LargeImage")));
             this.btnBarWrite.Name = "btnBarWrite";
+            this.btnBarWrite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarWrite_ItemClick);
             // 
             // btnBarReload
             // 
@@ -303,6 +304,7 @@ namespace Hospital
             this.btnBarReload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarReload.ImageOptions.Image")));
             this.btnBarReload.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarReload.ImageOptions.LargeImage")));
             this.btnBarReload.Name = "btnBarReload";
+            this.btnBarReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarReload_ItemClick);
             // 
             // btnBarCancel
             // 
@@ -311,6 +313,7 @@ namespace Hospital
             this.btnBarCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarCancel.ImageOptions.Image")));
             this.btnBarCancel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarCancel.ImageOptions.LargeImage")));
             this.btnBarCancel.Name = "btnBarCancel";
+            this.btnBarCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarCancel_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -649,6 +652,11 @@ namespace Hospital
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtEndTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtEndTime.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.txtEndTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtEndTime.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.txtEndTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtEndTime.Properties.Mask.EditMask = "dd/MM/yyyy HH:mm:ss";
             this.txtEndTime.Size = new System.Drawing.Size(248, 28);
             this.txtEndTime.TabIndex = 12;
             // 
@@ -662,6 +670,11 @@ namespace Hospital
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtStartTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtStartTime.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.txtStartTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtStartTime.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.txtStartTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtStartTime.Properties.Mask.EditMask = "dd/MM/yyyy HH:mm:ss";
             this.txtStartTime.Size = new System.Drawing.Size(248, 28);
             this.txtStartTime.TabIndex = 11;
             // 
@@ -721,6 +734,21 @@ namespace Hospital
             this.cmbBed.TabIndex = 4;
             this.cmbBed.ValueMember = "MAGIUONG";
             // 
+            // fKGIUONGPHONGBindingSource
+            // 
+            this.fKGIUONGPHONGBindingSource.DataMember = "FK_GIUONG_PHONG";
+            this.fKGIUONGPHONGBindingSource.DataSource = this.fKPHONGKHUCHUATRIBindingSource2;
+            // 
+            // fKPHONGKHUCHUATRIBindingSource2
+            // 
+            this.fKPHONGKHUCHUATRIBindingSource2.DataMember = "FK_PHONG_KHUCHUATRI";
+            this.fKPHONGKHUCHUATRIBindingSource2.DataSource = this.kHUCHUATRIBindingSource2;
+            // 
+            // kHUCHUATRIBindingSource2
+            // 
+            this.kHUCHUATRIBindingSource2.DataMember = "KHUCHUATRI";
+            this.kHUCHUATRIBindingSource2.DataSource = this.qLBVDataSet;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -778,15 +806,6 @@ namespace Hospital
             // sP_GET_VACANT_ROOMTableAdapter
             // 
             this.sP_GET_VACANT_ROOMTableAdapter.ClearBeforeFill = true;
-            // 
-            // cHITIETOBindingSource
-            // 
-            this.cHITIETOBindingSource.DataMember = "CHITIETO";
-            this.cHITIETOBindingSource.DataSource = this.qLBVDataSet;
-            // 
-            // cHITIETOTableAdapter
-            // 
-            this.cHITIETOTableAdapter.ClearBeforeFill = true;
             // 
             // panel8
             // 
@@ -935,6 +954,8 @@ namespace Hospital
             // colTHOIGIANBATDAU
             // 
             this.colTHOIGIANBATDAU.Caption = "Thời gian bắt đầu ở";
+            this.colTHOIGIANBATDAU.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            this.colTHOIGIANBATDAU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colTHOIGIANBATDAU.FieldName = "THOIGIANBATDAU";
             this.colTHOIGIANBATDAU.MinWidth = 30;
             this.colTHOIGIANBATDAU.Name = "colTHOIGIANBATDAU";
@@ -946,6 +967,8 @@ namespace Hospital
             // colTHOIGIANKETTHUC
             // 
             this.colTHOIGIANKETTHUC.Caption = "Thời gian kết thúc ở";
+            this.colTHOIGIANKETTHUC.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            this.colTHOIGIANKETTHUC.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colTHOIGIANKETTHUC.FieldName = "THOIGIANKETTHUC";
             this.colTHOIGIANKETTHUC.MinWidth = 30;
             this.colTHOIGIANKETTHUC.Name = "colTHOIGIANKETTHUC";
@@ -953,21 +976,6 @@ namespace Hospital
             this.colTHOIGIANKETTHUC.Visible = true;
             this.colTHOIGIANKETTHUC.VisibleIndex = 5;
             this.colTHOIGIANKETTHUC.Width = 112;
-            // 
-            // kHUCHUATRIBindingSource2
-            // 
-            this.kHUCHUATRIBindingSource2.DataMember = "KHUCHUATRI";
-            this.kHUCHUATRIBindingSource2.DataSource = this.qLBVDataSet;
-            // 
-            // fKPHONGKHUCHUATRIBindingSource2
-            // 
-            this.fKPHONGKHUCHUATRIBindingSource2.DataMember = "FK_PHONG_KHUCHUATRI";
-            this.fKPHONGKHUCHUATRIBindingSource2.DataSource = this.kHUCHUATRIBindingSource2;
-            // 
-            // fKGIUONGPHONGBindingSource
-            // 
-            this.fKGIUONGPHONGBindingSource.DataMember = "FK_GIUONG_PHONG";
-            this.fKGIUONGPHONGBindingSource.DataSource = this.fKPHONGKHUCHUATRIBindingSource2;
             // 
             // gIUONGTableAdapter
             // 
@@ -1017,7 +1025,9 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.txtEndTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStartTime.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStartTime.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cHITIETOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKGIUONGPHONGBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPHONGKHUCHUATRIBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHUCHUATRIBindingSource2)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -1027,9 +1037,6 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.sP_GET_DETAIL_LIVING_ROOMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_GET_DETAIL_LIVING_ROOMGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kHUCHUATRIBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKPHONGKHUCHUATRIBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKGIUONGPHONGBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1101,8 +1108,6 @@ namespace Hospital
         private DevExpress.XtraBars.BarButtonItem btnBarCancel;
         private System.Windows.Forms.TextBox txtPatientId;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.BindingSource cHITIETOBindingSource;
-        private QLBVDataSetTableAdapters.CHITIETOTableAdapter cHITIETOTableAdapter;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel9;

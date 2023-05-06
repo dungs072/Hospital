@@ -169,6 +169,7 @@ namespace Hospital
             this.Name = "frmMain";
             this.Ribbon = this.ribbonControl1;
             this.Text = "  ";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();

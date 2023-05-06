@@ -73,6 +73,10 @@ namespace Hospital
 
 
             Program.fMain.ShowMenu();
+            if (Program.mGroup == "BenhVien")
+            {
+                Program.fMain.LoginByHospitalRole();
+            }
         }
     }
 }

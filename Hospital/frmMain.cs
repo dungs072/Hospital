@@ -63,5 +63,34 @@ namespace Hospital
         {
             ShowForm(typeof(frmRegisterLivingRoom));
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            ShowForm(typeof(frmLogin));
+            ribbonPage2.Visible = false;
+        }
+
+
+        public void LoginByHospitalRole()
+        {
+            ribbonPage2.Visible = true;
+            ribbonControl1.SelectedPage = ribbonPage2;
+            CloseLoginForm();
+        }
+        public void LoginByDoctorRole()
+        {
+
+        }
+        public void LoginByNurseRole()
+        {
+
+        }
+        private void CloseLoginForm()
+        {
+            foreach (var form in MdiChildren)
+            {
+                form.Close();
+            }
+        }
     }
 }
