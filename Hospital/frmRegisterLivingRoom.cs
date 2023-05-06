@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,12 +111,25 @@ namespace Hospital
                 return;
             }
             cmbGrArea.Text = cmbArea3.Text;
-            cmbGrRoom.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[sP_GET_DETAIL_LIVING_ROOMBindingSource.Position])[5].ToString().Trim();
-            cmbBed.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[sP_GET_DETAIL_LIVING_ROOMBindingSource.Position])[2].ToString().Trim();
-            txtPatientName.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[sP_GET_DETAIL_LIVING_ROOMBindingSource.Position])[1].ToString().Trim();
-            txtPatientId.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[sP_GET_DETAIL_LIVING_ROOMBindingSource.Position])[0].ToString().Trim();
-            txtStartTime.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[sP_GET_DETAIL_LIVING_ROOMBindingSource.Position])[3].ToString().Trim();
-            txtEndTime.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[sP_GET_DETAIL_LIVING_ROOMBindingSource.Position])[4].ToString().Trim();
+            int tempPosition = sP_GET_DETAIL_LIVING_ROOMBindingSource.Position;
+            cmbGrRoom.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[tempPosition])[5].ToString().Trim();
+            cmbBed.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[tempPosition])[2].ToString().Trim();
+            txtPatientName.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[tempPosition])[1].ToString().Trim();
+            txtPatientId.Text = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[tempPosition])[0].ToString().Trim();
+            string startDate = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[tempPosition])[3].ToString().Trim();
+            string endDate = ((DataRowView)sP_GET_DETAIL_LIVING_ROOMBindingSource[tempPosition])[4].ToString().Trim();
+
+            DateTime startDateTime = CastDateTime(startDate);
+            txtStartTime.DateTime = startDateTime;
+            if (endDate == "")
+            {
+                txtEndTime.Text = "";
+            }
+            else
+            {
+                DateTime endDateTime = CastDateTime(endDate);
+                txtEndTime.DateTime = endDateTime;
+            }
         }
         private void ToggleRegisterReloadButtons(bool state)
         {
@@ -203,13 +217,43 @@ namespace Hospital
                 MessageBox.Show("Thời gian bắt đầu không được để trống", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
             if (Program.Connect() == 0) { return; }
             string patientId = txtPatientId.Text;
             string bedId = cmbBed.SelectedValue.ToString();
             string startTime = txtStartTime.Text;
             string cmd = "";
+            
             if (isAdding)
             {
+                if (txtEndTime.Text.Trim() == "")
+                {
+                    int result = CheckTImeIsValidWithEndTimeIsNull(patientId, startTime);
+                    if (result == 1)
+                    {
+                        MessageBox.Show("Bệnh nhân này chưa được ra khỏi giường hiện tại đang ở", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (result == 2)
+                    {
+                        MessageBox.Show("Thời gian bạn thiết lập chưa chính xác", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    int result = CheckTimeIsValid(patientId, startTime, txtEndTime.Text);
+                    if (result == 1)
+                    {
+                        MessageBox.Show("Bệnh nhân này chưa được ra khỏi giường hiện tại đang ở", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (result == 2)
+                    {
+                        MessageBox.Show("Thời gian bạn thiết lập chưa chính xác", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
                 if (txtEndTime.Text.Trim() == "")
                 {
                     cmd = string.Format("INSERT INTO CHITIETO(MABN,MAGIUONG,THOIGIANBATDAU) VALUES('{0}','{1}',CONVERT(datetime, '{2}', 105))", patientId, bedId, startTime);
@@ -229,7 +273,7 @@ namespace Hospital
                 }
                 else
                 {
-                    cmd = string.Format("UPDATE CHITIETO SET THOIGIANKETTHUC = CONVERT(datetime, '{0}', 105) WHERE MABN = '{1}' AND MAGIUONG = '{2}' AND THOIGIANBATDAU = CONVERT(datetime, '{3}', 120)", txtEndTime.Text, patientId, bedId, startTime);
+                    cmd = string.Format("UPDATE CHITIETO SET THOIGIANKETTHUC = CONVERT(datetime, '{0}', 105) WHERE MABN = '{1}' AND MAGIUONG = '{2}' AND THOIGIANBATDAU = CONVERT(datetime, '{3}', 105)", txtEndTime.Text, patientId, bedId, startTime);
                 }
             }
 
@@ -278,7 +322,7 @@ namespace Hospital
                 string startTime = txtStartTime.Text;
                 cmbArea.Text = cmbArea3.Text;
                 cmbRoom.Text = cmbGrRoom.Text;
-                string cmd = string.Format("DELETE FROM CHITIETO WHERE MABN = '{0}' AND MAGIUONG = '{1}' AND THOIGIANBATDAU = CONVERT(datetime,'{2}',120)", patientId, bedId, startTime);
+                string cmd = string.Format("DELETE FROM CHITIETO WHERE MABN = '{0}' AND MAGIUONG = '{1}' AND THOIGIANBATDAU = CONVERT(datetime,'{2}',105)", patientId, bedId, startTime);
                 int tempResult = Program.ExecSqlNonQuery(cmd);
                 if (tempResult == 0)
                 {
@@ -319,5 +363,67 @@ namespace Hospital
             }
             
         }
+        private int CheckTimeIsValid(string patientId, string startTime, string endTime)
+        {
+            string cmd = string.Format("DECLARE @RESULT INT " +
+                                    "EXEC @RESULT = CHECK_TIME_IS_VALID '{0}','{1}','{2}' "
+                                    +"SELECT @RESULT ",patientId,startTime,endTime);
+            SqlDataReader timeReader = Program.ExecSqlDataReader(cmd);
+            timeReader.Read();
+            int result = timeReader.GetInt32(0);
+            timeReader.Close();
+            return result;
+        }
+        private int CheckTImeIsValidWithEndTimeIsNull(string patientId, string startTime)
+        {
+
+            string cmd = string.Format("DECLARE @RESULT INT " +
+                                    "EXEC @RESULT = CHECK_TIME_IS_VALID '{0}','{1}',NULL "
+                                    + "SELECT @RESULT ", patientId, startTime);
+            SqlDataReader timeReader = Program.ExecSqlDataReader(cmd);
+            timeReader.Read();
+            int result = timeReader.GetInt32(0);
+            timeReader.Close();
+            return result;
+        }
+        private DateTime CastDateTime(string dateTimeStr)
+        {
+            DateTime dateTimeValue;
+            if (DateTime.TryParseExact(dateTimeStr, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+            }
+            else if(DateTime.TryParseExact(dateTimeStr, "M/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+                
+            }
+            else if(DateTime.TryParseExact(dateTimeStr, "M/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+            else if(DateTime.TryParseExact(dateTimeStr, "MM/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "MM/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "M/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "MM/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+
+            return dateTimeValue;
+
+        }
+
+
     }
 }

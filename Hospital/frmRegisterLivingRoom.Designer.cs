@@ -954,7 +954,7 @@ namespace Hospital
             // colTHOIGIANBATDAU
             // 
             this.colTHOIGIANBATDAU.Caption = "Thời gian bắt đầu ở";
-            this.colTHOIGIANBATDAU.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            this.colTHOIGIANBATDAU.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
             this.colTHOIGIANBATDAU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colTHOIGIANBATDAU.FieldName = "THOIGIANBATDAU";
             this.colTHOIGIANBATDAU.MinWidth = 30;
@@ -967,7 +967,7 @@ namespace Hospital
             // colTHOIGIANKETTHUC
             // 
             this.colTHOIGIANKETTHUC.Caption = "Thời gian kết thúc ở";
-            this.colTHOIGIANKETTHUC.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            this.colTHOIGIANKETTHUC.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
             this.colTHOIGIANKETTHUC.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colTHOIGIANKETTHUC.FieldName = "THOIGIANKETTHUC";
             this.colTHOIGIANKETTHUC.MinWidth = 30;
