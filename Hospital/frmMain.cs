@@ -44,6 +44,14 @@ namespace Hospital
                 {
                     f = new frmRegisterLivingRoom();
                 }
+                else if (tForm == typeof(frmCure))
+                {
+                    f = new frmCure();
+                }
+                else if (tForm == typeof(frmEquipmentDetail))
+                {
+                    f = new frmEquipmentDetail();
+                }
                 else
                 {
                     f = new frmLogin();
@@ -63,11 +71,20 @@ namespace Hospital
         {
             ShowForm(typeof(frmRegisterLivingRoom));
         }
+        private void btnBarCure_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmCure));
+        }
+        private void btnBarUsingEquipment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmEquipmentDetail));
+        }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             ShowForm(typeof(frmLogin));
             ribbonPage2.Visible = false;
+            ribbonPage3.Visible = false;
         }
 
 
@@ -79,7 +96,9 @@ namespace Hospital
         }
         public void LoginByDoctorRole()
         {
-
+            ribbonPage3.Visible = true;
+            ribbonControl1.SelectedPage = ribbonPage3;
+            CloseLoginForm();
         }
         public void LoginByNurseRole()
         {
@@ -92,5 +111,7 @@ namespace Hospital
                 form.Close();
             }
         }
+
+       
     }
 }

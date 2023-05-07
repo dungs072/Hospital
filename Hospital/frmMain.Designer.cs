@@ -35,10 +35,13 @@ namespace Hospital
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnBarLogin = new DevExpress.XtraBars.BarButtonItem();
             this.btnBarRegisterLivingRoom = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBarCure = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager(this.components);
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
@@ -46,6 +49,7 @@ namespace Hospital
             this.id = new System.Windows.Forms.ToolStripStatusLabel();
             this.fullname = new System.Windows.Forms.ToolStripStatusLabel();
             this.group = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnBarUsingEquipment = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -59,14 +63,17 @@ namespace Hospital
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
             this.btnBarLogin,
-            this.btnBarRegisterLivingRoom});
+            this.btnBarRegisterLivingRoom,
+            this.btnBarCure,
+            this.btnBarUsingEquipment});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 3;
+            this.ribbonControl1.MaxItemId = 7;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
-            this.ribbonPage2});
+            this.ribbonPage2,
+            this.ribbonPage3});
             this.ribbonControl1.Size = new System.Drawing.Size(1137, 244);
             // 
             // btnBarLogin
@@ -86,6 +93,15 @@ namespace Hospital
             this.btnBarRegisterLivingRoom.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarRegisterLivingRoom.ImageOptions.LargeImage")));
             this.btnBarRegisterLivingRoom.Name = "btnBarRegisterLivingRoom";
             this.btnBarRegisterLivingRoom.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarRegisterLivingRoom_ItemClick);
+            // 
+            // btnBarCure
+            // 
+            this.btnBarCure.Caption = "Chữa trị";
+            this.btnBarCure.Id = 5;
+            this.btnBarCure.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarCure.ImageOptions.Image")));
+            this.btnBarCure.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarCure.ImageOptions.LargeImage")));
+            this.btnBarCure.Name = "btnBarCure";
+            this.btnBarCure.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarCure_ItemClick_1);
             // 
             // ribbonPage1
             // 
@@ -112,6 +128,20 @@ namespace Hospital
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterLivingRoom);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            // 
+            // ribbonPage3
+            // 
+            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup3});
+            this.ribbonPage3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage3.ImageOptions.Image")));
+            this.ribbonPage3.Name = "ribbonPage3";
+            this.ribbonPage3.Text = "Điều trị bệnh nhân";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnBarCure);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnBarUsingEquipment);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             // 
             // workspaceManager1
             // 
@@ -157,6 +187,15 @@ namespace Hospital
             this.group.Size = new System.Drawing.Size(66, 25);
             this.group.Text = "Nhóm:";
             // 
+            // btnBarUsingEquipment
+            // 
+            this.btnBarUsingEquipment.Caption = "Sử dụng vật tư";
+            this.btnBarUsingEquipment.Id = 6;
+            this.btnBarUsingEquipment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnBarUsingEquipment.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnBarUsingEquipment.Name = "btnBarUsingEquipment";
+            this.btnBarUsingEquipment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarUsingEquipment_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -196,6 +235,10 @@ namespace Hospital
         private DevExpress.XtraBars.BarButtonItem btnBarRegisterLivingRoom;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.BarButtonItem btnBarCure;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem btnBarUsingEquipment;
     }
 }
 

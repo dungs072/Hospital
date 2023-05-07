@@ -884,6 +884,73 @@ SELECT MAVT, TENVT, DONGIA FROM VATTU WHERE (MAVT = @MAVT)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GET_ALL_PATIENTTableAdapter" GeneratorDataComponentClassName="GET_ALL_PATIENTTableAdapter" Name="GET_ALL_PATIENT" UserDataComponentName="GET_ALL_PATIENTTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLBVConnectionString (Settings)" DbObjectName="QLBV.dbo.GET_ALL_PATIENT" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MABN, HO, TEN, NGAYSINH, TENLOAI, BACSITHEODOI FROM dbo.GET_ALL_PATIENT</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MABN" DataSetColumn="MABN" />
+              <Mapping SourceColumn="HO" DataSetColumn="HO" />
+              <Mapping SourceColumn="TEN" DataSetColumn="TEN" />
+              <Mapping SourceColumn="NGAYSINH" DataSetColumn="NGAYSINH" />
+              <Mapping SourceColumn="TENLOAI" DataSetColumn="TENLOAI" />
+              <Mapping SourceColumn="BACSITHEODOI" DataSetColumn="BACSITHEODOI" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GET_ALL_DETAIL_CURETableAdapter" GeneratorDataComponentClassName="GET_ALL_DETAIL_CURETableAdapter" Name="GET_ALL_DETAIL_CURE" UserDataComponentName="GET_ALL_DETAIL_CURETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLBVConnectionString (Settings)" DbObjectName="QLBV.dbo.GET_ALL_DETAIL_CURE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT TENNV, TENBN, TENLOAI, THOIGIAN, KETQUA, MABN, MANV, MALOAI_CT, ID_CTCT FROM GET_ALL_DETAIL_CURE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TENNV" DataSetColumn="TENNV" />
+              <Mapping SourceColumn="TENBN" DataSetColumn="TENBN" />
+              <Mapping SourceColumn="TENLOAI" DataSetColumn="TENLOAI" />
+              <Mapping SourceColumn="THOIGIAN" DataSetColumn="THOIGIAN" />
+              <Mapping SourceColumn="KETQUA" DataSetColumn="KETQUA" />
+              <Mapping SourceColumn="MANV" DataSetColumn="MANV" />
+              <Mapping SourceColumn="MABN" DataSetColumn="MABN" />
+              <Mapping SourceColumn="MALOAI_CT" DataSetColumn="MALOAI_CT" />
+              <Mapping SourceColumn="ID_CTCT" DataSetColumn="ID_CTCT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GET_MEDICINE_EQUIPMENT_DETAILTableAdapter" GeneratorDataComponentClassName="GET_MEDICINE_EQUIPMENT_DETAILTableAdapter" Name="GET_MEDICINE_EQUIPMENT_DETAIL" UserDataComponentName="GET_MEDICINE_EQUIPMENT_DETAILTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLBVConnectionString (Settings)" DbObjectName="QLBV.dbo.GET_MEDICINE_EQUIPMENT_DETAIL" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.GET_MEDICINE_EQUIPMENT_DETAIL</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID_CTCT" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_CTCT" DataSetColumn="ID_CTCT" />
+              <Mapping SourceColumn="MAVT" DataSetColumn="MAVT" />
+              <Mapping SourceColumn="TENVT" DataSetColumn="TENVT" />
+              <Mapping SourceColumn="SOLUONG" DataSetColumn="SOLUONG" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1276,6 +1343,139 @@ SELECT MAVT, TENVT, DONGIA FROM VATTU WHERE (MAVT = @MAVT)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="GET_ALL_PATIENT" msprop:Generator_TableClassName="GET_ALL_PATIENTDataTable" msprop:Generator_TableVarName="tableGET_ALL_PATIENT" msprop:Generator_RowChangedName="GET_ALL_PATIENTRowChanged" msprop:Generator_TablePropName="GET_ALL_PATIENT" msprop:Generator_RowDeletingName="GET_ALL_PATIENTRowDeleting" msprop:Generator_RowChangingName="GET_ALL_PATIENTRowChanging" msprop:Generator_RowEvHandlerName="GET_ALL_PATIENTRowChangeEventHandler" msprop:Generator_RowDeletedName="GET_ALL_PATIENTRowDeleted" msprop:Generator_RowClassName="GET_ALL_PATIENTRow" msprop:Generator_UserTableName="GET_ALL_PATIENT" msprop:Generator_RowEvArgName="GET_ALL_PATIENTRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MABN" msprop:Generator_ColumnVarNameInTable="columnMABN" msprop:Generator_ColumnPropNameInRow="MABN" msprop:Generator_ColumnPropNameInTable="MABNColumn" msprop:Generator_UserColumnName="MABN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HO" msprop:Generator_ColumnVarNameInTable="columnHO" msprop:Generator_ColumnPropNameInRow="HO" msprop:Generator_ColumnPropNameInTable="HOColumn" msprop:Generator_UserColumnName="HO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TEN" msprop:Generator_ColumnVarNameInTable="columnTEN" msprop:Generator_ColumnPropNameInRow="TEN" msprop:Generator_ColumnPropNameInTable="TENColumn" msprop:Generator_UserColumnName="TEN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NGAYSINH" msprop:Generator_ColumnVarNameInTable="columnNGAYSINH" msprop:Generator_ColumnPropNameInRow="NGAYSINH" msprop:Generator_ColumnPropNameInTable="NGAYSINHColumn" msprop:Generator_UserColumnName="NGAYSINH" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TENLOAI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTENLOAI" msprop:Generator_ColumnPropNameInRow="TENLOAI" msprop:Generator_ColumnPropNameInTable="TENLOAIColumn" msprop:Generator_UserColumnName="TENLOAI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BACSITHEODOI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBACSITHEODOI" msprop:Generator_ColumnPropNameInRow="BACSITHEODOI" msprop:Generator_ColumnPropNameInTable="BACSITHEODOIColumn" msprop:Generator_UserColumnName="BACSITHEODOI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GET_ALL_DETAIL_CURE" msprop:Generator_TableClassName="GET_ALL_DETAIL_CUREDataTable" msprop:Generator_TableVarName="tableGET_ALL_DETAIL_CURE" msprop:Generator_RowChangedName="GET_ALL_DETAIL_CURERowChanged" msprop:Generator_TablePropName="GET_ALL_DETAIL_CURE" msprop:Generator_RowDeletingName="GET_ALL_DETAIL_CURERowDeleting" msprop:Generator_RowChangingName="GET_ALL_DETAIL_CURERowChanging" msprop:Generator_RowEvHandlerName="GET_ALL_DETAIL_CURERowChangeEventHandler" msprop:Generator_RowDeletedName="GET_ALL_DETAIL_CURERowDeleted" msprop:Generator_RowClassName="GET_ALL_DETAIL_CURERow" msprop:Generator_UserTableName="GET_ALL_DETAIL_CURE" msprop:Generator_RowEvArgName="GET_ALL_DETAIL_CURERowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TENNV" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTENNV" msprop:Generator_ColumnPropNameInRow="TENNV" msprop:Generator_ColumnPropNameInTable="TENNVColumn" msprop:Generator_UserColumnName="TENNV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENBN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTENBN" msprop:Generator_ColumnPropNameInRow="TENBN" msprop:Generator_ColumnPropNameInTable="TENBNColumn" msprop:Generator_UserColumnName="TENBN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENLOAI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTENLOAI" msprop:Generator_ColumnPropNameInRow="TENLOAI" msprop:Generator_ColumnPropNameInTable="TENLOAIColumn" msprop:Generator_UserColumnName="TENLOAI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="THOIGIAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTHOIGIAN" msprop:Generator_ColumnPropNameInRow="THOIGIAN" msprop:Generator_ColumnPropNameInTable="THOIGIANColumn" msprop:Generator_UserColumnName="THOIGIAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KETQUA" msprop:Generator_ColumnVarNameInTable="columnKETQUA" msprop:Generator_ColumnPropNameInRow="KETQUA" msprop:Generator_ColumnPropNameInTable="KETQUAColumn" msprop:Generator_UserColumnName="KETQUA">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MANV" msprop:Generator_ColumnVarNameInTable="columnMANV" msprop:Generator_ColumnPropNameInRow="MANV" msprop:Generator_ColumnPropNameInTable="MANVColumn" msprop:Generator_UserColumnName="MANV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MABN" msprop:Generator_ColumnVarNameInTable="columnMABN" msprop:Generator_ColumnPropNameInRow="MABN" msprop:Generator_ColumnPropNameInTable="MABNColumn" msprop:Generator_UserColumnName="MABN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MALOAI_CT" msprop:Generator_ColumnVarNameInTable="columnMALOAI_CT" msprop:Generator_ColumnPropNameInRow="MALOAI_CT" msprop:Generator_ColumnPropNameInTable="MALOAI_CTColumn" msprop:Generator_UserColumnName="MALOAI_CT">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_CTCT" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID_CTCT" msprop:Generator_ColumnPropNameInRow="ID_CTCT" msprop:Generator_ColumnPropNameInTable="ID_CTCTColumn" msprop:Generator_UserColumnName="ID_CTCT" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GET_MEDICINE_EQUIPMENT_DETAIL" msprop:Generator_TableClassName="GET_MEDICINE_EQUIPMENT_DETAILDataTable" msprop:Generator_TableVarName="tableGET_MEDICINE_EQUIPMENT_DETAIL" msprop:Generator_TablePropName="GET_MEDICINE_EQUIPMENT_DETAIL" msprop:Generator_RowDeletingName="GET_MEDICINE_EQUIPMENT_DETAILRowDeleting" msprop:Generator_RowChangingName="GET_MEDICINE_EQUIPMENT_DETAILRowChanging" msprop:Generator_RowEvHandlerName="GET_MEDICINE_EQUIPMENT_DETAILRowChangeEventHandler" msprop:Generator_RowDeletedName="GET_MEDICINE_EQUIPMENT_DETAILRowDeleted" msprop:Generator_UserTableName="GET_MEDICINE_EQUIPMENT_DETAIL" msprop:Generator_RowChangedName="GET_MEDICINE_EQUIPMENT_DETAILRowChanged" msprop:Generator_RowEvArgName="GET_MEDICINE_EQUIPMENT_DETAILRowChangeEvent" msprop:Generator_RowClassName="GET_MEDICINE_EQUIPMENT_DETAILRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_CTCT" msprop:Generator_ColumnVarNameInTable="columnID_CTCT" msprop:Generator_ColumnPropNameInRow="ID_CTCT" msprop:Generator_ColumnPropNameInTable="ID_CTCTColumn" msprop:Generator_UserColumnName="ID_CTCT" type="xs:int" />
+              <xs:element name="MAVT" msprop:Generator_ColumnVarNameInTable="columnMAVT" msprop:Generator_ColumnPropNameInRow="MAVT" msprop:Generator_ColumnPropNameInTable="MAVTColumn" msprop:Generator_UserColumnName="MAVT">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENVT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTENVT" msprop:Generator_ColumnPropNameInRow="TENVT" msprop:Generator_ColumnPropNameInTable="TENVTColumn" msprop:Generator_UserColumnName="TENVT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SOLUONG" msprop:Generator_ColumnVarNameInTable="columnSOLUONG" msprop:Generator_ColumnPropNameInRow="SOLUONG" msprop:Generator_ColumnPropNameInTable="SOLUONGColumn" msprop:Generator_UserColumnName="SOLUONG">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1344,6 +1544,19 @@ SELECT MAVT, TENVT, DONGIA FROM VATTU WHERE (MAVT = @MAVT)</CommandText>
     <xs:unique name="SP_GET_VACANT_ROOM_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:SP_GET_VACANT_ROOM" />
       <xs:field xpath="mstns:MAGIUONG" />
+    </xs:unique>
+    <xs:unique name="GET_ALL_PATIENT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GET_ALL_PATIENT" />
+      <xs:field xpath="mstns:MABN" />
+    </xs:unique>
+    <xs:unique name="GET_ALL_DETAIL_CURE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GET_ALL_DETAIL_CURE" />
+      <xs:field xpath="mstns:ID_CTCT" />
+    </xs:unique>
+    <xs:unique name="GET_MEDICINE_EQUIPMENT_DETAIL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GET_MEDICINE_EQUIPMENT_DETAIL" />
+      <xs:field xpath="mstns:ID_CTCT" />
+      <xs:field xpath="mstns:MAVT" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
