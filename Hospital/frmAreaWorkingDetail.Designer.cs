@@ -125,6 +125,7 @@ namespace Hospital
             // panel3
             // 
             this.panel3.AutoScroll = true;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.gET_STAFFGridControl);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -140,7 +141,7 @@ namespace Hospital
             this.gET_STAFFGridControl.Location = new System.Drawing.Point(0, 54);
             this.gET_STAFFGridControl.MainView = this.gridView2;
             this.gET_STAFFGridControl.Name = "gET_STAFFGridControl";
-            this.gET_STAFFGridControl.Size = new System.Drawing.Size(552, 254);
+            this.gET_STAFFGridControl.Size = new System.Drawing.Size(550, 252);
             this.gET_STAFFGridControl.TabIndex = 1;
             this.gET_STAFFGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -223,18 +224,20 @@ namespace Hospital
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel5.Controls.Add(this.label2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(552, 54);
+            this.panel5.Size = new System.Drawing.Size(550, 54);
             this.panel5.TabIndex = 0;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(191, 13);
+            this.label2.Location = new System.Drawing.Point(190, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 19);
             this.label2.TabIndex = 1;
@@ -243,6 +246,7 @@ namespace Hospital
             // panel2
             // 
             this.panel2.AutoScroll = true;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.kHUCHUATRIGridControl);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -258,7 +262,7 @@ namespace Hospital
             this.kHUCHUATRIGridControl.Location = new System.Drawing.Point(0, 54);
             this.kHUCHUATRIGridControl.MainView = this.gridView1;
             this.kHUCHUATRIGridControl.Name = "kHUCHUATRIGridControl";
-            this.kHUCHUATRIGridControl.Size = new System.Drawing.Size(554, 254);
+            this.kHUCHUATRIGridControl.Size = new System.Drawing.Size(552, 252);
             this.kHUCHUATRIGridControl.TabIndex = 1;
             this.kHUCHUATRIGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -301,18 +305,20 @@ namespace Hospital
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(554, 54);
+            this.panel4.Size = new System.Drawing.Size(552, 54);
             this.panel4.TabIndex = 0;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(216, 13);
+            this.label1.Location = new System.Drawing.Point(215, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 19);
             this.label1.TabIndex = 0;
@@ -526,6 +532,7 @@ namespace Hospital
             this.btnUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.ImageOptions.Image")));
             this.btnUpdate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.ImageOptions.LargeImage")));
             this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdate_ItemClick);
             // 
             // btnWrite
             // 
@@ -543,6 +550,7 @@ namespace Hospital
             this.btnReload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReload.ImageOptions.Image")));
             this.btnReload.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReload.ImageOptions.LargeImage")));
             this.btnReload.Name = "btnReload";
+            this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
             // 
             // btnCancel
             // 
@@ -551,6 +559,7 @@ namespace Hospital
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
             this.btnCancel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.LargeImage")));
             this.btnCancel.Name = "btnCancel";
+            this.btnCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancel_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -605,6 +614,7 @@ namespace Hospital
             this.wORKING_DETAIL_AREAGridControl.TabIndex = 7;
             this.wORKING_DETAIL_AREAGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
+            this.wORKING_DETAIL_AREAGridControl.Click += new System.EventHandler(this.wORKING_DETAIL_AREAGridControl_Click);
             // 
             // gridView3
             // 

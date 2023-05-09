@@ -37,7 +37,8 @@ namespace Hospital
 
             ToggleWriteCancelButtons(false);
             ToggleRegisterReloadButtons(true);
-            HandleWorkingDetailClick();
+            ToggleGroupBox(false);
+            HandleWorkingDetailDataClick();
 
         }
         private void HandleWorkingDetailClick()
@@ -68,13 +69,16 @@ namespace Hospital
             gET_STAFFGridControl.Enabled = state;
             wORKING_DETAIL_AREAGridControl.Enabled = state;
         }
-        private void wORKING_DETAILGridControl_Click(object sender, EventArgs e)
+
+        private void HandleWorkingDetailDataClick()
         {
             HandleWorkingDetailClick();
+            if (wORKING_DETAIL_AREABindingSource.Count == 0) { return; }
             txtStaffId.Text = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[1].ToString().Trim();
             txtStaffName.Text = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[2].ToString().Trim();
             txtAreaId.Text = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[3].ToString().Trim();
             txtAreaName.Text = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[4].ToString().Trim();
+            txtEndDate.Text = "";
             string startDateStr = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[5].ToString().Trim();
             string endDateStr = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[6].ToString().Trim();
             string format = "dd/MM/yyyy";
@@ -102,6 +106,11 @@ namespace Hospital
                 MessageBox.Show("Không có khu nào để chọn đăng kí", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!CanRegister())
+            {
+                MessageBox.Show("Nhân viên đang được làm việc ở khu vực khác.\nBạn vui lòng kiểm tra lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             ToggleRegisterReloadButtons(false);
             ToggleWriteCancelButtons(true);
             ToggleUpdateCancelRegisterButtons(false);
@@ -111,13 +120,30 @@ namespace Hospital
             txtStaffName.Text = ((DataRowView)gET_STAFFBindingSource[gET_STAFFBindingSource.Position])[1].ToString().Trim() + " "+ ((DataRowView)gET_STAFFBindingSource[gET_STAFFBindingSource.Position])[2].ToString().Trim();
             txtAreaId.Text = ((DataRowView)kHUCHUATRIBindingSource[kHUCHUATRIBindingSource.Position])[0].ToString().Trim();
             txtAreaName.Text = ((DataRowView)kHUCHUATRIBindingSource[kHUCHUATRIBindingSource.Position])[1].ToString().Trim();
-            txtStartDate.DateTime = DateTime.Today; 
+            txtStartDate.DateTime = DateTime.Today;
+            txtEndDate.Text = "";
             txtStartDate.Focus();
             isAdding = true;
+
         }
 
         private void btnWrite_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (txtEndDate.Text != "")
+            {
+                if (txtStartDate.DateTime >= txtEndDate.DateTime)
+                {
+                    MessageBox.Show("Thời gian bắt đầu làm không thể lớn hơn thời gian kết thúc làm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEndDate.Focus();
+                    return;
+                }
+            }
+            if (!CanRegisterWithDay())
+            {
+                MessageBox.Show("Thời gian bắt đầu đang ở trong một khoảng thời gian làm việc khác của nhân viên này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtStartDate.Focus();
+                return;
+            }
             if (Program.Connect() == 0) { return; }
             string cmd = "";
             if (isAdding)
@@ -134,7 +160,15 @@ namespace Hospital
             }
             else
             {
-
+                int id = int.Parse(((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[0].ToString().Trim());
+                if (txtEndDate.Text == "")
+                {
+                    cmd = string.Format("UPDATE CHITIETLAMVIECKHUCHUATRI SET DANHDINHKHU = {0}, MANV = '{1}', NGAYBATDAULAM = '{2}', NGAYKETTHUCLAM = NULL WHERE ID_CTLV = {3}", int.Parse(txtAreaId.Text), txtStaffId.Text, txtStartDate.DateTime.ToString(),id);
+                }
+                else
+                {
+                    cmd = string.Format("UPDATE CHITIETLAMVIECKHUCHUATRI SET DANHDINHKHU = {0}, MANV = '{1}', NGAYBATDAULAM = '{2}', NGAYKETTHUCLAM = '{3}' WHERE ID_CTLV = {4}", int.Parse(txtAreaId.Text), txtStaffId.Text, txtStartDate.DateTime.ToString(),txtEndDate.DateTime.ToString(),id);
+                }
             }
             int result = Program.ExecSqlNonQuery(cmd);
             if (result == 0)
@@ -157,6 +191,7 @@ namespace Hospital
                 ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count>0);
                 ToggleTables(true);
                 ToggleGroupBox(false);
+                txtStartDate.Enabled = true;
             }
             else
             {
@@ -199,6 +234,36 @@ namespace Hospital
             reader.Close();
             return result == 1;
         }
+        private bool CanRegister()
+        {
+            string staffId = ((DataRowView)gET_STAFFBindingSource[gET_STAFFBindingSource.Position])[0].ToString().Trim();
+            string cmd = string.Format("DECLARE	@return_value int " +
+                        " EXEC    @return_value = [dbo].[CAN_REGISTER_WORKING_AREA_DETAIL] " +
+                        "@MANV = '{0}' " +
+                        " SELECT  'Return Value' = @return_value", staffId);
+            if (Program.Connect() == 0) { return false; }
+            SqlDataReader reader = Program.ExecSqlDataReader(cmd);
+            reader.Read();
+
+            int result = reader.GetInt32(0);
+            reader.Close();
+            return result == 1;
+        }
+        private bool CanRegisterWithDay()
+        {
+
+            string cmd = string.Format("DECLARE	@return_value int " +
+                        " EXEC    @return_value = [dbo].[CAN_REGISTER_WITH_DAY] " +
+                        "@MANV = '{0}' ," + "@NGAYBATDAULAM = '{1}' " +
+                        " SELECT  'Return Value' = @return_value", txtStaffId.Text,txtStartDate.DateTime.ToString("dd/MM/yyyy"));
+            if (Program.Connect() == 0) { return false; }
+            SqlDataReader reader = Program.ExecSqlDataReader(cmd);
+            reader.Read();
+
+            int result = reader.GetInt32(0);
+            reader.Close();
+            return result == 1;
+        }
 
         private void btnCancelRegister_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -225,6 +290,64 @@ namespace Hospital
                 }
             }
             
+        }
+
+        private void btnCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ToggleRegisterReloadButtons(true);
+            ToggleWriteCancelButtons(false);
+            ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count>0);
+            ToggleTables(true);
+            ToggleGroupBox(false);
+            txtStartDate.Enabled = true;
+            HandleWorkingDetailDataClick();
+        }
+
+        private void wORKING_DETAIL_AREAGridControl_Click(object sender, EventArgs e)
+        {
+            HandleWorkingDetailDataClick();
+        }
+
+        private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            kHUCHUATRITableAdapter.Fill(qLBVDataSet.KHUCHUATRI);
+            gET_STAFFTableAdapter.Fill(qLBVDataSet.GET_STAFF);
+            if (kHUCHUATRIBindingSource.Count > 0)
+            {
+                int id = int.Parse(((DataRowView)kHUCHUATRIBindingSource[kHUCHUATRIBindingSource.Position])[0].ToString().Trim());
+                wORKING_DETAIL_AREATableAdapter.Fill(qLBVDataSet.WORKING_DETAIL_AREA, id);
+            }
+
+        }
+
+        private void btnUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ToggleRegisterReloadButtons(false);
+            ToggleWriteCancelButtons(true);
+            ToggleUpdateCancelRegisterButtons(false);
+            ToggleTables(false);
+            ToggleGroupBox(true);
+            txtStartDate.Enabled = false;
+            txtEndDate.Focus();
+            txtStaffId.Text = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[1].ToString().Trim();
+            txtStaffName.Text = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[2].ToString().Trim();
+            txtAreaId.Text = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[3].ToString().Trim();
+            txtAreaName.Text = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[4].ToString().Trim();
+            isAdding = false;
+            string startDateStr = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[5].ToString().Trim();
+            string endDateStr = ((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[6].ToString().Trim();
+            string format = "dd/MM/yyyy";
+            txtEndDate.Text = "";
+            DateTime startDate;
+            DateTime endDate;
+            if (DateTime.TryParseExact(startDateStr, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out startDate))
+            {
+                txtStartDate.DateTime = startDate;
+            }
+            if (DateTime.TryParseExact(endDateStr, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out endDate))
+            {
+                txtEndDate.DateTime = endDate;
+            }
         }
     }
 }
