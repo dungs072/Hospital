@@ -52,6 +52,10 @@ namespace Hospital
                 {
                     f = new frmEquipmentDetail();
                 }
+                else if (tForm == typeof(frmAreaWorkingDetail))
+                {
+                    f = new frmAreaWorkingDetail();
+                }
                 else
                 {
                     f = new frmLogin();
@@ -78,6 +82,10 @@ namespace Hospital
         private void btnBarUsingEquipment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ShowForm(typeof(frmEquipmentDetail));
+        }
+        private void btnBarRegisterArea_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmAreaWorkingDetail));
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -112,6 +120,6 @@ namespace Hospital
             }
         }
 
-       
+     
     }
 }

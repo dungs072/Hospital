@@ -36,6 +36,7 @@ namespace Hospital
             this.btnBarLogin = new DevExpress.XtraBars.BarButtonItem();
             this.btnBarRegisterLivingRoom = new DevExpress.XtraBars.BarButtonItem();
             this.btnBarCure = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBarUsingEquipment = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -49,7 +50,7 @@ namespace Hospital
             this.id = new System.Windows.Forms.ToolStripStatusLabel();
             this.fullname = new System.Windows.Forms.ToolStripStatusLabel();
             this.group = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnBarUsingEquipment = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBarRegisterArea = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -65,10 +66,11 @@ namespace Hospital
             this.btnBarLogin,
             this.btnBarRegisterLivingRoom,
             this.btnBarCure,
-            this.btnBarUsingEquipment});
+            this.btnBarUsingEquipment,
+            this.btnBarRegisterArea});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 7;
+            this.ribbonControl1.MaxItemId = 8;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -103,6 +105,15 @@ namespace Hospital
             this.btnBarCure.Name = "btnBarCure";
             this.btnBarCure.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarCure_ItemClick_1);
             // 
+            // btnBarUsingEquipment
+            // 
+            this.btnBarUsingEquipment.Caption = "Sử dụng vật tư";
+            this.btnBarUsingEquipment.Id = 6;
+            this.btnBarUsingEquipment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarUsingEquipment.ImageOptions.Image")));
+            this.btnBarUsingEquipment.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarUsingEquipment.ImageOptions.LargeImage")));
+            this.btnBarUsingEquipment.Name = "btnBarUsingEquipment";
+            this.btnBarUsingEquipment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarUsingEquipment_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -127,6 +138,7 @@ namespace Hospital
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterLivingRoom);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterArea);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
             // ribbonPage3
@@ -187,14 +199,14 @@ namespace Hospital
             this.group.Size = new System.Drawing.Size(66, 25);
             this.group.Text = "Nhóm:";
             // 
-            // btnBarUsingEquipment
+            // btnBarRegisterArea
             // 
-            this.btnBarUsingEquipment.Caption = "Sử dụng vật tư";
-            this.btnBarUsingEquipment.Id = 6;
-            this.btnBarUsingEquipment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnBarUsingEquipment.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnBarUsingEquipment.Name = "btnBarUsingEquipment";
-            this.btnBarUsingEquipment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarUsingEquipment_ItemClick);
+            this.btnBarRegisterArea.Caption = "Đăng kí khu làm việc";
+            this.btnBarRegisterArea.Id = 7;
+            this.btnBarRegisterArea.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnBarRegisterArea.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnBarRegisterArea.Name = "btnBarRegisterArea";
+            this.btnBarRegisterArea.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarRegisterArea_ItemClick);
             // 
             // frmMain
             // 
@@ -239,6 +251,7 @@ namespace Hospital
         private DevExpress.XtraBars.BarButtonItem btnBarCure;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem btnBarUsingEquipment;
+        private DevExpress.XtraBars.BarButtonItem btnBarRegisterArea;
     }
 }
 

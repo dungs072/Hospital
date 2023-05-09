@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAreaWorkingDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAreaWorkingDetail.Designer.cs">
+      <DependentUpon>frmAreaWorkingDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCure.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBVDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAreaWorkingDetail.resx">
+      <DependentUpon>frmAreaWorkingDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCure.resx">
       <DependentUpon>frmCure.cs</DependentUpon>
     </EmbeddedResource>
