@@ -56,6 +56,19 @@ namespace Hospital
                 {
                     f = new frmAreaWorkingDetail();
                 }
+                else if (tForm == typeof(frmHourWorkingDetail))
+                {
+                    f = new frmHourWorkingDetail();
+                }
+                else if(tForm == typeof(frmHoursWorkingWeek))
+                {
+                    f = new frmHoursWorkingWeek();
+                }
+                else if (tForm == typeof(frmUsingEquipment))
+                {
+                    f = new frmUsingEquipment();
+                }
+
                 else
                 {
                     f = new frmLogin();
@@ -87,18 +100,32 @@ namespace Hospital
         {
             ShowForm(typeof(frmAreaWorkingDetail));
         }
+        private void btnBarWorkingHour_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmHourWorkingDetail));
+        }
+        private void btnBarHoursWorkingWeek_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmHoursWorkingWeek));
+        }
+        private void btnBarUsingEquip_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmUsingEquipment));
+        }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             ShowForm(typeof(frmLogin));
             ribbonPage2.Visible = false;
             ribbonPage3.Visible = false;
+            ribbonPage4.Visible = false;
         }
 
 
         public void LoginByHospitalRole()
         {
             ribbonPage2.Visible = true;
+            ribbonPage4.Visible = true;
             ribbonControl1.SelectedPage = ribbonPage2;
             CloseLoginForm();
         }
@@ -120,6 +147,7 @@ namespace Hospital
             }
         }
 
-     
+      
+      
     }
 }

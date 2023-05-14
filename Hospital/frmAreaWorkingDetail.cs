@@ -236,6 +236,7 @@ namespace Hospital
         }
         private bool CanRegister()
         {
+
             string staffId = ((DataRowView)gET_STAFFBindingSource[gET_STAFFBindingSource.Position])[0].ToString().Trim();
             string cmd = string.Format("DECLARE	@return_value int " +
                         " EXEC    @return_value = [dbo].[CAN_REGISTER_WORKING_AREA_DETAIL] " +
@@ -251,11 +252,11 @@ namespace Hospital
         }
         private bool CanRegisterWithDay()
         {
-
+            int id = int.Parse(((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[0].ToString().Trim());
             string cmd = string.Format("DECLARE	@return_value int " +
                         " EXEC    @return_value = [dbo].[CAN_REGISTER_WITH_DAY] " +
-                        "@MANV = '{0}' ," + "@NGAYBATDAULAM = '{1}' " +
-                        " SELECT  'Return Value' = @return_value", txtStaffId.Text,txtStartDate.DateTime.ToString("dd/MM/yyyy"));
+                        "@MANV = '{0}' ," + "@NGAYBATDAULAM = '{1}' ," +"@ID = {2}" +
+                        " SELECT  'Return Value' = @return_value", txtStaffId.Text,txtStartDate.DateTime.ToString("dd/MM/yyyy"),id);
             if (Program.Connect() == 0) { return false; }
             SqlDataReader reader = Program.ExecSqlDataReader(cmd);
             reader.Read();

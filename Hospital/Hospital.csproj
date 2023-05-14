@@ -33,15 +33,29 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v19.2" />
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v19.2" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v19.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v19.2" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v19.2" />
     <Reference Include="DevExpress.Sparkline.v19.2.Core" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v19.2" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,6 +74,12 @@
     <Compile Include="frmAreaWorkingDetail.Designer.cs">
       <DependentUpon>frmAreaWorkingDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCreateWeek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreateWeek.Designer.cs">
+      <DependentUpon>frmCreateWeek.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCure.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +91,18 @@
     </Compile>
     <Compile Include="frmEquipmentDetail.Designer.cs">
       <DependentUpon>frmEquipmentDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoursWorkingWeek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoursWorkingWeek.Designer.cs">
+      <DependentUpon>frmHoursWorkingWeek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHourWorkingDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHourWorkingDetail.Designer.cs">
+      <DependentUpon>frmHourWorkingDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -90,6 +122,12 @@
     <Compile Include="frmRegisterLivingRoom.Designer.cs">
       <DependentUpon>frmRegisterLivingRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUsingEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsingEquipment.Designer.cs">
+      <DependentUpon>frmUsingEquipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLBVDataSet.Designer.cs">
@@ -97,14 +135,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBVDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="XrptHoursWorkingWeek.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XrptHoursWorkingWeek.Designer.cs">
+      <DependentUpon>XrptHoursWorkingWeek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XrptUsingEquipment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XrptUsingEquipment.Designer.cs">
+      <DependentUpon>XrptUsingEquipment.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmAreaWorkingDetail.resx">
       <DependentUpon>frmAreaWorkingDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCreateWeek.resx">
+      <DependentUpon>frmCreateWeek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCure.resx">
       <DependentUpon>frmCure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEquipmentDetail.resx">
       <DependentUpon>frmEquipmentDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoursWorkingWeek.resx">
+      <DependentUpon>frmHoursWorkingWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHourWorkingDetail.resx">
+      <DependentUpon>frmHourWorkingDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -114,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegisterLivingRoom.resx">
       <DependentUpon>frmRegisterLivingRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsingEquipment.resx">
+      <DependentUpon>frmUsingEquipment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -125,6 +187,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="XrptHoursWorkingWeek.resx">
+      <DependentUpon>XrptHoursWorkingWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XrptUsingEquipment.resx">
+      <DependentUpon>XrptUsingEquipment.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
