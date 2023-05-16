@@ -68,6 +68,22 @@ namespace Hospital
                 {
                     f = new frmUsingEquipment();
                 }
+                else if(tForm == typeof(frmWeek))
+                {
+                    f = new frmWeek();
+                }
+                else if (tForm == typeof(frmPatient))
+                {
+                    f = new frmPatient();
+                }
+                else if (tForm == typeof(frmEquipment))
+                {
+                    f = new frmEquipment();
+                }
+                else if(tForm == typeof(frmTreatment))
+                {
+                    f = new frmTreatment();
+                }
 
                 else
                 {
@@ -112,6 +128,22 @@ namespace Hospital
         {
             ShowForm(typeof(frmUsingEquipment));
         }
+        private void btnBarWeek_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmWeek));
+        }
+        private void btnBarPatient_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmPatient));
+        }
+        private void btnBarEquipment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmEquipment));
+        }
+        private void btnBarTreatment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmTreatment));
+        }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -147,7 +179,6 @@ namespace Hospital
             }
         }
 
-      
-      
+       
     }
 }
