@@ -157,12 +157,12 @@ namespace Hospital
                 }
                 catch (Exception ex)
                 {
-                    if (ex.Message.Contains("PK"))
+                    if (ex.Message.Contains("MA"))
                     {
                         MessageBox.Show("Mã loại chữa trị không được trùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtTypeId.Focus();
                     }
-                    else if (ex.Message.Contains("unique"))
+                    else if (ex.Message.Contains("TEN"))
                     {
                         MessageBox.Show("Tên loại chữa trị không được trùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtTypeName.Focus();

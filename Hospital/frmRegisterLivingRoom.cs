@@ -16,7 +16,6 @@ namespace Hospital
     public partial class frmRegisterLivingRoom : DevExpress.XtraEditors.XtraForm
     {
         private bool isAdding = false;
-        private List<string> typeLive = new List<string>() { "Nội trú", "Ngoại trú" };
         public frmRegisterLivingRoom()
         {
             InitializeComponent();
@@ -37,9 +36,7 @@ namespace Hospital
             {
                 this.sP_GET_VACANT_ROOMTableAdapter.Fill(this.qLBVDataSet.SP_GET_VACANT_ROOM, cmbRoom.SelectedValue.ToString());
             }
-          
-
-            cmbType.DataSource = typeLive;
+         
             ToggleOnGroupBoxEnterData(false);
             ToggleRegisterReloadButtons(true);
             ToggleCancelWriteButtons(false);
@@ -47,18 +44,6 @@ namespace Hospital
             ToggleCancelRegisterUpdateButtons(sP_GET_DETAIL_LIVING_ROOMBindingSource.Count > 0);
 
 
-        }
-
-        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cmbType.SelectedValue.ToString()=="Nội trú")
-            {
-                this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource.Filter = "LOAI = 1";
-            }
-            else
-            {
-                this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource.Filter = "LOAI = 0";
-            }
         }
 
         private void cmbRoom_SelectedValueChanged(object sender, EventArgs e)
@@ -146,7 +131,7 @@ namespace Hospital
         private void ToggleRegisterTables(bool state)
         {
             sP_GET_VACANT_ROOMGridControl.Enabled = pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Enabled = sP_GET_DETAIL_LIVING_ROOMGridControl.Enabled = state;
-            cmbType.Enabled = cmbArea.Enabled = cmbArea3.Enabled = cmbRoom.Enabled = state;
+            cmbArea.Enabled = cmbArea3.Enabled = cmbRoom.Enabled = state;
         }
         private void ToggleCmbInGroupBox(bool state)
         {

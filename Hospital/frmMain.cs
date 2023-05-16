@@ -20,6 +20,9 @@ namespace Hospital
             id.Text = "Mã nhân viên = " + Program.userName;
             fullname.Text = "Họ và tên = " + Program.mFullName;
             group.Text = "Nhóm = " + Program.mGroup;
+            btnBarLogin.Enabled = false;
+            btnBarLogOut.Enabled = true;
+            btnBarChangePassword.Enabled = true;
         }
         private Form CheckExists(Type ftype)
         {
@@ -151,34 +154,48 @@ namespace Hospital
             ribbonPage2.Visible = false;
             ribbonPage3.Visible = false;
             ribbonPage4.Visible = false;
+            btnBarLogOut.Enabled = false;
+            btnBarChangePassword.Enabled = false;
         }
 
 
         public void LoginByHospitalRole()
         {
             ribbonPage2.Visible = true;
+            ribbonPage3.Visible = true;
             ribbonPage4.Visible = true;
+
             ribbonControl1.SelectedPage = ribbonPage2;
-            CloseLoginForm();
+            CloseAllFormCurrentlyOpen();
         }
         public void LoginByDoctorRole()
         {
             ribbonPage3.Visible = true;
             ribbonControl1.SelectedPage = ribbonPage3;
-            CloseLoginForm();
+            CloseAllFormCurrentlyOpen();
         }
         public void LoginByNurseRole()
         {
-
+            
         }
-        private void CloseLoginForm()
+        private void CloseAllFormCurrentlyOpen()
         {
             foreach (var form in MdiChildren)
             {
                 form.Close();
             }
         }
+        private void btnBarLogOut_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ribbonPage2.Visible = false;
+            ribbonPage3.Visible = false;
+            ribbonPage4.Visible = false;
+            btnBarLogin.Enabled = true;
+            btnBarLogOut.Enabled = false;
+            btnBarChangePassword.Enabled = false;
 
-       
+            CloseAllFormCurrentlyOpen();
+            ShowForm(typeof(frmLogin));
+        }
     }
 }

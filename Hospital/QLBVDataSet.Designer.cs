@@ -82,8 +82,6 @@ namespace Hospital {
         
         private global::System.Data.DataRelation relationFK_CHITIETCHUATRI_BENHNHAN;
         
-        private global::System.Data.DataRelation relationFK_CHITIETCHUATRI_LOAICHUATRI;
-        
         private global::System.Data.DataRelation relationFK_CHITIETCHUATRI_NHANVIEN;
         
         private global::System.Data.DataRelation relationFK_CHITIETGIOLAMVIEC_CHITIETLAMVIECKHUCHUATRI;
@@ -107,6 +105,8 @@ namespace Hospital {
         private global::System.Data.DataRelation relationFK_NHANVIEN_CHUCVU;
         
         private global::System.Data.DataRelation relationFK_PHONG_KHUCHUATRI;
+        
+        private global::System.Data.DataRelation relationFK_CHITIETCHUATRI_LOAICHUATRI;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -850,7 +850,6 @@ namespace Hospital {
             }
             this.relationFK_BENHNHAN_NHANVIEN = this.Relations["FK_BENHNHAN_NHANVIEN"];
             this.relationFK_CHITIETCHUATRI_BENHNHAN = this.Relations["FK_CHITIETCHUATRI_BENHNHAN"];
-            this.relationFK_CHITIETCHUATRI_LOAICHUATRI = this.Relations["FK_CHITIETCHUATRI_LOAICHUATRI"];
             this.relationFK_CHITIETCHUATRI_NHANVIEN = this.Relations["FK_CHITIETCHUATRI_NHANVIEN"];
             this.relationFK_CHITIETGIOLAMVIEC_CHITIETLAMVIECKHUCHUATRI = this.Relations["FK_CHITIETGIOLAMVIEC_CHITIETLAMVIECKHUCHUATRI"];
             this.relationFK_CHITIETGIOLAMVIEC_TUAN = this.Relations["FK_CHITIETGIOLAMVIEC_TUAN"];
@@ -863,6 +862,7 @@ namespace Hospital {
             this.relationFK_GIUONG_PHONG = this.Relations["FK_GIUONG_PHONG"];
             this.relationFK_NHANVIEN_CHUCVU = this.Relations["FK_NHANVIEN_CHUCVU"];
             this.relationFK_PHONG_KHUCHUATRI = this.Relations["FK_PHONG_KHUCHUATRI"];
+            this.relationFK_CHITIETCHUATRI_LOAICHUATRI = this.Relations["FK_CHITIETCHUATRI_LOAICHUATRI"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -935,10 +935,6 @@ namespace Hospital {
                         this.tableBENHNHAN.MABNColumn}, new global::System.Data.DataColumn[] {
                         this.tableCHITIETCHUATRI.MABNColumn}, false);
             this.Relations.Add(this.relationFK_CHITIETCHUATRI_BENHNHAN);
-            this.relationFK_CHITIETCHUATRI_LOAICHUATRI = new global::System.Data.DataRelation("FK_CHITIETCHUATRI_LOAICHUATRI", new global::System.Data.DataColumn[] {
-                        this.tableLOAICHUATRI.MALOAI_CTColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCHITIETCHUATRI.MALOAI_CTColumn}, false);
-            this.Relations.Add(this.relationFK_CHITIETCHUATRI_LOAICHUATRI);
             this.relationFK_CHITIETCHUATRI_NHANVIEN = new global::System.Data.DataRelation("FK_CHITIETCHUATRI_NHANVIEN", new global::System.Data.DataColumn[] {
                         this.tableNHANVIEN.MANVColumn}, new global::System.Data.DataColumn[] {
                         this.tableCHITIETCHUATRI.MANVColumn}, false);
@@ -987,6 +983,10 @@ namespace Hospital {
                         this.tableKHUCHUATRI.DANHDINHKHUColumn}, new global::System.Data.DataColumn[] {
                         this.tablePHONG.DANHDINHKHUColumn}, false);
             this.Relations.Add(this.relationFK_PHONG_KHUCHUATRI);
+            this.relationFK_CHITIETCHUATRI_LOAICHUATRI = new global::System.Data.DataRelation("FK_CHITIETCHUATRI_LOAICHUATRI", new global::System.Data.DataColumn[] {
+                        this.tableLOAICHUATRI.MALOAI_CTColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCHITIETCHUATRI.MALOAI_CTColumn}, false);
+            this.Relations.Add(this.relationFK_CHITIETCHUATRI_LOAICHUATRI);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1780,7 +1780,7 @@ namespace Hospital {
                     columnValuesArray[2] = parentBENHNHANRowByFK_CHITIETCHUATRI_BENHNHAN[0];
                 }
                 if ((parentLOAICHUATRIRowByFK_CHITIETCHUATRI_LOAICHUATRI != null)) {
-                    columnValuesArray[3] = parentLOAICHUATRIRowByFK_CHITIETCHUATRI_LOAICHUATRI[0];
+                    columnValuesArray[3] = parentLOAICHUATRIRowByFK_CHITIETCHUATRI_LOAICHUATRI[1];
                 }
                 rowCHITIETCHUATRIRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCHITIETCHUATRIRow);
@@ -4057,9 +4057,9 @@ namespace Hospital {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class LOAICHUATRIDataTable : global::System.Data.TypedTableBase<LOAICHUATRIRow> {
             
-            private global::System.Data.DataColumn columnMALOAI_CT;
-            
             private global::System.Data.DataColumn columnTENLOAI;
+            
+            private global::System.Data.DataColumn columnMALOAI_CT;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -4096,17 +4096,17 @@ namespace Hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MALOAI_CTColumn {
+            public global::System.Data.DataColumn TENLOAIColumn {
                 get {
-                    return this.columnMALOAI_CT;
+                    return this.columnTENLOAI;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TENLOAIColumn {
+            public global::System.Data.DataColumn MALOAI_CTColumn {
                 get {
-                    return this.columnTENLOAI;
+                    return this.columnMALOAI_CT;
                 }
             }
             
@@ -4147,11 +4147,11 @@ namespace Hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LOAICHUATRIRow AddLOAICHUATRIRow(string MALOAI_CT, string TENLOAI) {
+            public LOAICHUATRIRow AddLOAICHUATRIRow(string TENLOAI, string MALOAI_CT) {
                 LOAICHUATRIRow rowLOAICHUATRIRow = ((LOAICHUATRIRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        MALOAI_CT,
-                        TENLOAI};
+                        TENLOAI,
+                        MALOAI_CT};
                 rowLOAICHUATRIRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLOAICHUATRIRow);
                 return rowLOAICHUATRIRow;
@@ -4181,23 +4181,23 @@ namespace Hospital {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnMALOAI_CT = base.Columns["MALOAI_CT"];
                 this.columnTENLOAI = base.Columns["TENLOAI"];
+                this.columnMALOAI_CT = base.Columns["MALOAI_CT"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnMALOAI_CT = new global::System.Data.DataColumn("MALOAI_CT", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMALOAI_CT);
                 this.columnTENLOAI = new global::System.Data.DataColumn("TENLOAI", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTENLOAI);
+                this.columnMALOAI_CT = new global::System.Data.DataColumn("MALOAI_CT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMALOAI_CT);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnMALOAI_CT}, true));
+                this.columnTENLOAI.MaxLength = 50;
                 this.columnMALOAI_CT.AllowDBNull = false;
                 this.columnMALOAI_CT.Unique = true;
                 this.columnMALOAI_CT.MaxLength = 5;
-                this.columnTENLOAI.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5710,7 +5710,7 @@ namespace Hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PATIENT_NOT_REGISTER_LIVING_ROOMRow AddPATIENT_NOT_REGISTER_LIVING_ROOMRow(string MABN, string HO, string TEN, System.DateTime NGAYSINH, bool LOAI) {
+            public PATIENT_NOT_REGISTER_LIVING_ROOMRow AddPATIENT_NOT_REGISTER_LIVING_ROOMRow(string MABN, string HO, string TEN, System.DateTime NGAYSINH, string LOAI) {
                 PATIENT_NOT_REGISTER_LIVING_ROOMRow rowPATIENT_NOT_REGISTER_LIVING_ROOMRow = ((PATIENT_NOT_REGISTER_LIVING_ROOMRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MABN,
@@ -5765,7 +5765,7 @@ namespace Hospital {
                 base.Columns.Add(this.columnTEN);
                 this.columnNGAYSINH = new global::System.Data.DataColumn("NGAYSINH", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNGAYSINH);
-                this.columnLOAI = new global::System.Data.DataColumn("LOAI", typeof(bool), null, global::System.Data.MappingType.Element);
+                this.columnLOAI = new global::System.Data.DataColumn("LOAI", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLOAI);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnMABN}, true));
@@ -5777,6 +5777,7 @@ namespace Hospital {
                 this.columnTEN.AllowDBNull = false;
                 this.columnTEN.MaxLength = 30;
                 this.columnLOAI.AllowDBNull = false;
+                this.columnLOAI.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10012,23 +10013,23 @@ namespace Hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LOAICHUATRIRow LOAICHUATRIRow {
-                get {
-                    return ((LOAICHUATRIRow)(this.GetParentRow(this.Table.ParentRelations["FK_CHITIETCHUATRI_LOAICHUATRI"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_CHITIETCHUATRI_LOAICHUATRI"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public NHANVIENRow NHANVIENRow {
                 get {
                     return ((NHANVIENRow)(this.GetParentRow(this.Table.ParentRelations["FK_CHITIETCHUATRI_NHANVIEN"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_CHITIETCHUATRI_NHANVIEN"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public LOAICHUATRIRow LOAICHUATRIRow {
+                get {
+                    return ((LOAICHUATRIRow)(this.GetParentRow(this.Table.ParentRelations["FK_CHITIETCHUATRI_LOAICHUATRI"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CHITIETCHUATRI_LOAICHUATRI"]);
                 }
             }
             
@@ -10661,17 +10662,6 @@ namespace Hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MALOAI_CT {
-                get {
-                    return ((string)(this[this.tableLOAICHUATRI.MALOAI_CTColumn]));
-                }
-                set {
-                    this[this.tableLOAICHUATRI.MALOAI_CTColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string TENLOAI {
                 get {
                     try {
@@ -10683,6 +10673,17 @@ namespace Hospital {
                 }
                 set {
                     this[this.tableLOAICHUATRI.TENLOAIColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string MALOAI_CT {
+                get {
+                    return ((string)(this[this.tableLOAICHUATRI.MALOAI_CTColumn]));
+                }
+                set {
+                    this[this.tableLOAICHUATRI.MALOAI_CTColumn] = value;
                 }
             }
             
@@ -11173,9 +11174,9 @@ namespace Hospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool LOAI {
+            public string LOAI {
                 get {
-                    return ((bool)(this[this.tablePATIENT_NOT_REGISTER_LIVING_ROOM.LOAIColumn]));
+                    return ((string)(this[this.tablePATIENT_NOT_REGISTER_LIVING_ROOM.LOAIColumn]));
                 }
                 set {
                     this[this.tablePATIENT_NOT_REGISTER_LIVING_ROOM.LOAIColumn] = value;
@@ -17008,35 +17009,34 @@ SELECT MAGIUONG, SOGIUONG, MAPHONG FROM GIUONG WHERE (MAGIUONG = @MAGIUONG)";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "LOAICHUATRI";
-            tableMapping.ColumnMappings.Add("MALOAI_CT", "MALOAI_CT");
             tableMapping.ColumnMappings.Add("TENLOAI", "TENLOAI");
+            tableMapping.ColumnMappings.Add("MALOAI_CT", "MALOAI_CT");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[LOAICHUATRI] WHERE (([MALOAI_CT] = @Original_MALOAI_CT) AND ((" +
-                "@IsNull_TENLOAI = 1 AND [TENLOAI] IS NULL) OR ([TENLOAI] = @Original_TENLOAI)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [LOAICHUATRI] WHERE (((@IsNull_TENLOAI = 1 AND [TENLOAI] IS NULL) OR " +
+                "([TENLOAI] = @Original_TENLOAI)) AND ([MALOAI_CT] = @Original_MALOAI_CT))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MALOAI_CT", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MALOAI_CT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TENLOAI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TENLOAI", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TENLOAI", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TENLOAI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MALOAI_CT", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MALOAI_CT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[LOAICHUATRI] ([MALOAI_CT], [TENLOAI]) VALUES (@MALOAI_CT, @TEN" +
-                "LOAI);\r\nSELECT MALOAI_CT, TENLOAI FROM LOAICHUATRI WHERE (MALOAI_CT = @MALOAI_CT" +
-                ")";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [LOAICHUATRI] ([TENLOAI], [MALOAI_CT]) VALUES (@TENLOAI, @MALOAI_CT);" +
+                "\r\nSELECT TENLOAI, MALOAI_CT FROM LOAICHUATRI WHERE (MALOAI_CT = @MALOAI_CT)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MALOAI_CT", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MALOAI_CT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TENLOAI", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TENLOAI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MALOAI_CT", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MALOAI_CT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[LOAICHUATRI] SET [MALOAI_CT] = @MALOAI_CT, [TENLOAI] = @TENLOAI WHERE (([MALOAI_CT] = @Original_MALOAI_CT) AND ((@IsNull_TENLOAI = 1 AND [TENLOAI] IS NULL) OR ([TENLOAI] = @Original_TENLOAI)));
-SELECT MALOAI_CT, TENLOAI FROM LOAICHUATRI WHERE (MALOAI_CT = @MALOAI_CT)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [LOAICHUATRI] SET [TENLOAI] = @TENLOAI, [MALOAI_CT] = @MALOAI_CT WHERE (((@IsNull_TENLOAI = 1 AND [TENLOAI] IS NULL) OR ([TENLOAI] = @Original_TENLOAI)) AND ([MALOAI_CT] = @Original_MALOAI_CT));
+SELECT TENLOAI, MALOAI_CT FROM LOAICHUATRI WHERE (MALOAI_CT = @MALOAI_CT)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MALOAI_CT", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MALOAI_CT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TENLOAI", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TENLOAI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MALOAI_CT", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MALOAI_CT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MALOAI_CT", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MALOAI_CT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TENLOAI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TENLOAI", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TENLOAI", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TENLOAI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MALOAI_CT", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MALOAI_CT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17052,7 +17052,7 @@ SELECT MALOAI_CT, TENLOAI FROM LOAICHUATRI WHERE (MALOAI_CT = @MALOAI_CT)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MALOAI_CT, TENLOAI FROM dbo.LOAICHUATRI";
+            this._commandCollection[0].CommandText = "SELECT TENLOAI, MALOAI_CT FROM LOAICHUATRI";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17113,20 +17113,20 @@ SELECT MALOAI_CT, TENLOAI FROM LOAICHUATRI WHERE (MALOAI_CT = @MALOAI_CT)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_MALOAI_CT, string Original_TENLOAI) {
+        public virtual int Delete(string Original_TENLOAI, string Original_MALOAI_CT) {
+            if ((Original_TENLOAI == null)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_TENLOAI));
+            }
             if ((Original_MALOAI_CT == null)) {
                 throw new global::System.ArgumentNullException("Original_MALOAI_CT");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_MALOAI_CT));
-            }
-            if ((Original_TENLOAI == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_TENLOAI));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_MALOAI_CT));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17148,18 +17148,18 @@ SELECT MALOAI_CT, TENLOAI FROM LOAICHUATRI WHERE (MALOAI_CT = @MALOAI_CT)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string MALOAI_CT, string TENLOAI) {
+        public virtual int Insert(string TENLOAI, string MALOAI_CT) {
+            if ((TENLOAI == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(TENLOAI));
+            }
             if ((MALOAI_CT == null)) {
                 throw new global::System.ArgumentNullException("MALOAI_CT");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(MALOAI_CT));
-            }
-            if ((TENLOAI == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(TENLOAI));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(MALOAI_CT));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17181,32 +17181,32 @@ SELECT MALOAI_CT, TENLOAI FROM LOAICHUATRI WHERE (MALOAI_CT = @MALOAI_CT)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string MALOAI_CT, string TENLOAI, string Original_MALOAI_CT, string Original_TENLOAI) {
+        public virtual int Update(string TENLOAI, string MALOAI_CT, string Original_TENLOAI, string Original_MALOAI_CT) {
+            if ((TENLOAI == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(TENLOAI));
+            }
             if ((MALOAI_CT == null)) {
                 throw new global::System.ArgumentNullException("MALOAI_CT");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(MALOAI_CT));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(MALOAI_CT));
             }
-            if ((TENLOAI == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            if ((Original_TENLOAI == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(TENLOAI));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_TENLOAI));
             }
             if ((Original_MALOAI_CT == null)) {
                 throw new global::System.ArgumentNullException("Original_MALOAI_CT");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_MALOAI_CT));
-            }
-            if ((Original_TENLOAI == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_TENLOAI));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_MALOAI_CT));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17228,8 +17228,8 @@ SELECT MALOAI_CT, TENLOAI FROM LOAICHUATRI WHERE (MALOAI_CT = @MALOAI_CT)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string TENLOAI, string Original_MALOAI_CT, string Original_TENLOAI) {
-            return this.Update(Original_MALOAI_CT, TENLOAI, Original_MALOAI_CT, Original_TENLOAI);
+        public virtual int Update(string TENLOAI, string Original_TENLOAI, string Original_MALOAI_CT) {
+            return this.Update(TENLOAI, Original_MALOAI_CT, Original_TENLOAI, Original_MALOAI_CT);
         }
     }
     

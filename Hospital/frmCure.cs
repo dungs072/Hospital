@@ -23,6 +23,7 @@ namespace Hospital
 
         private void frmCure_Load(object sender, EventArgs e)
         {
+            qLBVDataSet.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'qLBVDataSet.GET_ALL_DETAIL_CURE' table. You can move, or remove it, as needed.
             this.gET_ALL_DETAIL_CURETableAdapter.Fill(this.qLBVDataSet.GET_ALL_DETAIL_CURE);
             // TODO: This line of code loads data into the 'qLBVDataSet.LOAICHUATRI' table. You can move, or remove it, as needed.
@@ -32,6 +33,10 @@ namespace Hospital
             // TODO: This line of code loads data into the 'qLBVDataSet.BENHNHAN' table. You can move, or remove it, as needed.
             this.bENHNHANTableAdapter.Fill(this.qLBVDataSet.BENHNHAN);
             HandleButtons();
+            if (Program.mGroup == "BacSi")
+            {
+                gET_ALL_DETAIL_CUREBindingSource.Filter = "MANV = '" + Program.userName+"'";
+            }
 
         }
         private void HandleButtons()

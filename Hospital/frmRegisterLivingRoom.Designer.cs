@@ -72,8 +72,6 @@ namespace Hospital
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbType = new System.Windows.Forms.ComboBox();
             this.tableAdapterManager = new Hospital.QLBVDataSetTableAdapters.TableAdapterManager();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.grbEnterData = new System.Windows.Forms.GroupBox();
@@ -132,7 +130,6 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel6.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.grbEnterData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndTime.Properties.CalendarTimeProperties)).BeginInit();
@@ -450,11 +447,11 @@ namespace Hospital
             // 
             this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.DataSource = this.pATIENT_NOT_REGISTER_LIVING_ROOMBindingSource;
             this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Location = new System.Drawing.Point(0, 104);
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Location = new System.Drawing.Point(0, 46);
             this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.MainView = this.gridView1;
             this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.MenuManager = this.barManager1;
             this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Name = "pATIENT_NOT_REGISTER_LIVING_ROOMGridControl";
-            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Size = new System.Drawing.Size(992, 176);
+            this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.Size = new System.Drawing.Size(992, 234);
             this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.TabIndex = 2;
             this.pATIENT_NOT_REGISTER_LIVING_ROOMGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -488,7 +485,7 @@ namespace Hospital
             // 
             // colHO
             // 
-            this.colHO.Caption = "Họ";
+            this.colHO.Caption = "Họ ";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 30;
             this.colHO.Name = "colHO";
@@ -499,7 +496,7 @@ namespace Hospital
             // 
             // colTEN
             // 
-            this.colTEN.Caption = "Tên";
+            this.colTEN.Caption = "Tên ";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 30;
             this.colTEN.Name = "colTEN";
@@ -511,6 +508,8 @@ namespace Hospital
             // colNGAYSINH
             // 
             this.colNGAYSINH.Caption = "Ngày sinh";
+            this.colNGAYSINH.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYSINH.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 30;
             this.colNGAYSINH.Name = "colNGAYSINH";
@@ -525,13 +524,16 @@ namespace Hospital
             this.colLOAI.FieldName = "LOAI";
             this.colLOAI.MinWidth = 30;
             this.colLOAI.Name = "colLOAI";
+            this.colLOAI.OptionsColumn.AllowEdit = false;
+            this.colLOAI.Visible = true;
+            this.colLOAI.VisibleIndex = 4;
             this.colLOAI.Width = 112;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 68);
+            this.panel6.Location = new System.Drawing.Point(0, 10);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(992, 36);
             this.panel6.TabIndex = 1;
@@ -549,32 +551,11 @@ namespace Hospital
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.cmbType);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(992, 68);
+            this.panel4.Size = new System.Drawing.Size(992, 10);
             this.panel4.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Kiểu:";
-            // 
-            // cmbType
-            // 
-            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(84, 20);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(179, 27);
-            this.cmbType.TabIndex = 0;
-            this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
             // 
             // tableAdapterManager
             // 
@@ -1016,8 +997,6 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.grbEnterData.ResumeLayout(false);
             this.grbEnterData.PerformLayout();
@@ -1057,8 +1036,6 @@ namespace Hospital
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbType;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
@@ -1077,11 +1054,6 @@ namespace Hospital
         private QLBVDataSetTableAdapters.PATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter pATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter;
         private DevExpress.XtraGrid.GridControl pATIENT_NOT_REGISTER_LIVING_ROOMGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMABN;
-        private DevExpress.XtraGrid.Columns.GridColumn colHO;
-        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colLOAI;
         private System.Windows.Forms.BindingSource sP_GET_VACANT_ROOMBindingSource;
         private QLBVDataSetTableAdapters.SP_GET_VACANT_ROOMTableAdapter sP_GET_VACANT_ROOMTableAdapter;
         private DevExpress.XtraGrid.GridControl sP_GET_VACANT_ROOMGridControl;
@@ -1129,5 +1101,10 @@ namespace Hospital
         private System.Windows.Forms.BindingSource kHUCHUATRIBindingSource2;
         private System.Windows.Forms.BindingSource fKGIUONGPHONGBindingSource;
         private QLBVDataSetTableAdapters.GIUONGTableAdapter gIUONGTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colMABN;
+        private DevExpress.XtraGrid.Columns.GridColumn colHO;
+        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
+        private DevExpress.XtraGrid.Columns.GridColumn colLOAI;
     }
 }

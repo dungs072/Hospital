@@ -32,21 +32,21 @@ namespace Hospital
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbArea = new System.Windows.Forms.ComboBox();
-            this.cmbWeek = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnPreview = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbWeek = new System.Windows.Forms.ComboBox();
+            this.gETWEEKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLBVDataSet = new Hospital.QLBVDataSet();
+            this.cmbArea = new System.Windows.Forms.ComboBox();
             this.kHUCHUATRIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kHUCHUATRITableAdapter = new Hospital.QLBVDataSetTableAdapters.KHUCHUATRITableAdapter();
-            this.gETWEEKBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gET_WEEKTableAdapter = new Hospital.QLBVDataSetTableAdapters.GET_WEEKTableAdapter();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gETWEEKBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kHUCHUATRIBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gETWEEKBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,50 +74,6 @@ namespace Hospital
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chọn lựa";
             // 
-            // cmbArea
-            // 
-            this.cmbArea.DataSource = this.kHUCHUATRIBindingSource;
-            this.cmbArea.DisplayMember = "TEN";
-            this.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.Location = new System.Drawing.Point(108, 44);
-            this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(225, 27);
-            this.cmbArea.TabIndex = 0;
-            this.cmbArea.ValueMember = "DANHDINHKHU";
-            // 
-            // cmbWeek
-            // 
-            this.cmbWeek.DataSource = this.gETWEEKBindingSource;
-            this.cmbWeek.DisplayMember = "INFOR";
-            this.cmbWeek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWeek.FormattingEnabled = true;
-            this.cmbWeek.Location = new System.Drawing.Point(108, 117);
-            this.cmbWeek.Name = "cmbWeek";
-            this.cmbWeek.Size = new System.Drawing.Size(225, 27);
-            this.cmbWeek.TabIndex = 1;
-            this.cmbWeek.ValueMember = "ID_TUAN";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(24, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 19);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Khu:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(24, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 19);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tuần:";
-            // 
             // btnPreview
             // 
             this.btnPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -129,10 +85,59 @@ namespace Hospital
             this.btnPreview.UseVisualStyleBackColor = false;
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(24, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 19);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tuần:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(24, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Khu:";
+            // 
+            // cmbWeek
+            // 
+            this.cmbWeek.DataSource = this.gETWEEKBindingSource;
+            this.cmbWeek.DisplayMember = "INFOR";
+            this.cmbWeek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWeek.FormattingEnabled = true;
+            this.cmbWeek.Location = new System.Drawing.Point(108, 117);
+            this.cmbWeek.Name = "cmbWeek";
+            this.cmbWeek.Size = new System.Drawing.Size(301, 27);
+            this.cmbWeek.TabIndex = 1;
+            this.cmbWeek.ValueMember = "ID_TUAN";
+            // 
+            // gETWEEKBindingSource
+            // 
+            this.gETWEEKBindingSource.DataMember = "GET_WEEK";
+            this.gETWEEKBindingSource.DataSource = this.qLBVDataSet;
+            // 
             // qLBVDataSet
             // 
             this.qLBVDataSet.DataSetName = "QLBVDataSet";
             this.qLBVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cmbArea
+            // 
+            this.cmbArea.DataSource = this.kHUCHUATRIBindingSource;
+            this.cmbArea.DisplayMember = "TEN";
+            this.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbArea.FormattingEnabled = true;
+            this.cmbArea.Location = new System.Drawing.Point(108, 44);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(301, 27);
+            this.cmbArea.TabIndex = 0;
+            this.cmbArea.ValueMember = "DANHDINHKHU";
             // 
             // kHUCHUATRIBindingSource
             // 
@@ -142,11 +147,6 @@ namespace Hospital
             // kHUCHUATRITableAdapter
             // 
             this.kHUCHUATRITableAdapter.ClearBeforeFill = true;
-            // 
-            // gETWEEKBindingSource
-            // 
-            this.gETWEEKBindingSource.DataMember = "GET_WEEK";
-            this.gETWEEKBindingSource.DataSource = this.qLBVDataSet;
             // 
             // gET_WEEKTableAdapter
             // 
@@ -164,9 +164,9 @@ namespace Hospital
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gETWEEKBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kHUCHUATRIBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gETWEEKBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
