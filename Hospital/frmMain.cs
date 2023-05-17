@@ -23,6 +23,7 @@ namespace Hospital
             btnBarLogin.Enabled = false;
             btnBarLogOut.Enabled = true;
             btnBarChangePassword.Enabled = true;
+           
         }
         private Form CheckExists(Type ftype)
         {
@@ -87,7 +88,6 @@ namespace Hospital
                 {
                     f = new frmTreatment();
                 }
-
                 else
                 {
                     f = new frmLogin();
@@ -147,6 +147,15 @@ namespace Hospital
         {
             ShowForm(typeof(frmTreatment));
         }
+        private void btnBarUsingEquipNurse_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmEquipmentDetail));
+        }
+
+        private void btnBarRegisterLivingRoomNurse_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmRegisterLivingRoom));
+        }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -154,6 +163,7 @@ namespace Hospital
             ribbonPage2.Visible = false;
             ribbonPage3.Visible = false;
             ribbonPage4.Visible = false;
+            ribbonPage5.Visible = false;
             btnBarLogOut.Enabled = false;
             btnBarChangePassword.Enabled = false;
         }
@@ -164,6 +174,7 @@ namespace Hospital
             ribbonPage2.Visible = true;
             ribbonPage3.Visible = true;
             ribbonPage4.Visible = true;
+            ribbonPage5.Visible = false;
 
             ribbonControl1.SelectedPage = ribbonPage2;
             CloseAllFormCurrentlyOpen();
@@ -171,12 +182,15 @@ namespace Hospital
         public void LoginByDoctorRole()
         {
             ribbonPage3.Visible = true;
+            ribbonPage5.Visible = false;
             ribbonControl1.SelectedPage = ribbonPage3;
             CloseAllFormCurrentlyOpen();
         }
         public void LoginByNurseRole()
         {
-            
+            ribbonPage5.Visible = true;
+            ribbonControl1.SelectedPage = ribbonPage5;
+            CloseAllFormCurrentlyOpen();
         }
         private void CloseAllFormCurrentlyOpen()
         {
@@ -190,12 +204,18 @@ namespace Hospital
             ribbonPage2.Visible = false;
             ribbonPage3.Visible = false;
             ribbonPage4.Visible = false;
+            ribbonPage5.Visible = false;
             btnBarLogin.Enabled = true;
             btnBarLogOut.Enabled = false;
             btnBarChangePassword.Enabled = false;
 
+            btnBarUsingEquip.Enabled = true;
+            btnBarRegisterArea.Enabled = true;
+            btnBarWorkingHour.Enabled = true;
             CloseAllFormCurrentlyOpen();
             ShowForm(typeof(frmLogin));
         }
+
+      
     }
 }

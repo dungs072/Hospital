@@ -280,6 +280,7 @@ namespace Hospital
             this.colTEN});
             this.gridView1.GridControl = this.kHUCHUATRIGridControl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
             // 
             // colDANHDINHKHU
             // 

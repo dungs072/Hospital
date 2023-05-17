@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace Hospital
 {
     public partial class frmAreaWorkingDetail : DevExpress.XtraEditors.XtraForm
     {
+        private List<int> areaIds = new List<int>();
         private bool isAdding = false;
         public frmAreaWorkingDetail()
         {
@@ -39,7 +41,11 @@ namespace Hospital
             ToggleRegisterReloadButtons(true);
             ToggleGroupBox(false);
             HandleWorkingDetailDataClick();
-
+            txtStartDate.Properties.MaxValue = DateTime.Now;
+            txtStartDate.Properties.MinValue = DateTime.Now;
+            txtEndDate.Properties.MaxValue = DateTime.Now;
+            txtEndDate.Properties.MinValue = DateTime.Now;
+            GetAreaNotHaveLeader();
         }
         private void HandleWorkingDetailClick()
         {
@@ -129,15 +135,15 @@ namespace Hospital
 
         private void btnWrite_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (txtEndDate.Text != "")
-            {
-                if (txtStartDate.DateTime >= txtEndDate.DateTime)
-                {
-                    MessageBox.Show("Thời gian bắt đầu làm không thể lớn hơn thời gian kết thúc làm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtEndDate.Focus();
-                    return;
-                }
-            }
+            //if (txtEndDate.Text != "")
+            //{
+            //    if (txtStartDate.DateTime >= txtEndDate.DateTime)
+            //    {
+            //        MessageBox.Show("Thời gian bắt đầu làm không thể lớn hơn thời gian kết thúc làm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        txtEndDate.Focus();
+            //        return;
+            //    }
+            //}
             if (!CanRegisterWithDay())
             {
                 MessageBox.Show("Thời gian bắt đầu đang ở trong một khoảng thời gian làm việc khác của nhân viên này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -191,6 +197,8 @@ namespace Hospital
                 ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count>0);
                 ToggleTables(true);
                 ToggleGroupBox(false);
+                GetAreaNotHaveLeader();
+                gridView1.RefreshData();
                 txtStartDate.Enabled = true;
             }
             else
@@ -252,6 +260,7 @@ namespace Hospital
         }
         private bool CanRegisterWithDay()
         {
+            if (wORKING_DETAIL_AREABindingSource.Count == 0) { return true; }
             int id = int.Parse(((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[0].ToString().Trim());
             string cmd = string.Format("DECLARE	@return_value int " +
                         " EXEC    @return_value = [dbo].[CAN_REGISTER_WITH_DAY] " +
@@ -283,7 +292,8 @@ namespace Hospital
                 {
                     HandleWorkingAreaClick();
                     MessageBox.Show("Xóa đăng kí thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    GetAreaNotHaveLeader();
+                    gridView1.RefreshData();
                 }
                 else
                 {
@@ -349,6 +359,45 @@ namespace Hospital
             {
                 txtEndDate.DateTime = endDate;
             }
+        }
+        private void GetAreaNotHaveLeader()
+        {
+            areaIds.Clear();
+            if (Program.Connect() == 0) { return; }
+            string cmd = "SELECT * FROM GET_AREA_NOT_HAVE_LEADER";
+            DataTable table = Program.ExecSqlDataTable(cmd);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                areaIds.Add(int.Parse(table.Rows[i][0].ToString()));
+            }
+        }
+
+        private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            GridView view = sender as GridView;
+            int areaId = int.Parse(view.GetRowCellValue(e.RowHandle, "DANHDINHKHU").ToString());
+            foreach(int val in areaIds)
+            {
+                if (val == areaId)
+                {
+                    // Set the desired background color
+                    e.Appearance.BackColor = Color.Red;
+
+                    // Set the desired foreground color (e.g., text color)
+                    e.Appearance.ForeColor = Color.White;
+                    break;
+                }
+            }
+
+            //// Check if the current cell belongs to the target row
+            //if (e.RowHandle == targetRowIndex)
+            //{
+            //    // Set the desired background color
+            //    e.Appearance.BackColor = Color.Red;
+
+            //    // Set the desired foreground color (e.g., text color)
+            //    e.Appearance.ForeColor = Color.White;
+            //}
         }
     }
 }

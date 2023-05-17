@@ -81,6 +81,10 @@ namespace Hospital
             {
                 Program.fMain.LoginByDoctorRole();
             }
+            else if (Program.mGroup == "YTa")
+            {
+                Program.fMain.LoginByNurseRole();
+            }
         }
     }
 }

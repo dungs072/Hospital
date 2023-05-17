@@ -23,6 +23,8 @@ namespace Hospital
 
         private void frmCure_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLBVDataSet.GET_DOCTORS' table. You can move, or remove it, as needed.
+            this.gET_DOCTORSTableAdapter.Fill(this.qLBVDataSet.GET_DOCTORS);
             qLBVDataSet.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'qLBVDataSet.GET_ALL_DETAIL_CURE' table. You can move, or remove it, as needed.
             this.gET_ALL_DETAIL_CURETableAdapter.Fill(this.qLBVDataSet.GET_ALL_DETAIL_CURE);
@@ -36,6 +38,8 @@ namespace Hospital
             if (Program.mGroup == "BacSi")
             {
                 gET_ALL_DETAIL_CUREBindingSource.Filter = "MANV = '" + Program.userName+"'";
+                cmbDoctor.Enabled = false;
+                cmbDoctor.SelectedValue = Program.userName;
             }
 
         }
@@ -86,6 +90,7 @@ namespace Hospital
                 txtType.Text = "";
                 txtTime.Text = "";
                 txtResult.Text = "";
+                cmbDoctor.SelectedIndex = 0;
                 return;
             }
             ToggleUpdateDeleteButtons(true);
@@ -96,6 +101,7 @@ namespace Hospital
             string timeStr = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[3].ToString().Trim();
             txtResult.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[4].ToString().Trim();
             txtTypeId.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[7].ToString().Trim();
+            cmbDoctor.SelectedValue = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[5].ToString().Trim();
             DateTime dateTimeValue;
             if (DateTime.TryParseExact(timeStr, "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
             {
@@ -115,6 +121,7 @@ namespace Hospital
                 MessageBox.Show("Bạn chưa chọn loại chữa trị", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+       
             ToggleAddReloadButtons(false);
             ToggleUpdateDeleteButtons(false);
             ToggleWriteCancelButtons(true);
@@ -123,8 +130,8 @@ namespace Hospital
 
             txtPatientName.Text = ((DataRowView)gET_ALL_PATIENTBindingSource[gET_ALL_PATIENTBindingSource.Position])[1].ToString().Trim()+" "+ ((DataRowView)gET_ALL_PATIENTBindingSource[gET_ALL_PATIENTBindingSource.Position])[2].ToString().Trim();
             txtPatientId.Text = ((DataRowView)gET_ALL_PATIENTBindingSource[gET_ALL_PATIENTBindingSource.Position])[0].ToString().Trim();
-            txtType.Text = ((DataRowView)lOAICHUATRIBindingSource[lOAICHUATRIBindingSource.Position])[1].ToString().Trim();
-            txtTypeId.Text = ((DataRowView)lOAICHUATRIBindingSource[lOAICHUATRIBindingSource.Position])[0].ToString().Trim();
+            txtType.Text = ((DataRowView)lOAICHUATRIBindingSource[lOAICHUATRIBindingSource.Position])[0].ToString().Trim();
+            txtTypeId.Text = ((DataRowView)lOAICHUATRIBindingSource[lOAICHUATRIBindingSource.Position])[1].ToString().Trim();
             txtTime.Text = "";
             txtResult.Text = "";
             isAdding = true;
@@ -195,18 +202,19 @@ namespace Hospital
                 return;
             }
             if (Program.Connect() == 0) { return; }
+            string staffId = cmbDoctor.SelectedValue.ToString().Trim();
             if (isAdding)
             {
                 string cmd = "";
                 if (txtTime.Text == "")
                 {
                     cmd = string.Format("INSERT INTO CHITIETCHUATRI (MANV, MABN,MALOAI_CT, KETQUA) " +
-                "                   VALUES('{0}','{1}','{2}',N'{3}')", Program.userName, txtPatientId.Text, txtTypeId.Text, txtResult.Text);
+                "                   VALUES('{0}','{1}','{2}',N'{3}')", staffId, txtPatientId.Text, txtTypeId.Text.Trim(), txtResult.Text);
                 }
                 else
                 {
                     cmd = string.Format("INSERT INTO CHITIETCHUATRI (MANV, MABN,MALOAI_CT,THOIGIAN, KETQUA) " +
-               "                   VALUES('{0}','{1}','{2}',CONVERT(datetime, '{3}', 105),N'{4}')", Program.userName, txtPatientId.Text, txtTypeId.Text, txtTime.Text, txtResult.Text);
+               "                   VALUES('{0}','{1}','{2}',CONVERT(datetime, '{3}', 105),N'{4}')",staffId, txtPatientId.Text, txtTypeId.Text.Trim(), txtTime.Text, txtResult.Text);
                 }
                
                 SqlCommand sqlCmd = new SqlCommand(cmd, Program.conn);
