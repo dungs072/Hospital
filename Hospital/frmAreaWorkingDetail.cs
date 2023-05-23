@@ -26,7 +26,7 @@ namespace Hospital
 
         private void frmAreaWorkingDetail_Load(object sender, EventArgs e)
         {
-           
+
             // TODO: This line of code loads data into the 'qLBVDataSet.KHUCHUATRI' table. You can move, or remove it, as needed.
             this.kHUCHUATRITableAdapter.Fill(this.qLBVDataSet.KHUCHUATRI);
             this.gET_STAFFTableAdapter.Fill(this.qLBVDataSet.GET_STAFF);
@@ -45,7 +45,6 @@ namespace Hospital
             txtStartDate.Properties.MinValue = DateTime.Now;
             txtEndDate.Properties.MaxValue = DateTime.Now;
             txtEndDate.Properties.MinValue = DateTime.Now;
-            GetAreaNotHaveLeader();
         }
         private void HandleWorkingDetailClick()
         {
@@ -123,7 +122,7 @@ namespace Hospital
             ToggleTables(false);
             ToggleGroupBox(true);
             txtStaffId.Text = ((DataRowView)gET_STAFFBindingSource[gET_STAFFBindingSource.Position])[0].ToString().Trim();
-            txtStaffName.Text = ((DataRowView)gET_STAFFBindingSource[gET_STAFFBindingSource.Position])[1].ToString().Trim() + " "+ ((DataRowView)gET_STAFFBindingSource[gET_STAFFBindingSource.Position])[2].ToString().Trim();
+            txtStaffName.Text = ((DataRowView)gET_STAFFBindingSource[gET_STAFFBindingSource.Position])[1].ToString().Trim() + " " + ((DataRowView)gET_STAFFBindingSource[gET_STAFFBindingSource.Position])[2].ToString().Trim();
             txtAreaId.Text = ((DataRowView)kHUCHUATRIBindingSource[kHUCHUATRIBindingSource.Position])[0].ToString().Trim();
             txtAreaName.Text = ((DataRowView)kHUCHUATRIBindingSource[kHUCHUATRIBindingSource.Position])[1].ToString().Trim();
             txtStartDate.DateTime = DateTime.Today;
@@ -169,11 +168,11 @@ namespace Hospital
                 int id = int.Parse(((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[0].ToString().Trim());
                 if (txtEndDate.Text == "")
                 {
-                    cmd = string.Format("UPDATE CHITIETLAMVIECKHUCHUATRI SET DANHDINHKHU = {0}, MANV = '{1}', NGAYBATDAULAM = '{2}', NGAYKETTHUCLAM = NULL WHERE ID_CTLV = {3}", int.Parse(txtAreaId.Text), txtStaffId.Text, txtStartDate.DateTime.ToString(),id);
+                    cmd = string.Format("UPDATE CHITIETLAMVIECKHUCHUATRI SET DANHDINHKHU = {0}, MANV = '{1}', NGAYBATDAULAM = '{2}', NGAYKETTHUCLAM = NULL WHERE ID_CTLV = {3}", int.Parse(txtAreaId.Text), txtStaffId.Text, txtStartDate.DateTime.ToString(), id);
                 }
                 else
                 {
-                    cmd = string.Format("UPDATE CHITIETLAMVIECKHUCHUATRI SET DANHDINHKHU = {0}, MANV = '{1}', NGAYBATDAULAM = '{2}', NGAYKETTHUCLAM = '{3}' WHERE ID_CTLV = {4}", int.Parse(txtAreaId.Text), txtStaffId.Text, txtStartDate.DateTime.ToString(),txtEndDate.DateTime.ToString(),id);
+                    cmd = string.Format("UPDATE CHITIETLAMVIECKHUCHUATRI SET DANHDINHKHU = {0}, MANV = '{1}', NGAYBATDAULAM = '{2}', NGAYKETTHUCLAM = '{3}' WHERE ID_CTLV = {4}", int.Parse(txtAreaId.Text), txtStaffId.Text, txtStartDate.DateTime.ToString(), txtEndDate.DateTime.ToString(), id);
                 }
             }
             int result = Program.ExecSqlNonQuery(cmd);
@@ -194,10 +193,9 @@ namespace Hospital
                 }
                 ToggleRegisterReloadButtons(true);
                 ToggleWriteCancelButtons(false);
-                ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count>0);
+                ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count > 0);
                 ToggleTables(true);
                 ToggleGroupBox(false);
-                GetAreaNotHaveLeader();
                 gridView1.RefreshData();
                 txtStartDate.Enabled = true;
             }
@@ -205,7 +203,7 @@ namespace Hospital
             {
                 MessageBox.Show("Không thể hiệu chỉnh đăng kí này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         private void kHUCHUATRIGridControl_Click(object sender, EventArgs e)
@@ -264,8 +262,8 @@ namespace Hospital
             int id = int.Parse(((DataRowView)wORKING_DETAIL_AREABindingSource[wORKING_DETAIL_AREABindingSource.Position])[0].ToString().Trim());
             string cmd = string.Format("DECLARE	@return_value int " +
                         " EXEC    @return_value = [dbo].[CAN_REGISTER_WITH_DAY] " +
-                        "@MANV = '{0}' ," + "@NGAYBATDAULAM = '{1}' ," +"@ID = {2}" +
-                        " SELECT  'Return Value' = @return_value", txtStaffId.Text,txtStartDate.DateTime.ToString("dd/MM/yyyy"),id);
+                        "@MANV = '{0}' ," + "@NGAYBATDAULAM = '{1}' ," + "@ID = {2}" +
+                        " SELECT  'Return Value' = @return_value", txtStaffId.Text, txtStartDate.DateTime.ToString("dd/MM/yyyy"), id);
             if (Program.Connect() == 0) { return false; }
             SqlDataReader reader = Program.ExecSqlDataReader(cmd);
             reader.Read();
@@ -292,7 +290,6 @@ namespace Hospital
                 {
                     HandleWorkingAreaClick();
                     MessageBox.Show("Xóa đăng kí thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    GetAreaNotHaveLeader();
                     gridView1.RefreshData();
                 }
                 else
@@ -300,14 +297,14 @@ namespace Hospital
                     MessageBox.Show("Xóa đăng kí thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            
+
         }
 
         private void btnCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ToggleRegisterReloadButtons(true);
             ToggleWriteCancelButtons(false);
-            ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count>0);
+            ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count > 0);
             ToggleTables(true);
             ToggleGroupBox(false);
             txtStartDate.Enabled = true;
@@ -359,45 +356,6 @@ namespace Hospital
             {
                 txtEndDate.DateTime = endDate;
             }
-        }
-        private void GetAreaNotHaveLeader()
-        {
-            areaIds.Clear();
-            if (Program.Connect() == 0) { return; }
-            string cmd = "SELECT * FROM GET_AREA_NOT_HAVE_LEADER";
-            DataTable table = Program.ExecSqlDataTable(cmd);
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                areaIds.Add(int.Parse(table.Rows[i][0].ToString()));
-            }
-        }
-
-        private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
-        {
-            GridView view = sender as GridView;
-            int areaId = int.Parse(view.GetRowCellValue(e.RowHandle, "DANHDINHKHU").ToString());
-            foreach(int val in areaIds)
-            {
-                if (val == areaId)
-                {
-                    // Set the desired background color
-                    e.Appearance.BackColor = Color.Red;
-
-                    // Set the desired foreground color (e.g., text color)
-                    e.Appearance.ForeColor = Color.White;
-                    break;
-                }
-            }
-
-            //// Check if the current cell belongs to the target row
-            //if (e.RowHandle == targetRowIndex)
-            //{
-            //    // Set the desired background color
-            //    e.Appearance.BackColor = Color.Red;
-
-            //    // Set the desired foreground color (e.g., text color)
-            //    e.Appearance.ForeColor = Color.White;
-            //}
         }
     }
 }

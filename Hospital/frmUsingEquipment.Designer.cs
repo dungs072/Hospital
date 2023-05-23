@@ -41,8 +41,9 @@ namespace Hospital
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTENLOAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBACSITHEODOI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLOAI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBACSITEPNHAN = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_ALL_PATIENTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_ALL_PATIENTGridControl)).BeginInit();
@@ -57,22 +58,21 @@ namespace Hospital
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BACSITableAdapter = null;
             this.tableAdapterManager.BENHNHANTableAdapter = null;
             this.tableAdapterManager.CHITIETCHUATRITableAdapter = null;
-            this.tableAdapterManager.CHITIETGIOLAMVIECTableAdapter = null;
             this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
             this.tableAdapterManager.CHITIETOTableAdapter = null;
             this.tableAdapterManager.CHITIETSUDUNGVTTableAdapter = null;
-            this.tableAdapterManager.CHUCVUTableAdapter = null;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.GIUONGTableAdapter = null;
             this.tableAdapterManager.KHUCHUATRITableAdapter = null;
             this.tableAdapterManager.LOAICHUATRITableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHONGTableAdapter = null;
-            this.tableAdapterManager.TUANTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = null;
+            this.tableAdapterManager.YTATableAdapter = null;
             // 
             // btnPreview
             // 
@@ -114,8 +114,9 @@ namespace Hospital
             this.colHO,
             this.colTEN,
             this.colNGAYSINH,
-            this.colTENLOAI,
-            this.colBACSITHEODOI});
+            this.colBACSITHEODOI,
+            this.colLOAI,
+            this.colBACSITEPNHAN});
             this.gridView1.GridControl = this.gET_ALL_PATIENTGridControl;
             this.gridView1.Name = "gridView1";
             // 
@@ -132,7 +133,7 @@ namespace Hospital
             // 
             // colHO
             // 
-            this.colHO.Caption = "Họ ";
+            this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 30;
             this.colHO.Name = "colHO";
@@ -143,7 +144,7 @@ namespace Hospital
             // 
             // colTEN
             // 
-            this.colTEN.Caption = "Tên ";
+            this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 30;
             this.colTEN.Name = "colTEN";
@@ -156,7 +157,6 @@ namespace Hospital
             // 
             this.colNGAYSINH.Caption = "Ngày sinh";
             this.colNGAYSINH.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.colNGAYSINH.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 30;
             this.colNGAYSINH.Name = "colNGAYSINH";
@@ -164,17 +164,6 @@ namespace Hospital
             this.colNGAYSINH.Visible = true;
             this.colNGAYSINH.VisibleIndex = 3;
             this.colNGAYSINH.Width = 112;
-            // 
-            // colTENLOAI
-            // 
-            this.colTENLOAI.Caption = "Loại";
-            this.colTENLOAI.FieldName = "TENLOAI";
-            this.colTENLOAI.MinWidth = 30;
-            this.colTENLOAI.Name = "colTENLOAI";
-            this.colTENLOAI.OptionsColumn.AllowEdit = false;
-            this.colTENLOAI.Visible = true;
-            this.colTENLOAI.VisibleIndex = 4;
-            this.colTENLOAI.Width = 112;
             // 
             // colBACSITHEODOI
             // 
@@ -184,8 +173,30 @@ namespace Hospital
             this.colBACSITHEODOI.Name = "colBACSITHEODOI";
             this.colBACSITHEODOI.OptionsColumn.AllowEdit = false;
             this.colBACSITHEODOI.Visible = true;
-            this.colBACSITHEODOI.VisibleIndex = 5;
+            this.colBACSITHEODOI.VisibleIndex = 4;
             this.colBACSITHEODOI.Width = 112;
+            // 
+            // colLOAI
+            // 
+            this.colLOAI.Caption = "Loại";
+            this.colLOAI.FieldName = "LOAI";
+            this.colLOAI.MinWidth = 30;
+            this.colLOAI.Name = "colLOAI";
+            this.colLOAI.OptionsColumn.AllowEdit = false;
+            this.colLOAI.Visible = true;
+            this.colLOAI.VisibleIndex = 5;
+            this.colLOAI.Width = 112;
+            // 
+            // colBACSITEPNHAN
+            // 
+            this.colBACSITEPNHAN.Caption = "Bác sĩ tiếp nhận";
+            this.colBACSITEPNHAN.FieldName = "BACSITEPNHAN";
+            this.colBACSITEPNHAN.MinWidth = 30;
+            this.colBACSITEPNHAN.Name = "colBACSITEPNHAN";
+            this.colBACSITEPNHAN.OptionsColumn.AllowEdit = false;
+            this.colBACSITEPNHAN.Visible = true;
+            this.colBACSITEPNHAN.VisibleIndex = 6;
+            this.colBACSITEPNHAN.Width = 112;
             // 
             // frmUsingEquipment
             // 
@@ -218,7 +229,8 @@ namespace Hospital
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENLOAI;
         private DevExpress.XtraGrid.Columns.GridColumn colBACSITHEODOI;
+        private DevExpress.XtraGrid.Columns.GridColumn colLOAI;
+        private DevExpress.XtraGrid.Columns.GridColumn colBACSITEPNHAN;
     }
 }

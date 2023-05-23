@@ -41,6 +41,9 @@ namespace Hospital
             this.bENHNHANTableAdapter = new Hospital.QLBVDataSetTableAdapters.BENHNHANTableAdapter();
             this.tableAdapterManager = new Hospital.QLBVDataSetTableAdapters.TableAdapterManager();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbWelcomDoctor = new System.Windows.Forms.ComboBox();
+            this.gETDOCTORSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.txtBirthday = new DevExpress.XtraEditors.DateEdit();
             this.txtLastName = new DevExpress.XtraEditors.TextEdit();
@@ -69,7 +72,9 @@ namespace Hospital
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLOAI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMABSTN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gET_DOCTORSTableAdapter = new Hospital.QLBVDataSetTableAdapters.GET_DOCTORSTableAdapter();
             mABNLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             tENLabel = new System.Windows.Forms.Label();
@@ -78,6 +83,7 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bENHNHANBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gETDOCTORSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthday.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthday.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
@@ -94,7 +100,7 @@ namespace Hospital
             // mABNLabel
             // 
             mABNLabel.AutoSize = true;
-            mABNLabel.Location = new System.Drawing.Point(12, 54);
+            mABNLabel.Location = new System.Drawing.Point(14, 30);
             mABNLabel.Name = "mABNLabel";
             mABNLabel.Size = new System.Drawing.Size(115, 19);
             mABNLabel.TabIndex = 0;
@@ -103,7 +109,7 @@ namespace Hospital
             // hOLabel
             // 
             hOLabel.AutoSize = true;
-            hOLabel.Location = new System.Drawing.Point(12, 117);
+            hOLabel.Location = new System.Drawing.Point(14, 93);
             hOLabel.Name = "hOLabel";
             hOLabel.Size = new System.Drawing.Size(35, 19);
             hOLabel.TabIndex = 2;
@@ -112,7 +118,7 @@ namespace Hospital
             // tENLabel
             // 
             tENLabel.AutoSize = true;
-            tENLabel.Location = new System.Drawing.Point(12, 180);
+            tENLabel.Location = new System.Drawing.Point(14, 156);
             tENLabel.Name = "tENLabel";
             tENLabel.Size = new System.Drawing.Size(42, 19);
             tENLabel.TabIndex = 4;
@@ -121,7 +127,7 @@ namespace Hospital
             // nGAYSINHLabel
             // 
             nGAYSINHLabel.AutoSize = true;
-            nGAYSINHLabel.Location = new System.Drawing.Point(12, 243);
+            nGAYSINHLabel.Location = new System.Drawing.Point(14, 219);
             nGAYSINHLabel.Name = "nGAYSINHLabel";
             nGAYSINHLabel.Size = new System.Drawing.Size(85, 19);
             nGAYSINHLabel.TabIndex = 6;
@@ -130,7 +136,7 @@ namespace Hospital
             // lOAILabel
             // 
             lOAILabel.AutoSize = true;
-            lOAILabel.Location = new System.Drawing.Point(12, 310);
+            lOAILabel.Location = new System.Drawing.Point(14, 286);
             lOAILabel.Name = "lOAILabel";
             lOAILabel.Size = new System.Drawing.Size(44, 19);
             lOAILabel.TabIndex = 8;
@@ -153,24 +159,25 @@ namespace Hospital
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BACSITableAdapter = null;
             this.tableAdapterManager.BENHNHANTableAdapter = this.bENHNHANTableAdapter;
             this.tableAdapterManager.CHITIETCHUATRITableAdapter = null;
-            this.tableAdapterManager.CHITIETGIOLAMVIECTableAdapter = null;
             this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
             this.tableAdapterManager.CHITIETOTableAdapter = null;
             this.tableAdapterManager.CHITIETSUDUNGVTTableAdapter = null;
-            this.tableAdapterManager.CHUCVUTableAdapter = null;
             this.tableAdapterManager.GIUONGTableAdapter = null;
             this.tableAdapterManager.KHUCHUATRITableAdapter = null;
             this.tableAdapterManager.LOAICHUATRITableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHONGTableAdapter = null;
-            this.tableAdapterManager.TUANTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = null;
+            this.tableAdapterManager.YTATableAdapter = null;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cmbWelcomDoctor);
             this.groupBox1.Controls.Add(this.cmbType);
             this.groupBox1.Controls.Add(lOAILabel);
             this.groupBox1.Controls.Add(nGAYSINHLabel);
@@ -189,11 +196,37 @@ namespace Hospital
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập liệu";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 346);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 19);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Bác sĩ tiếp nhận:";
+            // 
+            // cmbWelcomDoctor
+            // 
+            this.cmbWelcomDoctor.DataSource = this.gETDOCTORSBindingSource;
+            this.cmbWelcomDoctor.DisplayMember = "HOTEN";
+            this.cmbWelcomDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWelcomDoctor.FormattingEnabled = true;
+            this.cmbWelcomDoctor.Location = new System.Drawing.Point(159, 343);
+            this.cmbWelcomDoctor.Name = "cmbWelcomDoctor";
+            this.cmbWelcomDoctor.Size = new System.Drawing.Size(206, 27);
+            this.cmbWelcomDoctor.TabIndex = 10;
+            this.cmbWelcomDoctor.ValueMember = "MANV";
+            // 
+            // gETDOCTORSBindingSource
+            // 
+            this.gETDOCTORSBindingSource.DataMember = "GET_DOCTORS";
+            this.gETDOCTORSBindingSource.DataSource = this.qLBVDataSet;
+            // 
             // cmbType
             // 
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(157, 307);
+            this.cmbType.Location = new System.Drawing.Point(159, 283);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(206, 27);
             this.cmbType.TabIndex = 9;
@@ -202,7 +235,7 @@ namespace Hospital
             // 
             this.txtBirthday.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bENHNHANBindingSource, "NGAYSINH", true));
             this.txtBirthday.EditValue = null;
-            this.txtBirthday.Location = new System.Drawing.Point(157, 239);
+            this.txtBirthday.Location = new System.Drawing.Point(159, 215);
             this.txtBirthday.Name = "txtBirthday";
             this.txtBirthday.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -214,7 +247,7 @@ namespace Hospital
             // txtLastName
             // 
             this.txtLastName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bENHNHANBindingSource, "TEN", true));
-            this.txtLastName.Location = new System.Drawing.Point(157, 176);
+            this.txtLastName.Location = new System.Drawing.Point(159, 152);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(206, 28);
             this.txtLastName.TabIndex = 5;
@@ -222,7 +255,7 @@ namespace Hospital
             // txtFirstName
             // 
             this.txtFirstName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bENHNHANBindingSource, "HO", true));
-            this.txtFirstName.Location = new System.Drawing.Point(157, 108);
+            this.txtFirstName.Location = new System.Drawing.Point(159, 84);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(206, 28);
             this.txtFirstName.TabIndex = 3;
@@ -230,7 +263,7 @@ namespace Hospital
             // txtPatientId
             // 
             this.txtPatientId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bENHNHANBindingSource, "MABN", true));
-            this.txtPatientId.Location = new System.Drawing.Point(157, 50);
+            this.txtPatientId.Location = new System.Drawing.Point(159, 26);
             this.txtPatientId.Name = "txtPatientId";
             this.txtPatientId.Size = new System.Drawing.Size(206, 28);
             this.txtPatientId.TabIndex = 1;
@@ -384,6 +417,7 @@ namespace Hospital
             this.bENHNHANGridControl.TabIndex = 5;
             this.bENHNHANGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.bENHNHANGridControl.Click += new System.EventHandler(this.bENHNHANGridControl_Click_1);
             // 
             // gridView1
             // 
@@ -392,7 +426,8 @@ namespace Hospital
             this.colHO,
             this.colTEN,
             this.colNGAYSINH,
-            this.colLOAI});
+            this.colLOAI,
+            this.colMABSTN});
             this.gridView1.GridControl = this.bENHNHANGridControl;
             this.gridView1.Name = "gridView1";
             // 
@@ -453,6 +488,17 @@ namespace Hospital
             this.colLOAI.VisibleIndex = 4;
             this.colLOAI.Width = 112;
             // 
+            // colMABSTN
+            // 
+            this.colMABSTN.Caption = "Bác sĩ tiếp nhận";
+            this.colMABSTN.FieldName = "MABSTN";
+            this.colMABSTN.MinWidth = 30;
+            this.colMABSTN.Name = "colMABSTN";
+            this.colMABSTN.OptionsColumn.AllowEdit = false;
+            this.colMABSTN.Visible = true;
+            this.colMABSTN.VisibleIndex = 5;
+            this.colMABSTN.Width = 112;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.groupBox1);
@@ -461,6 +507,10 @@ namespace Hospital
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(451, 424);
             this.panel1.TabIndex = 6;
+            // 
+            // gET_DOCTORSTableAdapter
+            // 
+            this.gET_DOCTORSTableAdapter.ClearBeforeFill = true;
             // 
             // frmPatient
             // 
@@ -474,12 +524,13 @@ namespace Hospital
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmPatient";
-            this.Text = "Bệnh nhân";
+            this.Text = " Bệnh nhân";
             this.Load += new System.EventHandler(this.frmPatient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bENHNHANBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gETDOCTORSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthday.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthday.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).EndInit();
@@ -527,10 +578,15 @@ namespace Hospital
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraGrid.GridControl bENHNHANGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbWelcomDoctor;
         private DevExpress.XtraGrid.Columns.GridColumn colMABN;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
         private DevExpress.XtraGrid.Columns.GridColumn colLOAI;
+        private DevExpress.XtraGrid.Columns.GridColumn colMABSTN;
+        private System.Windows.Forms.BindingSource gETDOCTORSBindingSource;
+        private QLBVDataSetTableAdapters.GET_DOCTORSTableAdapter gET_DOCTORSTableAdapter;
     }
 }

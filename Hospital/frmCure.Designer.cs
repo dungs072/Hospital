@@ -63,8 +63,9 @@ namespace Hospital
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTENLOAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBACSITHEODOI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLOAI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBACSITEPNHAN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbDoctor = new System.Windows.Forms.ComboBox();
             this.gETDOCTORSBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -95,10 +96,10 @@ namespace Hospital
             this.colTENLOAI2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTHOIGIAN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKETQUA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMABN1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMALOAI_CT1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID_CTCT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMABS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gET_DOCTORSTableAdapter = new Hospital.QLBVDataSetTableAdapters.GET_DOCTORSTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -398,14 +399,15 @@ namespace Hospital
             this.colHO,
             this.colTEN,
             this.colNGAYSINH,
-            this.colTENLOAI,
-            this.colBACSITHEODOI});
+            this.colBACSITHEODOI,
+            this.colLOAI,
+            this.colBACSITEPNHAN});
             this.gridView1.GridControl = this.gET_ALL_PATIENTGridControl;
             this.gridView1.Name = "gridView1";
             // 
             // colMABN
             // 
-            this.colMABN.Caption = "Mã bệnh nhân ";
+            this.colMABN.Caption = "Mã bệnh nhân";
             this.colMABN.FieldName = "MABN";
             this.colMABN.MinWidth = 30;
             this.colMABN.Name = "colMABN";
@@ -449,17 +451,6 @@ namespace Hospital
             this.colNGAYSINH.VisibleIndex = 3;
             this.colNGAYSINH.Width = 112;
             // 
-            // colTENLOAI
-            // 
-            this.colTENLOAI.Caption = "Loại";
-            this.colTENLOAI.FieldName = "TENLOAI";
-            this.colTENLOAI.MinWidth = 30;
-            this.colTENLOAI.Name = "colTENLOAI";
-            this.colTENLOAI.OptionsColumn.AllowEdit = false;
-            this.colTENLOAI.Visible = true;
-            this.colTENLOAI.VisibleIndex = 4;
-            this.colTENLOAI.Width = 112;
-            // 
             // colBACSITHEODOI
             // 
             this.colBACSITHEODOI.Caption = "Bác sĩ theo dõi";
@@ -470,6 +461,28 @@ namespace Hospital
             this.colBACSITHEODOI.Visible = true;
             this.colBACSITHEODOI.VisibleIndex = 5;
             this.colBACSITHEODOI.Width = 112;
+            // 
+            // colLOAI
+            // 
+            this.colLOAI.Caption = "Loại";
+            this.colLOAI.FieldName = "LOAI";
+            this.colLOAI.MinWidth = 30;
+            this.colLOAI.Name = "colLOAI";
+            this.colLOAI.OptionsColumn.AllowEdit = false;
+            this.colLOAI.Visible = true;
+            this.colLOAI.VisibleIndex = 4;
+            this.colLOAI.Width = 112;
+            // 
+            // colBACSITEPNHAN
+            // 
+            this.colBACSITEPNHAN.Caption = "Bác sĩ tiếp nhận";
+            this.colBACSITEPNHAN.FieldName = "BACSITEPNHAN";
+            this.colBACSITEPNHAN.MinWidth = 30;
+            this.colBACSITEPNHAN.Name = "colBACSITEPNHAN";
+            this.colBACSITEPNHAN.OptionsColumn.AllowEdit = false;
+            this.colBACSITEPNHAN.Visible = true;
+            this.colBACSITEPNHAN.VisibleIndex = 6;
+            this.colBACSITEPNHAN.Width = 112;
             // 
             // groupBox1
             // 
@@ -562,11 +575,11 @@ namespace Hospital
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtTime.Properties.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
+            this.txtTime.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
             this.txtTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtTime.Properties.EditFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
+            this.txtTime.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
             this.txtTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtTime.Properties.Mask.EditMask = "dd/MM/yyyy hh:mm:ss";
+            this.txtTime.Properties.Mask.EditMask = "dd/MM/yyyy HH:mm:ss";
             this.txtTime.Size = new System.Drawing.Size(197, 28);
             this.txtTime.TabIndex = 6;
             // 
@@ -644,21 +657,20 @@ namespace Hospital
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BACSITableAdapter = null;
             this.tableAdapterManager.BENHNHANTableAdapter = this.bENHNHANTableAdapter;
             this.tableAdapterManager.CHITIETCHUATRITableAdapter = null;
-            this.tableAdapterManager.CHITIETGIOLAMVIECTableAdapter = null;
             this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
             this.tableAdapterManager.CHITIETOTableAdapter = null;
             this.tableAdapterManager.CHITIETSUDUNGVTTableAdapter = null;
-            this.tableAdapterManager.CHUCVUTableAdapter = null;
             this.tableAdapterManager.GIUONGTableAdapter = null;
             this.tableAdapterManager.KHUCHUATRITableAdapter = null;
             this.tableAdapterManager.LOAICHUATRITableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHONGTableAdapter = null;
-            this.tableAdapterManager.TUANTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = null;
+            this.tableAdapterManager.YTATableAdapter = null;
             // 
             // gET_ALL_PATIENTTableAdapter
             // 
@@ -699,10 +711,10 @@ namespace Hospital
             this.colTENLOAI2,
             this.colTHOIGIAN,
             this.colKETQUA,
-            this.colMANV,
             this.colMABN1,
             this.colMALOAI_CT1,
-            this.colID_CTCT});
+            this.colID_CTCT,
+            this.colMABS});
             this.gridView3.GridControl = this.gET_ALL_DETAIL_CUREGridControl;
             this.gridView3.Name = "gridView3";
             // 
@@ -714,7 +726,7 @@ namespace Hospital
             this.colTENNV.Name = "colTENNV";
             this.colTENNV.OptionsColumn.AllowEdit = false;
             this.colTENNV.Visible = true;
-            this.colTENNV.VisibleIndex = 1;
+            this.colTENNV.VisibleIndex = 2;
             this.colTENNV.Width = 112;
             // 
             // colTENBN
@@ -725,7 +737,7 @@ namespace Hospital
             this.colTENBN.Name = "colTENBN";
             this.colTENBN.OptionsColumn.AllowEdit = false;
             this.colTENBN.Visible = true;
-            this.colTENBN.VisibleIndex = 3;
+            this.colTENBN.VisibleIndex = 4;
             this.colTENBN.Width = 112;
             // 
             // colTENLOAI2
@@ -736,41 +748,32 @@ namespace Hospital
             this.colTENLOAI2.Name = "colTENLOAI2";
             this.colTENLOAI2.OptionsColumn.AllowEdit = false;
             this.colTENLOAI2.Visible = true;
-            this.colTENLOAI2.VisibleIndex = 5;
+            this.colTENLOAI2.VisibleIndex = 6;
             this.colTENLOAI2.Width = 112;
             // 
             // colTHOIGIAN
             // 
-            this.colTHOIGIAN.Caption = "Thời gian chữa trị";
+            this.colTHOIGIAN.Caption = "Thời gian";
+            this.colTHOIGIAN.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.colTHOIGIAN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colTHOIGIAN.FieldName = "THOIGIAN";
             this.colTHOIGIAN.MinWidth = 30;
             this.colTHOIGIAN.Name = "colTHOIGIAN";
             this.colTHOIGIAN.OptionsColumn.AllowEdit = false;
             this.colTHOIGIAN.Visible = true;
-            this.colTHOIGIAN.VisibleIndex = 6;
+            this.colTHOIGIAN.VisibleIndex = 7;
             this.colTHOIGIAN.Width = 112;
             // 
             // colKETQUA
             // 
-            this.colKETQUA.Caption = "Kết quả chữa trị";
+            this.colKETQUA.Caption = "Kết quả";
             this.colKETQUA.FieldName = "KETQUA";
             this.colKETQUA.MinWidth = 30;
             this.colKETQUA.Name = "colKETQUA";
             this.colKETQUA.OptionsColumn.AllowEdit = false;
             this.colKETQUA.Visible = true;
-            this.colKETQUA.VisibleIndex = 7;
+            this.colKETQUA.VisibleIndex = 8;
             this.colKETQUA.Width = 112;
-            // 
-            // colMANV
-            // 
-            this.colMANV.Caption = "Mã bác sĩ";
-            this.colMANV.FieldName = "MANV";
-            this.colMANV.MinWidth = 30;
-            this.colMANV.Name = "colMANV";
-            this.colMANV.OptionsColumn.AllowEdit = false;
-            this.colMANV.Visible = true;
-            this.colMANV.VisibleIndex = 0;
-            this.colMANV.Width = 112;
             // 
             // colMABN1
             // 
@@ -780,7 +783,7 @@ namespace Hospital
             this.colMABN1.Name = "colMABN1";
             this.colMABN1.OptionsColumn.AllowEdit = false;
             this.colMABN1.Visible = true;
-            this.colMABN1.VisibleIndex = 2;
+            this.colMABN1.VisibleIndex = 3;
             this.colMABN1.Width = 112;
             // 
             // colMALOAI_CT1
@@ -791,7 +794,7 @@ namespace Hospital
             this.colMALOAI_CT1.Name = "colMALOAI_CT1";
             this.colMALOAI_CT1.OptionsColumn.AllowEdit = false;
             this.colMALOAI_CT1.Visible = true;
-            this.colMALOAI_CT1.VisibleIndex = 4;
+            this.colMALOAI_CT1.VisibleIndex = 5;
             this.colMALOAI_CT1.Width = 112;
             // 
             // colID_CTCT
@@ -801,7 +804,20 @@ namespace Hospital
             this.colID_CTCT.MinWidth = 30;
             this.colID_CTCT.Name = "colID_CTCT";
             this.colID_CTCT.OptionsColumn.AllowEdit = false;
+            this.colID_CTCT.Visible = true;
+            this.colID_CTCT.VisibleIndex = 0;
             this.colID_CTCT.Width = 112;
+            // 
+            // colMABS
+            // 
+            this.colMABS.Caption = "Mã bác sĩ";
+            this.colMABS.FieldName = "MABS";
+            this.colMABS.MinWidth = 30;
+            this.colMABS.Name = "colMABS";
+            this.colMABS.OptionsColumn.AllowEdit = false;
+            this.colMABS.Visible = true;
+            this.colMABS.VisibleIndex = 1;
+            this.colMABS.Width = 112;
             // 
             // gET_DOCTORSTableAdapter
             // 
@@ -906,24 +922,25 @@ namespace Hospital
         private DevExpress.XtraBars.BarButtonItem btnCancel;
         private DevExpress.XtraBars.BarButtonItem btnReload;
         private System.Windows.Forms.TextBox txtTypeId;
+        private System.Windows.Forms.ComboBox cmbDoctor;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.BindingSource gETDOCTORSBindingSource;
+        private QLBVDataSetTableAdapters.GET_DOCTORSTableAdapter gET_DOCTORSTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colTENNV;
         private DevExpress.XtraGrid.Columns.GridColumn colTENBN;
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOAI2;
         private DevExpress.XtraGrid.Columns.GridColumn colTHOIGIAN;
         private DevExpress.XtraGrid.Columns.GridColumn colKETQUA;
-        private DevExpress.XtraGrid.Columns.GridColumn colMANV;
         private DevExpress.XtraGrid.Columns.GridColumn colMABN1;
         private DevExpress.XtraGrid.Columns.GridColumn colMALOAI_CT1;
         private DevExpress.XtraGrid.Columns.GridColumn colID_CTCT;
+        private DevExpress.XtraGrid.Columns.GridColumn colMABS;
         private DevExpress.XtraGrid.Columns.GridColumn colMABN;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENLOAI;
         private DevExpress.XtraGrid.Columns.GridColumn colBACSITHEODOI;
-        private System.Windows.Forms.ComboBox cmbDoctor;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.BindingSource gETDOCTORSBindingSource;
-        private QLBVDataSetTableAdapters.GET_DOCTORSTableAdapter gET_DOCTORSTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colLOAI;
+        private DevExpress.XtraGrid.Columns.GridColumn colBACSITEPNHAN;
     }
 }

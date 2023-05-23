@@ -1,7 +1,7 @@
 ﻿
 namespace Hospital
 {
-    partial class frmCreateWeek
+    partial class frmLeaderNurse
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@ namespace Hospital
         {
             this.SuspendLayout();
             // 
-            // frmCreateWeek
+            // frmLeaderNurse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 528);
-            this.Name = "frmCreateWeek";
-            this.Text = "Tuần làm việc";
+            this.ClientSize = new System.Drawing.Size(1025, 522);
+            this.Name = "frmLeaderNurse";
+            this.Text = "Y tá trưởng";
             this.ResumeLayout(false);
 
         }

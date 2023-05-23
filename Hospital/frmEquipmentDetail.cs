@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,7 +68,7 @@ namespace Hospital
             }
             else
             {
-                int id = int.Parse(((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])[8].ToString().Trim());
+                int id = int.Parse(((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])["ID_CTCT"].ToString().Trim());
                 gET_MEDICINE_EQUIPMENT_DETAILTableAdapter.Fill(qLBVDataSet.GET_MEDICINE_EQUIPMENT_DETAIL, id);
             }
         }
@@ -79,14 +80,19 @@ namespace Hospital
                 txtEquipmentId.Text = "";
                 txtAmount.Text = "";
                 txtEquipmentName.Text = "";
+                txtTime.Text = "";
                 ToggleUpdateDeleteButtons(false);
             }
             else
             {
-                txtCureId.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])[0].ToString().Trim();
+                txtCureId.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])["ID_CTCT"].ToString().Trim();
                 txtEquipmentId.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])[1].ToString().Trim();
                 txtEquipmentName.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])[2].ToString().Trim();
                 txtAmount.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])[3].ToString().Trim();
+                string time = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])["THOIGIAN"].ToString().Trim();
+
+                txtTime.DateTime = CastDateTime(time);
+              
                 ToggleUpdateDeleteButtons(true);
             }
         }
@@ -119,11 +125,12 @@ namespace Hospital
             ToggleWriteCancelButtons(true);
             ToggleTables(false);
             ToggleGroupBox(true);
-            txtCureId.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])[8].ToString().Trim();
+            txtCureId.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])["ID_CTCT"].ToString().Trim();
             txtEquipmentId.Text = ((DataRowView)vATTUBindingSource[vATTUBindingSource.Position])[0].ToString().Trim();
             txtAmount.Value = 1;
             txtEquipmentName.Text = ((DataRowView)vATTUBindingSource[vATTUBindingSource.Position])[1].ToString().Trim();
-
+            txtTime.DateTime = DateTime.Now;
+            txtAmount.Focus();
         }
 
         private void btnUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -134,11 +141,14 @@ namespace Hospital
             ToggleWriteCancelButtons(true);
             ToggleTables(false);
             ToggleGroupBox(true);
-            txtCureId.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])[0].ToString().Trim();
+            txtCureId.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])["ID_CTCT"].ToString().Trim();
             txtEquipmentId.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])[1].ToString().Trim();
             txtEquipmentName.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])[2].ToString().Trim();
             txtAmount.Text = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])[3].ToString().Trim();
-            
+            string time = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])["THOIGIAN"].ToString().Trim();
+
+            txtTime.DateTime = CastDateTime(time);
+            txtTime.Enabled = false;
         }
 
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -164,12 +174,17 @@ namespace Hospital
 
         private void btnWrite_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (txtTime.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập thời gian bắt đầu sử dụng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (txtAmount.Text.Trim() == "")
             {
                 MessageBox.Show("Bạn chưa nhập số lượng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string cmd = string.Format("EXEC MERGE_EQUIPMENT_DETAIL {0},'{1}',{2},{3}", txtCureId.Text, txtEquipmentId.Text, int.Parse(txtAmount.Value.ToString()),!isAdding);
+            string cmd = string.Format("EXEC MERGE_EQUIPMENT_DETAIL {0},'{1}',{2},{3},N'{4}'", txtCureId.Text, txtEquipmentId.Text, int.Parse(txtAmount.Value.ToString()),!isAdding,txtTime.Text);
             if (Program.Connect() == 0) { return; }
             int result = Program.ExecSqlNonQuery(cmd);
             if (result == 0)
@@ -181,8 +196,10 @@ namespace Hospital
                 ToggleGroupBox(false);
                 gET_MEDICINE_EQUIPMENT_DETAILTableAdapter.Fill(qLBVDataSet.GET_MEDICINE_EQUIPMENT_DETAIL, int.Parse(txtCureId.Text));
                 MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
+                txtTime.Enabled = true;
             }
+            
         }
 
         private void btnCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -193,6 +210,7 @@ namespace Hospital
             ToggleTables(true);
             ToggleGroupBox(false);
             HandleEquipmentDetailClick();
+            txtTime.Enabled = true;
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -201,6 +219,44 @@ namespace Hospital
             vATTUTableAdapter.Fill(qLBVDataSet.VATTU);
             HandleCureDetailClick();
             HandleEquipmentDetailClick();
+        }
+
+        private DateTime CastDateTime(string dateTimeStr)
+        {
+            DateTime dateTimeValue;
+            if (DateTime.TryParseExact(dateTimeStr, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "M/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "M/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "MM/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "MM/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "M/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+            else if (DateTime.TryParseExact(dateTimeStr, "MM/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
+            {
+
+            }
+
+            return dateTimeValue;
+
         }
     }
 }

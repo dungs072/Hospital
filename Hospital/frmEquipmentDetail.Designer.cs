@@ -70,6 +70,15 @@ namespace Hospital
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTime = new DevExpress.XtraEditors.DateEdit();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtAmount = new DevExpress.XtraEditors.SpinEdit();
+            this.txtEquipmentId = new System.Windows.Forms.TextBox();
+            this.txtEquipmentName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCureId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.gET_ALL_DETAIL_CURETableAdapter = new Hospital.QLBVDataSetTableAdapters.GET_ALL_DETAIL_CURETableAdapter();
@@ -85,13 +94,7 @@ namespace Hospital
             this.colMAVT1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENVT1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCureId = new System.Windows.Forms.TextBox();
-            this.txtEquipmentName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtEquipmentId = new System.Windows.Forms.TextBox();
-            this.txtAmount = new DevExpress.XtraEditors.SpinEdit();
-            this.label6 = new System.Windows.Forms.Label();
+            this.colTHOIGIAN1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -106,12 +109,14 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTime.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOAICHUATRIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_MEDICINE_EQUIPMENT_DETAILBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_MEDICINE_EQUIPMENT_DETAILGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -152,7 +157,7 @@ namespace Hospital
             // 
             // btnAdd
             // 
-            this.btnAdd.Caption = "Add";
+            this.btnAdd.Caption = "Thêm";
             this.btnAdd.Id = 0;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.LargeImage")));
@@ -512,6 +517,8 @@ namespace Hospital
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTime);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.txtEquipmentId);
@@ -526,6 +533,109 @@ namespace Hospital
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập liệu";
+            // 
+            // txtTime
+            // 
+            this.txtTime.EditValue = null;
+            this.txtTime.Location = new System.Drawing.Point(130, 172);
+            this.txtTime.MenuManager = this.barManager1;
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtTime.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.txtTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtTime.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.txtTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtTime.Properties.Mask.EditMask = "dd/MM/yyyy HH:mm:ss";
+            this.txtTime.Size = new System.Drawing.Size(243, 28);
+            this.txtTime.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(27, 176);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 19);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Thời gian:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(30, 243);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Số lượng:";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtAmount.Location = new System.Drawing.Point(130, 239);
+            this.txtAmount.MenuManager = this.barManager1;
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtAmount.Properties.MaxValue = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtAmount.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtAmount.Size = new System.Drawing.Size(159, 28);
+            this.txtAmount.TabIndex = 5;
+            // 
+            // txtEquipmentId
+            // 
+            this.txtEquipmentId.Location = new System.Drawing.Point(316, 104);
+            this.txtEquipmentId.Name = "txtEquipmentId";
+            this.txtEquipmentId.ReadOnly = true;
+            this.txtEquipmentId.Size = new System.Drawing.Size(100, 27);
+            this.txtEquipmentId.TabIndex = 4;
+            // 
+            // txtEquipmentName
+            // 
+            this.txtEquipmentName.Location = new System.Drawing.Point(130, 104);
+            this.txtEquipmentName.Name = "txtEquipmentName";
+            this.txtEquipmentName.ReadOnly = true;
+            this.txtEquipmentName.Size = new System.Drawing.Size(159, 27);
+            this.txtEquipmentName.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(30, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 19);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Vật tư:";
+            // 
+            // txtCureId
+            // 
+            this.txtCureId.Location = new System.Drawing.Point(130, 40);
+            this.txtCureId.Name = "txtCureId";
+            this.txtCureId.ReadOnly = true;
+            this.txtCureId.Size = new System.Drawing.Size(159, 27);
+            this.txtCureId.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Mã chữa trị:";
             // 
             // panel6
             // 
@@ -555,21 +665,20 @@ namespace Hospital
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BACSITableAdapter = null;
             this.tableAdapterManager.BENHNHANTableAdapter = null;
             this.tableAdapterManager.CHITIETCHUATRITableAdapter = null;
-            this.tableAdapterManager.CHITIETGIOLAMVIECTableAdapter = null;
             this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
             this.tableAdapterManager.CHITIETOTableAdapter = null;
             this.tableAdapterManager.CHITIETSUDUNGVTTableAdapter = null;
-            this.tableAdapterManager.CHUCVUTableAdapter = null;
             this.tableAdapterManager.GIUONGTableAdapter = null;
             this.tableAdapterManager.KHUCHUATRITableAdapter = null;
             this.tableAdapterManager.LOAICHUATRITableAdapter = this.lOAICHUATRITableAdapter;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHONGTableAdapter = null;
-            this.tableAdapterManager.TUANTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = this.vATTUTableAdapter;
+            this.tableAdapterManager.YTATableAdapter = null;
             // 
             // lOAICHUATRITableAdapter
             // 
@@ -613,13 +722,14 @@ namespace Hospital
             this.colID_CTCT1,
             this.colMAVT1,
             this.colTENVT1,
-            this.colSOLUONG});
+            this.colSOLUONG,
+            this.colTHOIGIAN1});
             this.gridView3.GridControl = this.gET_MEDICINE_EQUIPMENT_DETAILGridControl;
             this.gridView3.Name = "gridView3";
             // 
             // colID_CTCT1
             // 
-            this.colID_CTCT1.Caption = "Mã chi tiết chữa trị";
+            this.colID_CTCT1.Caption = "Id";
             this.colID_CTCT1.FieldName = "ID_CTCT";
             this.colID_CTCT1.MinWidth = 30;
             this.colID_CTCT1.Name = "colID_CTCT1";
@@ -661,81 +771,18 @@ namespace Hospital
             this.colSOLUONG.VisibleIndex = 3;
             this.colSOLUONG.Width = 112;
             // 
-            // label4
+            // colTHOIGIAN1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Mã chữa trị:";
-            // 
-            // txtCureId
-            // 
-            this.txtCureId.Location = new System.Drawing.Point(130, 40);
-            this.txtCureId.Name = "txtCureId";
-            this.txtCureId.ReadOnly = true;
-            this.txtCureId.Size = new System.Drawing.Size(159, 27);
-            this.txtCureId.TabIndex = 1;
-            // 
-            // txtEquipmentName
-            // 
-            this.txtEquipmentName.Location = new System.Drawing.Point(130, 104);
-            this.txtEquipmentName.Name = "txtEquipmentName";
-            this.txtEquipmentName.ReadOnly = true;
-            this.txtEquipmentName.Size = new System.Drawing.Size(159, 27);
-            this.txtEquipmentName.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 112);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 19);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Vật tư:";
-            // 
-            // txtEquipmentId
-            // 
-            this.txtEquipmentId.Location = new System.Drawing.Point(316, 104);
-            this.txtEquipmentId.Name = "txtEquipmentId";
-            this.txtEquipmentId.ReadOnly = true;
-            this.txtEquipmentId.Size = new System.Drawing.Size(100, 27);
-            this.txtEquipmentId.TabIndex = 4;
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtAmount.Location = new System.Drawing.Point(130, 170);
-            this.txtAmount.MenuManager = this.barManager1;
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtAmount.Properties.MaxValue = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.txtAmount.Properties.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtAmount.Size = new System.Drawing.Size(159, 28);
-            this.txtAmount.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 174);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 19);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Số lượng:";
+            this.colTHOIGIAN1.Caption = "Thời gian bắt đầu sử dụng";
+            this.colTHOIGIAN1.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.colTHOIGIAN1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colTHOIGIAN1.FieldName = "THOIGIAN";
+            this.colTHOIGIAN1.MinWidth = 30;
+            this.colTHOIGIAN1.Name = "colTHOIGIAN1";
+            this.colTHOIGIAN1.OptionsColumn.AllowEdit = false;
+            this.colTHOIGIAN1.Visible = true;
+            this.colTHOIGIAN1.VisibleIndex = 4;
+            this.colTHOIGIAN1.Width = 112;
             // 
             // frmEquipmentDetail
             // 
@@ -770,13 +817,15 @@ namespace Hospital
             this.panel4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTime.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOAICHUATRIBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_MEDICINE_EQUIPMENT_DETAILBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_MEDICINE_EQUIPMENT_DETAILGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -831,10 +880,6 @@ namespace Hospital
         private QLBVDataSetTableAdapters.GET_MEDICINE_EQUIPMENT_DETAILTableAdapter gET_MEDICINE_EQUIPMENT_DETAILTableAdapter;
         private DevExpress.XtraGrid.GridControl gET_MEDICINE_EQUIPMENT_DETAILGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_CTCT1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAVT1;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENVT1;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -845,5 +890,12 @@ namespace Hospital
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCureId;
         private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.DateEdit txtTime;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraGrid.Columns.GridColumn colID_CTCT1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAVT1;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENVT1;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
+        private DevExpress.XtraGrid.Columns.GridColumn colTHOIGIAN1;
     }
 }

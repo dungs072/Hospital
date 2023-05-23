@@ -74,12 +74,6 @@
     <Compile Include="frmAreaWorkingDetail.Designer.cs">
       <DependentUpon>frmAreaWorkingDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCreateWeek.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCreateWeek.Designer.cs">
-      <DependentUpon>frmCreateWeek.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCure.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,17 +92,11 @@
     <Compile Include="frmEquipmentDetail.Designer.cs">
       <DependentUpon>frmEquipmentDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHoursWorkingWeek.cs">
+    <Compile Include="frmLeaderNurse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHoursWorkingWeek.Designer.cs">
-      <DependentUpon>frmHoursWorkingWeek.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmHourWorkingDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmHourWorkingDetail.Designer.cs">
-      <DependentUpon>frmHourWorkingDetail.cs</DependentUpon>
+    <Compile Include="frmLeaderNurse.Designer.cs">
+      <DependentUpon>frmLeaderNurse.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -146,24 +134,12 @@
     <Compile Include="frmUsingEquipment.Designer.cs">
       <DependentUpon>frmUsingEquipment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWeek.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWeek.Designer.cs">
-      <DependentUpon>frmWeek.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLBVDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBVDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="XrptHoursWorkingWeek.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="XrptHoursWorkingWeek.Designer.cs">
-      <DependentUpon>XrptHoursWorkingWeek.cs</DependentUpon>
     </Compile>
     <Compile Include="XrptUsingEquipment.cs">
       <SubType>Component</SubType>
@@ -174,9 +150,6 @@
     <EmbeddedResource Include="frmAreaWorkingDetail.resx">
       <DependentUpon>frmAreaWorkingDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCreateWeek.resx">
-      <DependentUpon>frmCreateWeek.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCure.resx">
       <DependentUpon>frmCure.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,11 +159,8 @@
     <EmbeddedResource Include="frmEquipmentDetail.resx">
       <DependentUpon>frmEquipmentDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHoursWorkingWeek.resx">
-      <DependentUpon>frmHoursWorkingWeek.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmHourWorkingDetail.resx">
-      <DependentUpon>frmHourWorkingDetail.cs</DependentUpon>
+    <EmbeddedResource Include="frmLeaderNurse.resx">
+      <DependentUpon>frmLeaderNurse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -210,9 +180,6 @@
     <EmbeddedResource Include="frmUsingEquipment.resx">
       <DependentUpon>frmUsingEquipment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmWeek.resx">
-      <DependentUpon>frmWeek.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -223,9 +190,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="XrptHoursWorkingWeek.resx">
-      <DependentUpon>XrptHoursWorkingWeek.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="XrptUsingEquipment.resx">
       <DependentUpon>XrptUsingEquipment.cs</DependentUpon>
     </EmbeddedResource>

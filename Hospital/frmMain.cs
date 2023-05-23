@@ -60,21 +60,9 @@ namespace Hospital
                 {
                     f = new frmAreaWorkingDetail();
                 }
-                else if (tForm == typeof(frmHourWorkingDetail))
-                {
-                    f = new frmHourWorkingDetail();
-                }
-                else if(tForm == typeof(frmHoursWorkingWeek))
-                {
-                    f = new frmHoursWorkingWeek();
-                }
                 else if (tForm == typeof(frmUsingEquipment))
                 {
                     f = new frmUsingEquipment();
-                }
-                else if(tForm == typeof(frmWeek))
-                {
-                    f = new frmWeek();
                 }
                 else if (tForm == typeof(frmPatient))
                 {
@@ -119,21 +107,9 @@ namespace Hospital
         {
             ShowForm(typeof(frmAreaWorkingDetail));
         }
-        private void btnBarWorkingHour_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            ShowForm(typeof(frmHourWorkingDetail));
-        }
-        private void btnBarHoursWorkingWeek_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            ShowForm(typeof(frmHoursWorkingWeek));
-        }
         private void btnBarUsingEquip_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ShowForm(typeof(frmUsingEquipment));
-        }
-        private void btnBarWeek_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            ShowForm(typeof(frmWeek));
         }
         private void btnBarPatient_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -211,7 +187,6 @@ namespace Hospital
 
             btnBarUsingEquip.Enabled = true;
             btnBarRegisterArea.Enabled = true;
-            btnBarWorkingHour.Enabled = true;
             CloseAllFormCurrentlyOpen();
             ShowForm(typeof(frmLogin));
         }

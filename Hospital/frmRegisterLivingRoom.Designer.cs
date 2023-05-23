@@ -562,18 +562,15 @@ namespace Hospital
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.BENHNHANTableAdapter = null;
             this.tableAdapterManager.CHITIETCHUATRITableAdapter = null;
-            this.tableAdapterManager.CHITIETGIOLAMVIECTableAdapter = null;
             this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
             this.tableAdapterManager.CHITIETOTableAdapter = null;
             this.tableAdapterManager.CHITIETSUDUNGVTTableAdapter = null;
-            this.tableAdapterManager.CHUCVUTableAdapter = null;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.GIUONGTableAdapter = null;
             this.tableAdapterManager.KHUCHUATRITableAdapter = null;
             this.tableAdapterManager.LOAICHUATRITableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHONGTableAdapter = null;
-            this.tableAdapterManager.TUANTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = null;
             // 

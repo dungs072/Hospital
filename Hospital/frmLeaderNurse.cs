@@ -11,12 +11,11 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmCreateWeek : DevExpress.XtraEditors.XtraForm
+    public partial class frmLeaderNurse : DevExpress.XtraEditors.XtraForm
     {
-        public frmCreateWeek()
+        public frmLeaderNurse()
         {
             InitializeComponent();
         }
-
     }
 }

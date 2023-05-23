@@ -24,6 +24,8 @@ namespace Hospital
 
         private void frmPatient_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLBVDataSet.GET_DOCTORS' table. You can move, or remove it, as needed.
+            this.gET_DOCTORSTableAdapter.Fill(this.qLBVDataSet.GET_DOCTORS);
             // TODO: This line of code loads data into the 'qLBVDataSet.CHITIETO' table. You can move, or remove it, as needed.
             this.cHITIETOTableAdapter.Fill(this.qLBVDataSet.CHITIETO);
             // TODO: This line of code loads data into the 'qLBVDataSet.CHITIETCHUATRI' table. You can move, or remove it, as needed.
@@ -158,6 +160,7 @@ namespace Hospital
                 {
                     //write
                     ((DataRowView)bENHNHANBindingSource[bENHNHANBindingSource.Position])["LOAI"] = cmbType.Text;
+                    ((DataRowView)bENHNHANBindingSource[bENHNHANBindingSource.Position])["MABSTN"] = cmbWelcomDoctor.SelectedValue;
                     bENHNHANBindingSource.EndEdit();
                     bENHNHANBindingSource.ResetCurrentItem();
                     if (qLBVDataSet.HasChanges())
@@ -217,15 +220,16 @@ namespace Hospital
             ToggleUpdateDeleteButtons(bENHNHANBindingSource.Count > 0);
         }
 
-        private void bENHNHANGridControl_Click(object sender, EventArgs e)
+        private void bENHNHANGridControl_Click_1(object sender, EventArgs e)
         {
             if (bENHNHANBindingSource.Count == 0)
             {
                 cmbType.SelectedIndex = 0;
-                return; 
+                return;
             }
             cmbType.SelectedItem = ((DataRowView)bENHNHANBindingSource[bENHNHANBindingSource.Position])["LOAI"].ToString().Trim();
-
+            if (gETDOCTORSBindingSource.Count == 0) { return; }
+            cmbWelcomDoctor.SelectedValue = ((DataRowView)bENHNHANBindingSource[bENHNHANBindingSource.Position])["MABSTN"].ToString().Trim();
         }
     }
 }

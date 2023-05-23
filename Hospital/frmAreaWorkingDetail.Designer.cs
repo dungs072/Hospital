@@ -213,7 +213,7 @@ namespace Hospital
             // 
             // colTENCV
             // 
-            this.colTENCV.Caption = "Công việc";
+            this.colTENCV.Caption = "Chức vụ";
             this.colTENCV.FieldName = "TENCV";
             this.colTENCV.MinWidth = 30;
             this.colTENCV.Name = "colTENCV";
@@ -280,7 +280,6 @@ namespace Hospital
             this.colTEN});
             this.gridView1.GridControl = this.kHUCHUATRIGridControl;
             this.gridView1.Name = "gridView1";
-            this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
             // 
             // colDANHDINHKHU
             // 
@@ -332,21 +331,20 @@ namespace Hospital
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BACSITableAdapter = null;
             this.tableAdapterManager.BENHNHANTableAdapter = null;
             this.tableAdapterManager.CHITIETCHUATRITableAdapter = null;
-            this.tableAdapterManager.CHITIETGIOLAMVIECTableAdapter = null;
             this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
             this.tableAdapterManager.CHITIETOTableAdapter = null;
             this.tableAdapterManager.CHITIETSUDUNGVTTableAdapter = null;
-            this.tableAdapterManager.CHUCVUTableAdapter = null;
             this.tableAdapterManager.GIUONGTableAdapter = null;
             this.tableAdapterManager.KHUCHUATRITableAdapter = this.kHUCHUATRITableAdapter;
             this.tableAdapterManager.LOAICHUATRITableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHONGTableAdapter = null;
-            this.tableAdapterManager.TUANTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = null;
+            this.tableAdapterManager.YTATableAdapter = null;
             // 
             // gET_STAFFTableAdapter
             // 

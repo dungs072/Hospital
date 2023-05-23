@@ -37,7 +37,7 @@ namespace Hospital
             HandleButtons();
             if (Program.mGroup == "BacSi")
             {
-                gET_ALL_DETAIL_CUREBindingSource.Filter = "MANV = '" + Program.userName+"'";
+                gET_ALL_DETAIL_CUREBindingSource.Filter = "MABS = '" + Program.userName+"'";
                 cmbDoctor.Enabled = false;
                 cmbDoctor.SelectedValue = Program.userName;
             }
@@ -96,12 +96,12 @@ namespace Hospital
             ToggleUpdateDeleteButtons(true);
             int tempPosition = gET_ALL_DETAIL_CUREBindingSource.Position;
             txtPatientName.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[1].ToString().Trim();
-            txtPatientId.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[6].ToString().Trim();
+            txtPatientId.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])["MABN"].ToString().Trim();
             txtType.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[2].ToString().Trim();
             string timeStr = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[3].ToString().Trim();
             txtResult.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[4].ToString().Trim();
-            txtTypeId.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[7].ToString().Trim();
-            cmbDoctor.SelectedValue = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[5].ToString().Trim();
+            txtTypeId.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])["MALOAI_CT"].ToString().Trim();
+            cmbDoctor.SelectedValue = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])["MABS"].ToString().Trim();
             DateTime dateTimeValue;
             if (DateTime.TryParseExact(timeStr, "dd/MM/yyyy hh:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeValue))
             {
@@ -132,10 +132,10 @@ namespace Hospital
             txtPatientId.Text = ((DataRowView)gET_ALL_PATIENTBindingSource[gET_ALL_PATIENTBindingSource.Position])[0].ToString().Trim();
             txtType.Text = ((DataRowView)lOAICHUATRIBindingSource[lOAICHUATRIBindingSource.Position])[0].ToString().Trim();
             txtTypeId.Text = ((DataRowView)lOAICHUATRIBindingSource[lOAICHUATRIBindingSource.Position])[1].ToString().Trim();
-            txtTime.Text = "";
             txtResult.Text = "";
             isAdding = true;
             txtResult.Focus();
+            txtTime.DateTime = DateTime.Now;
 
         }
 
@@ -162,7 +162,7 @@ namespace Hospital
             DialogResult resultDialog = MessageBox.Show("Bạn có muốn xóa chi tiết chữa trị của bệnh nhân " + txtPatientName.Text, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (resultDialog == DialogResult.OK)
             {
-                int id = int.Parse(((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])[8].ToString().Trim());
+                int id = int.Parse(((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])["ID_CTCT"].ToString().Trim());
                 cmd = string.Format("DELETE FROM CHITIETCHUATRI WHERE ID_CTCT = {0}", id);
                 result = Program.ExecSqlNonQuery(cmd);
                 if (result == 0)
@@ -190,6 +190,7 @@ namespace Hospital
             ToggleUpdateDeleteButtons(false);
             ToggleWriteCancelButtons(true);
             ToggleTables(false);
+            cmbDoctor.Enabled = false;
             isAdding = false;
             txtResult.Focus();
         }
@@ -205,18 +206,9 @@ namespace Hospital
             string staffId = cmbDoctor.SelectedValue.ToString().Trim();
             if (isAdding)
             {
-                string cmd = "";
-                if (txtTime.Text == "")
-                {
-                    cmd = string.Format("INSERT INTO CHITIETCHUATRI (MANV, MABN,MALOAI_CT, KETQUA) " +
-                "                   VALUES('{0}','{1}','{2}',N'{3}')", staffId, txtPatientId.Text, txtTypeId.Text.Trim(), txtResult.Text);
-                }
-                else
-                {
-                    cmd = string.Format("INSERT INTO CHITIETCHUATRI (MANV, MABN,MALOAI_CT,THOIGIAN, KETQUA) " +
-               "                   VALUES('{0}','{1}','{2}',CONVERT(datetime, '{3}', 105),N'{4}')",staffId, txtPatientId.Text, txtTypeId.Text.Trim(), txtTime.Text, txtResult.Text);
-                }
-               
+                string cmd = string.Format("INSERT INTO CHITIETCHUATRI (MABS, MABN,MALOAI_CT,THOIGIAN, KETQUA) " +
+               "                   VALUES('{0}','{1}','{2}',CONVERT(datetime, '{3}', 105),N'{4}')", staffId, txtPatientId.Text, txtTypeId.Text.Trim(), txtTime.Text, txtResult.Text);
+
                 SqlCommand sqlCmd = new SqlCommand(cmd, Program.conn);
                 sqlCmd.CommandType = System.Data.CommandType.Text;
                 sqlCmd.CommandTimeout = 600;//10 mins
@@ -224,10 +216,11 @@ namespace Hospital
                 try
                 {
                     sqlCmd.ExecuteNonQuery();
-                    MessageBox.Show("Thêm thành công chi tiết chữa trị cho bệnh nhân " + txtPatientName.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     gET_ALL_DETAIL_CURETableAdapter.Fill(qLBVDataSet.GET_ALL_DETAIL_CURE);
                     HandleButtons();
                     Program.conn.Close();
+                    MessageBox.Show("Thêm thành công chi tiết chữa trị cho bệnh nhân " + txtPatientName.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (SqlException ex)
                 {
@@ -245,7 +238,7 @@ namespace Hospital
             else
             {
                 string cmd = "";
-                int id = int.Parse(((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])[8].ToString().Trim());
+                int id = int.Parse(((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])["ID_CTCT"].ToString().Trim());
                 if (txtTime.Text == "")
                 {
                     cmd = string.Format("UPDATE CHITIETCHUATRI SET KETQUA = N'{0}' " +
@@ -264,10 +257,11 @@ namespace Hospital
                 try
                 {
                     sqlCmd.ExecuteNonQuery();
-                    MessageBox.Show("Cập nhật thành công chi tiết chữa trị cho bệnh nhân " + txtPatientName.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     gET_ALL_DETAIL_CURETableAdapter.Fill(qLBVDataSet.GET_ALL_DETAIL_CURE);
                     HandleButtons();
                     Program.conn.Close();
+                    cmbDoctor.Enabled = true;
+                    MessageBox.Show("Cập nhật thành công chi tiết chữa trị cho bệnh nhân " + txtPatientName.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (SqlException ex)
                 {
@@ -294,6 +288,7 @@ namespace Hospital
             ToggleGroupBox(false);
             ToggleTables(true);
             SetCureDetailData();
+            cmbDoctor.Enabled = true;
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -309,7 +304,11 @@ namespace Hospital
         }
         private bool CanHandleOnThisRow()
         {
-            string doctorId = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])[5].ToString().Trim();
+            if (Program.mGroup != "BacSi")
+            {
+                return true;
+            }
+            string doctorId = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])["MABS"].ToString().Trim();
             return doctorId == Program.userName;
             
         }

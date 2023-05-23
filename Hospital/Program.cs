@@ -104,7 +104,7 @@ namespace Hospital
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 conn.Close();
-                return ex.State;
+                return ex.State+1;
             }
         }
         public static void ResetStripStatus()
