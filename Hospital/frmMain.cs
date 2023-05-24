@@ -76,6 +76,18 @@ namespace Hospital
                 {
                     f = new frmTreatment();
                 }
+                else if (tForm == typeof(frmLeaderNurse))
+                {
+                    f = new frmLeaderNurse();
+                }
+                else if (tForm == typeof(frmDoctor))
+                {
+                    f = new frmDoctor();
+                }
+                else if (tForm == typeof(frmNurse))
+                {
+                    f = new frmNurse();
+                }
                 else
                 {
                     f = new frmLogin();
@@ -131,6 +143,18 @@ namespace Hospital
         private void btnBarRegisterLivingRoomNurse_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ShowForm(typeof(frmRegisterLivingRoom));
+        }
+        private void btnBarRegisterLeaderNurse_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmLeaderNurse));
+        }
+        private void btnBarDoctor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmDoctor));
+        }
+        private void btnBarNurse_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmNurse));
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -191,6 +215,6 @@ namespace Hospital
             ShowForm(typeof(frmLogin));
         }
 
-      
+    
     }
 }
