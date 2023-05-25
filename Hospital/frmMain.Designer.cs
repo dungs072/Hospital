@@ -96,6 +96,14 @@ namespace Hospital
             this.btnBarRegisterLeaderNurse,
             this.btnBarDoctor,
             this.btnBarNurse});
+            this.btnBarRegisterLivingRoom,
+            this.barButtonItem1,
+            this.btnChucVu_NhanVien,
+            this.btnPhong_Khu,
+            this.btnGiuong,
+            this.btnTheoDoiBenhNhan,
+            this.btnTaoTaiKhoan,
+            this.btnXoaTK});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonControl1.MaxItemId = 22;
@@ -251,6 +259,64 @@ namespace Hospital
             this.btnBarNurse.Name = "btnBarNurse";
             this.btnBarNurse.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarNurse_ItemClick);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "CHỨC VỤ & NHÂN VIÊN";
+            this.barButtonItem1.Id = 3;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // btnChucVu_NhanVien
+            // 
+            this.btnChucVu_NhanVien.Caption = "CHỨC VỤ & NHÂN VIÊN";
+            this.btnChucVu_NhanVien.Id = 4;
+            this.btnChucVu_NhanVien.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnChucVu_NhanVien.ImageOptions.SvgImage")));
+            this.btnChucVu_NhanVien.Name = "btnChucVu_NhanVien";
+            this.btnChucVu_NhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChucVu_NhanVien_ItemClick);
+            // 
+            // btnPhong_Khu
+            // 
+            this.btnPhong_Khu.Caption = "PHÒNG & KHU ĐIỀU TRỊ";
+            this.btnPhong_Khu.Id = 5;
+            this.btnPhong_Khu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhong_Khu.ImageOptions.SvgImage")));
+            this.btnPhong_Khu.Name = "btnPhong_Khu";
+            this.btnPhong_Khu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhong_Khu_ItemClick);
+            // 
+            // btnGiuong
+            // 
+            this.btnGiuong.Caption = "GIƯỜNG";
+            this.btnGiuong.Id = 6;
+            this.btnGiuong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGiuong.ImageOptions.Image")));
+            this.btnGiuong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGiuong.ImageOptions.LargeImage")));
+            this.btnGiuong.Name = "btnGiuong";
+            this.btnGiuong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGiuong_ItemClick);
+            // 
+            // btnTheoDoiBenhNhan
+            // 
+            this.btnTheoDoiBenhNhan.Caption = "THEO DÕI BỆNH NHÂN";
+            this.btnTheoDoiBenhNhan.Id = 7;
+            this.btnTheoDoiBenhNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTheoDoiBenhNhan.ImageOptions.Image")));
+            this.btnTheoDoiBenhNhan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTheoDoiBenhNhan.ImageOptions.LargeImage")));
+            this.btnTheoDoiBenhNhan.Name = "btnTheoDoiBenhNhan";
+            this.btnTheoDoiBenhNhan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTheoDoiBenhNhan_ItemClick);
+            // 
+            // btnTaoTaiKhoan
+            // 
+            this.btnTaoTaiKhoan.Caption = "Tạo Tài Khoản";
+            this.btnTaoTaiKhoan.Id = 8;
+            this.btnTaoTaiKhoan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.Image")));
+            this.btnTaoTaiKhoan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.LargeImage")));
+            this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
+            this.btnTaoTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTaiKhoan_ItemClick);
+            // 
+            // btnXoaTK
+            // 
+            this.btnXoaTK.Caption = "Quản Lý Tài Khoản";
+            this.btnXoaTK.Id = 9;
+            this.btnXoaTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaTK.ImageOptions.Image")));
+            this.btnXoaTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoaTK.ImageOptions.LargeImage")));
+            this.btnXoaTK.Name = "btnXoaTK";
+            this.btnXoaTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoaTK_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -262,6 +328,8 @@ namespace Hospital
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnBarLogin);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnTaoTaiKhoan);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnXoaTK);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnBarChangePassword);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnBarLogOut);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
@@ -293,6 +361,10 @@ namespace Hospital
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterLeaderNurse);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterLivingRoom);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnChucVu_NhanVien);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnPhong_Khu);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnGiuong);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnTheoDoiBenhNhan);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterArea);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
@@ -442,6 +514,13 @@ namespace Hospital
         private DevExpress.XtraBars.BarButtonItem btnBarDoctor;
         private DevExpress.XtraBars.BarButtonItem btnBarNurse;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnChucVu_NhanVien;
+        private DevExpress.XtraBars.BarButtonItem btnPhong_Khu;
+        private DevExpress.XtraBars.BarButtonItem btnGiuong;
+        private DevExpress.XtraBars.BarButtonItem btnTheoDoiBenhNhan;
+        private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
+        private DevExpress.XtraBars.BarButtonItem btnXoaTK;
     }
 }
 

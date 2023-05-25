@@ -44,7 +44,7 @@ namespace Hospital
             else
             {
                 Form f;
-                if (tForm == typeof(frmRegisterLivingRoom))
+                /*if (tForm == typeof(frmRegisterLivingRoom))
                 {
                     f = new frmRegisterLivingRoom();
                 }
@@ -97,15 +97,61 @@ namespace Hospital
 
             }
         }
-
+        
         private void btnBarLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ShowForm(typeof(frmLogin));
+            frmLogin login = new frmLogin();
+            login.MdiParent = this;
+            login.Show();
         }
 
         private void btnBarRegisterLivingRoom_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ShowForm(typeof(frmRegisterLivingRoom));
+            //ShowForm(typeof(frmRegisterLivingRoom));
+        }
+
+        private void btnChucVu_NhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            formCHUCVUvaNHANVIEN cvnv = new formCHUCVUvaNHANVIEN();
+            cvnv.MdiParent = this;
+            cvnv.Show();
+        }
+
+        private void btnPhong_Khu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmPhongvaKhuChuaTri p_khu = new frmPhongvaKhuChuaTri();
+            p_khu.MdiParent = this;
+            p_khu.Show();
+        }
+
+        private void btnGiuong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //frmGiuong giuong = new frmGiuong();
+            //giuong.MdiParent = this;
+            //giuong.Show();
+            ShowForm(typeof(frmGiuong));
+        }
+
+        private void btnTheoDoiBenhNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmTheoDoiBenhNhan theodoi = new frmTheoDoiBenhNhan();
+            theodoi.MdiParent = this;
+            theodoi.Show();
+        }
+
+        private void btnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmTaoTK taoTK = new frmTaoTK();
+            taoTK.MdiParent = this;
+            taoTK.Show();
+        }
+
+        private void btnXoaTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmXoaTaiKhoan deleteTK = new frmXoaTaiKhoan();
+            deleteTK.MdiParent = this;
+
+            deleteTK.Show();
         }
         private void btnBarCure_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
