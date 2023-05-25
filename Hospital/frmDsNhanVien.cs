@@ -20,10 +20,12 @@ namespace Hospital
 
         private void frmDsNhanVien_Load(object sender, EventArgs e)
         {
+
+            this.qLBVDataSet.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'qLBVDataSet.SP_DS_NHANVIEN_KHONG_TAI_KHOAN' table. You can move, or remove it, as needed.
+            this.sP_DS_NHANVIEN_KHONG_TAI_KHOANTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sP_DS_NHANVIEN_KHONG_TAI_KHOANTableAdapter.Fill(this.qLBVDataSet.SP_DS_NHANVIEN_KHONG_TAI_KHOAN);
-            // TODO: This line of code loads data into the 'qLBVDataSet.SP_DS_NHANVIEN_KHONG_TAI_KHOAN' table. You can move, or remove it, as needed.
-            this.sP_DS_NHANVIEN_KHONG_TAI_KHOANTableAdapter.Fill(this.qLBVDataSet.SP_DS_NHANVIEN_KHONG_TAI_KHOAN);
+            
 
         }
 

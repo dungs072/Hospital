@@ -73,6 +73,7 @@ namespace Hospital
 
 
             Program.fMain.ShowMenu();
+            this.Close();
         }
     }
 }

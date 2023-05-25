@@ -56,6 +56,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\RoleClass.cs" />
+    <Compile Include="formCHUCVUvaNHANVIEN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCHUCVUvaNHANVIEN.Designer.cs">
+      <DependentUpon>formCHUCVUvaNHANVIEN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDsNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDsNhanVien.Designer.cs">
+      <DependentUpon>frmDsNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGiuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiuong.Designer.cs">
+      <DependentUpon>frmGiuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,27 +87,66 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegisterLivingRoom.cs">
+    <Compile Include="frmPhongvaKhuChuaTri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegisterLivingRoom.Designer.cs">
-      <DependentUpon>frmRegisterLivingRoom.cs</DependentUpon>
+    <Compile Include="frmPhongvaKhuChuaTri.Designer.cs">
+      <DependentUpon>frmPhongvaKhuChuaTri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTaoTK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaoTK.Designer.cs">
+      <DependentUpon>frmTaoTK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTheoDoiBenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTheoDoiBenhNhan.Designer.cs">
+      <DependentUpon>frmTheoDoiBenhNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXoaTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXoaTaiKhoan.Designer.cs">
+      <DependentUpon>frmXoaTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLBVDataSet.cs">
+      <DependentUpon>QLBVDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QLBVDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBVDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="formCHUCVUvaNHANVIEN.resx">
+      <DependentUpon>formCHUCVUvaNHANVIEN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDsNhanVien.resx">
+      <DependentUpon>frmDsNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiuong.resx">
+      <DependentUpon>frmGiuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegisterLivingRoom.resx">
-      <DependentUpon>frmRegisterLivingRoom.cs</DependentUpon>
+    <EmbeddedResource Include="frmPhongvaKhuChuaTri.resx">
+      <DependentUpon>frmPhongvaKhuChuaTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaoTK.resx">
+      <DependentUpon>frmTaoTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTheoDoiBenhNhan.resx">
+      <DependentUpon>frmTheoDoiBenhNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXoaTaiKhoan.resx">
+      <DependentUpon>frmXoaTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
