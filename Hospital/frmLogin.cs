@@ -77,6 +77,10 @@ namespace Hospital
             {
                 Program.fMain.LoginByHospitalRole();
             }
+            else if (Program.mGroup == "Boss")
+            {
+                Program.fMain.LoginByBossRole();
+            }
             else if(Program.mGroup == "BacSi")
             {
                 Program.fMain.LoginByDoctorRole();

@@ -14,6 +14,9 @@ namespace Hospital
 {
     public partial class frmTaoTK : DevExpress.XtraEditors.XtraForm
     {
+        private List<RoleClass> bossRole = new List<RoleClass> {
+             new RoleClass("Boss","Nhóm Boss")
+        };
         public frmTaoTK()
         {
             InitializeComponent();
@@ -21,9 +24,20 @@ namespace Hospital
 
         private void btnChonNhanVien_Click(object sender, EventArgs e)
         {
-            frmDsNhanVien ds = new frmDsNhanVien();
+            string typeRole = "";
+            if(cbbQuyen.SelectedValue.ToString()== "BacSi")
+            {
+                typeRole = "BS";
+            }
+            else if (cbbQuyen.SelectedValue.ToString()== "YTa")
+            {
+                typeRole = "YT";
+            }
+            frmStaffList ds = new frmStaffList(typeRole);
+            ds.StartPosition = FormStartPosition.CenterScreen;
             ds.ShowDialog();
             txtMaNhanVien.Text = Program.MaNhanVienChon;
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -33,29 +47,34 @@ namespace Hospital
         private bool kiemTra()
         {
             
-                if (txtMaNhanVien.Text.Trim().Length == 0)
-                {
-                    MessageBox.Show("user  name không được để trống", "Thông báo", MessageBoxButtons.OK);
-                    return false;
-                }
+            if (txtMaNhanVien.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Mã nhân viên không được để trống", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                txtMaNhanVien.Focus();
+                return false;
+            }
             if (txtLoginName.Text.Trim().Length == 0) {
-                MessageBox.Show("Login name không được để trống", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Login name không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLoginName.Focus();
                 return false;
             }
 
             if (txtPassword.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Mật khẩu không được để trống", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Mật khẩu không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Focus();
                 return false;
             }
             if (txtPassWordXacNhan.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Mật khẩu xác nhận  không được để trống", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Mật khẩu xác nhận  không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassWordXacNhan.Focus();
                 return false;
             }
             if (txtPassword.Text.Trim().CompareTo(txtPassWordXacNhan.Text.Trim()) !=0)
             {
-                MessageBox.Show("Mật khẩu và xác nhận mật khẩu không trùng nhau", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Mật khẩu và xác nhận mật khẩu không trùng nhau", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassWordXacNhan.Focus();
                 return false;
             }
             return true;
@@ -95,7 +114,7 @@ namespace Hospital
 
             if(ketqua == 1)
             {
-                MessageBox.Show("Login name đã tồn tại", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Login name đã tồn tại", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
             else
@@ -117,7 +136,7 @@ namespace Hospital
                     return;
                 }
                 Program.myReader.Close();
-                MessageBox.Show("Tạo login" + txtMaNhanVien.Text + "thành công ", "WARNING", MessageBoxButtons.OK);
+                MessageBox.Show("Tạo login cho tài khoản " + txtLoginName.Text +" với mã nhân viên "+txtMaNhanVien.Text+ " thành công ", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 ResetLogin();
             }
 
@@ -129,11 +148,24 @@ namespace Hospital
 
             var target = new List<RoleClass>(Program.roles);
 
-            this.cbbQuyen.DataSource = target;
+            if (Program.mGroup == "Boss")
+            {
+                this.cbbQuyen.DataSource = bossRole;
+            }
+            else
+            {
+                this.cbbQuyen.DataSource = target;
+            }
+            
             this.cbbQuyen.DisplayMember = "MAQUYEN";
             this.cbbQuyen.ValueMember = "TENQUYEN";
             cbbQuyen.SelectedIndex = 0;
            
+        }
+
+        private void cbbQuyen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMaNhanVien.Text = "";
         }
     }
 }

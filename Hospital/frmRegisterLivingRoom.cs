@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmRegisterLivingRoom : DevExpress.XtraEditors.XtraForm
+    public partial class frmRegisterLivingRoom : DevExpress.XtraEditors.XtraForm,IBoss
     {
         private bool isAdding = false;
         public frmRegisterLivingRoom()
@@ -71,12 +71,20 @@ namespace Hospital
                 this.sP_GET_DETAIL_LIVING_ROOMTableAdapter.Fill(this.qLBVDataSet.SP_GET_DETAIL_LIVING_ROOM, int.Parse(cmbArea3.SelectedValue.ToString()));
                 UpdateDataInGroupBox();
             }
-            ToggleCancelRegisterUpdateButtons(sP_GET_DETAIL_LIVING_ROOMBindingSource.Count > 0);
+            if (Program.mGroup != "Boss")
+            {
+                ToggleCancelRegisterUpdateButtons(sP_GET_DETAIL_LIVING_ROOMBindingSource.Count > 0);
+            }
+            
         }
 
         private void sP_GET_DETAIL_LIVING_ROOMGridControl_Click(object sender, EventArgs e)
         {
-            ToggleCancelRegisterUpdateButtons(sP_GET_DETAIL_LIVING_ROOMBindingSource.Count > 0);
+            if (Program.mGroup != "Boss")
+            {
+                ToggleCancelRegisterUpdateButtons(sP_GET_DETAIL_LIVING_ROOMBindingSource.Count > 0);
+            }
+           
             UpdateDataInGroupBox();
             
         }
@@ -409,6 +417,11 @@ namespace Hospital
 
         }
 
-
+        public void InitialSetting()
+        {
+            ToggleRegisterReloadButtons(false);
+            ToggleCancelRegisterUpdateButtons(false);
+            ToggleCancelWriteButtons(false);
+        }
     }
 }

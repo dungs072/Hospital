@@ -49,6 +49,11 @@ namespace Hospital
             this.btnBarRegisterLeaderNurse = new DevExpress.XtraBars.BarButtonItem();
             this.btnBarDoctor = new DevExpress.XtraBars.BarButtonItem();
             this.btnBarNurse = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBarAreaAndRoom = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBarBed = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBarRegisterStalkDoctor = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBarCreateAccount = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBarDeleteAccount = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -68,6 +73,7 @@ namespace Hospital
             this.id = new System.Windows.Forms.ToolStripStatusLabel();
             this.fullname = new System.Windows.Forms.ToolStripStatusLabel();
             this.group = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -95,10 +101,15 @@ namespace Hospital
             this.btnBarRegisterLivingRoomNurse,
             this.btnBarRegisterLeaderNurse,
             this.btnBarDoctor,
-            this.btnBarNurse});
+            this.btnBarNurse,
+            this.btnBarAreaAndRoom,
+            this.btnBarBed,
+            this.btnBarRegisterStalkDoctor,
+            this.btnBarCreateAccount,
+            this.btnBarDeleteAccount});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 22;
+            this.ribbonControl1.MaxItemId = 29;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -106,7 +117,7 @@ namespace Hospital
             this.ribbonPage3,
             this.ribbonPage4,
             this.ribbonPage5});
-            this.ribbonControl1.Size = new System.Drawing.Size(1137, 244);
+            this.ribbonControl1.Size = new System.Drawing.Size(1235, 244);
             // 
             // btnBarLogin
             // 
@@ -205,6 +216,7 @@ namespace Hospital
             this.btnBarChangePassword.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarChangePassword.ImageOptions.Image")));
             this.btnBarChangePassword.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarChangePassword.ImageOptions.LargeImage")));
             this.btnBarChangePassword.Name = "btnBarChangePassword";
+            this.btnBarChangePassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarChangePassword_ItemClick);
             // 
             // btnBarUsingEquipNurse
             // 
@@ -251,10 +263,56 @@ namespace Hospital
             this.btnBarNurse.Name = "btnBarNurse";
             this.btnBarNurse.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarNurse_ItemClick);
             // 
+            // btnBarAreaAndRoom
+            // 
+            this.btnBarAreaAndRoom.Caption = "Khu và phòng";
+            this.btnBarAreaAndRoom.Id = 22;
+            this.btnBarAreaAndRoom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarAreaAndRoom.ImageOptions.Image")));
+            this.btnBarAreaAndRoom.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarAreaAndRoom.ImageOptions.LargeImage")));
+            this.btnBarAreaAndRoom.Name = "btnBarAreaAndRoom";
+            this.btnBarAreaAndRoom.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarAreaAndRoom_ItemClick);
+            // 
+            // btnBarBed
+            // 
+            this.btnBarBed.Caption = "Giường";
+            this.btnBarBed.Id = 23;
+            this.btnBarBed.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarBed.ImageOptions.Image")));
+            this.btnBarBed.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarBed.ImageOptions.LargeImage")));
+            this.btnBarBed.Name = "btnBarBed";
+            this.btnBarBed.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarBed_ItemClick);
+            // 
+            // btnBarRegisterStalkDoctor
+            // 
+            this.btnBarRegisterStalkDoctor.Caption = "Đăng kí bác sĩ theo dõi";
+            this.btnBarRegisterStalkDoctor.Id = 26;
+            this.btnBarRegisterStalkDoctor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarRegisterStalkDoctor.ImageOptions.Image")));
+            this.btnBarRegisterStalkDoctor.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarRegisterStalkDoctor.ImageOptions.LargeImage")));
+            this.btnBarRegisterStalkDoctor.Name = "btnBarRegisterStalkDoctor";
+            this.btnBarRegisterStalkDoctor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarRegisterStalkDoctor_ItemClick);
+            // 
+            // btnBarCreateAccount
+            // 
+            this.btnBarCreateAccount.Caption = "Tạo tài khoản";
+            this.btnBarCreateAccount.Id = 27;
+            this.btnBarCreateAccount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarCreateAccount.ImageOptions.Image")));
+            this.btnBarCreateAccount.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarCreateAccount.ImageOptions.LargeImage")));
+            this.btnBarCreateAccount.Name = "btnBarCreateAccount";
+            this.btnBarCreateAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarCreateAccount_ItemClick);
+            // 
+            // btnBarDeleteAccount
+            // 
+            this.btnBarDeleteAccount.Caption = "Xóa tài khoản";
+            this.btnBarDeleteAccount.Id = 28;
+            this.btnBarDeleteAccount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarDeleteAccount.ImageOptions.Image")));
+            this.btnBarDeleteAccount.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarDeleteAccount.ImageOptions.LargeImage")));
+            this.btnBarDeleteAccount.Name = "btnBarDeleteAccount";
+            this.btnBarDeleteAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarDeleteAccount_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup8});
             this.ribbonPage1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage1.ImageOptions.Image")));
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Hệ thống";
@@ -265,6 +323,7 @@ namespace Hospital
             this.ribbonPageGroup1.ItemLinks.Add(this.btnBarChangePassword);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnBarLogOut);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "CÁ NHÂN";
             // 
             // ribbonPage2
             // 
@@ -281,20 +340,26 @@ namespace Hospital
             this.ribbonPageGroup7.ItemLinks.Add(this.btnBarDoctor);
             this.ribbonPageGroup7.ItemLinks.Add(this.btnBarNurse);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "NHÂN SỰ";
             // 
             // ribbonPageGroup5
             // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnBarAreaAndRoom);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnBarBed);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnBarPatient);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnBarEquipment);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnBarTreatment);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "TÀI NGUYÊN";
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterStalkDoctor);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterLeaderNurse);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterLivingRoom);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBarRegisterArea);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "ĐĂNG KÍ";
             // 
             // ribbonPage3
             // 
@@ -359,7 +424,7 @@ namespace Hospital
             this.group});
             this.statusStrip1.Location = new System.Drawing.Point(0, 494);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1137, 32);
+            this.statusStrip1.Size = new System.Drawing.Size(1235, 32);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -381,18 +446,25 @@ namespace Hospital
             this.group.Size = new System.Drawing.Size(66, 25);
             this.group.Text = "Nhóm:";
             // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnBarCreateAccount);
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnBarDeleteAccount);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "TÀI KHOẢN";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1137, 526);
+            this.ClientSize = new System.Drawing.Size(1235, 526);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Ribbon = this.ribbonControl1;
-            this.Text = "  Quản lý bệnh viện";
+            this.Text = " Quản lý bệnh viện";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
@@ -442,6 +514,12 @@ namespace Hospital
         private DevExpress.XtraBars.BarButtonItem btnBarDoctor;
         private DevExpress.XtraBars.BarButtonItem btnBarNurse;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem btnBarAreaAndRoom;
+        private DevExpress.XtraBars.BarButtonItem btnBarBed;
+        private DevExpress.XtraBars.BarButtonItem btnBarRegisterStalkDoctor;
+        private DevExpress.XtraBars.BarButtonItem btnBarCreateAccount;
+        private DevExpress.XtraBars.BarButtonItem btnBarDeleteAccount;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
     }
 }
 

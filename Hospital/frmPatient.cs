@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmPatient : DevExpress.XtraEditors.XtraForm
+    public partial class frmPatient : DevExpress.XtraEditors.XtraForm,IBoss
     {
         private List<string> types = new List<string>() { "Nội trú","Ngoại trú"};
         private bool isAdding = false;
@@ -230,6 +230,13 @@ namespace Hospital
             cmbType.SelectedItem = ((DataRowView)bENHNHANBindingSource[bENHNHANBindingSource.Position])["LOAI"].ToString().Trim();
             if (gETDOCTORSBindingSource.Count == 0) { return; }
             cmbWelcomDoctor.SelectedValue = ((DataRowView)bENHNHANBindingSource[bENHNHANBindingSource.Position])["MABSTN"].ToString().Trim();
+        }
+
+        public void InitialSetting()
+        {
+            ToggleAddReloadButtons(false);
+            ToggleUpdateDeleteButtons(false);
+            ToggleWriteCancelButtons(false);
         }
     }
 }

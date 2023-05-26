@@ -39,5 +39,6 @@ namespace Hospital
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
         }
+
     }
 }

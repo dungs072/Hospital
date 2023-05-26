@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmNurse : DevExpress.XtraEditors.XtraForm
+    public partial class frmNurse : DevExpress.XtraEditors.XtraForm,IBoss
     {
         private List<string> sex = new List<string>() { "Nam", "Nữ" };
         private List<string> educations = new List<string>() { "CHỮA TRỊ", "CHĂM SÓC", "QUẢN TRỊ", "PHỤ TÁ", "" };
@@ -227,6 +227,13 @@ namespace Hospital
                 txtPersonalId.Text = ((DataRowView)gET_FULL_NURSEBindingSource[gET_FULL_NURSEBindingSource.Position])["CCCD"].ToString().Trim();
                 cmbEducation.SelectedItem = ((DataRowView)gET_FULL_NURSEBindingSource[gET_FULL_NURSEBindingSource.Position])["NGHIEPVU"].ToString().Trim();
             }
+        }
+
+        public void InitialSetting()
+        {
+            ToggleAddReloadButtons(false);
+            ToggleUpdateDeleteButtons(false);
+            ToggleWriteCancelButtons(false);
         }
     }
 }

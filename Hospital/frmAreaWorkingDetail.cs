@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmAreaWorkingDetail : DevExpress.XtraEditors.XtraForm
+    public partial class frmAreaWorkingDetail : DevExpress.XtraEditors.XtraForm,IBoss
     {
         private List<int> areaIds = new List<int>();
         private bool isAdding = false;
@@ -48,7 +48,11 @@ namespace Hospital
         }
         private void HandleWorkingDetailClick()
         {
-            ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count > 0);
+            if (Program.mGroup != "Boss")
+            {
+                ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count > 0);
+            }
+            
         }
 
         private void ToggleRegisterReloadButtons(bool state)
@@ -213,7 +217,11 @@ namespace Hospital
                 int id = int.Parse(((DataRowView)kHUCHUATRIBindingSource[kHUCHUATRIBindingSource.Position])[0].ToString().Trim());
                 wORKING_DETAIL_AREATableAdapter.Fill(qLBVDataSet.WORKING_DETAIL_AREA, id);
             }
-            ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count > 0);
+            if (Program.mGroup != "Boss")
+            {
+                ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count > 0);
+            }
+            
         }
         private void HandleWorkingAreaClick()
         {
@@ -222,7 +230,11 @@ namespace Hospital
                 int id = int.Parse(((DataRowView)kHUCHUATRIBindingSource[kHUCHUATRIBindingSource.Position])[0].ToString().Trim());
                 wORKING_DETAIL_AREATableAdapter.Fill(qLBVDataSet.WORKING_DETAIL_AREA, id);
             }
-            ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count > 0);
+            if (Program.mGroup != "Boss")
+            {
+                ToggleUpdateCancelRegisterButtons(wORKING_DETAIL_AREABindingSource.Count > 0);
+            }
+            
         }
 
         private bool CanCancelRegister()
@@ -356,6 +368,13 @@ namespace Hospital
             {
                 txtEndDate.DateTime = endDate;
             }
+        }
+
+        public void InitialSetting()
+        {
+            ToggleRegisterReloadButtons(false);
+            ToggleUpdateCancelRegisterButtons(false);
+            ToggleWriteCancelButtons(false);
         }
     }
 }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmTreatment : DevExpress.XtraEditors.XtraForm
+    public partial class frmTreatment : DevExpress.XtraEditors.XtraForm,IBoss
     {
         private bool isAdding = false;
         private int position = 0;
@@ -195,6 +195,13 @@ namespace Hospital
             ToggleGroupBox(false);
             ToggleTables(true);
             ToggleUpdateDeleteButtons(lOAICHUATRIBindingSource.Count > 0);
+        }
+
+        public void InitialSetting()
+        {
+            ToggleAddReloadButtons(false);
+            ToggleUpdateDeleteButtons(false);
+            ToggleWriteCancelButtons(false);
         }
     }
 }

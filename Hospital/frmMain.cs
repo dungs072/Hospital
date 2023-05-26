@@ -88,13 +88,44 @@ namespace Hospital
                 {
                     f = new frmNurse();
                 }
+                else if (tForm == typeof(frmBed))
+                {
+                    f = new frmBed();
+                }
+                else if (tForm == typeof(frmRoomAndArea))
+                {
+                    f = new frmRoomAndArea();
+                }
+                else if (tForm == typeof(frmTheoDoiBenhNhan))
+                {
+                    f = new frmTheoDoiBenhNhan();
+                }
+                else if (tForm == typeof(frmTaoTK))
+                {
+                    f = new frmTaoTK();
+                }
+                else if (tForm == typeof(frmXoaTaiKhoan))
+                {
+                    f = new frmXoaTaiKhoan();
+                }
+                else if (tForm == typeof(frmChangePassword))
+                {
+                    f = new frmChangePassword();
+                }
                 else
                 {
                     f = new frmLogin();
                 }
                 f.MdiParent = this;
                 f.Show();
-
+                if (Program.mGroup == "Boss")
+                {
+                    if(f is IBoss)
+                    {
+                        IBoss boss = f as IBoss;
+                        boss.InitialSetting();
+                    }
+                }
             }
         }
 
@@ -156,7 +187,30 @@ namespace Hospital
         {
             ShowForm(typeof(frmNurse));
         }
-
+        private void btnBarAreaAndRoom_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmRoomAndArea));
+        }
+        private void btnBarBed_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmBed));
+        }
+        private void btnBarRegisterStalkDoctor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmTheoDoiBenhNhan));
+        }
+        private void btnBarCreateAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmTaoTK));
+        }
+        private void btnBarDeleteAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmXoaTaiKhoan));
+        }
+        private void btnBarChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowForm(typeof(frmChangePassword));
+        }
         private void frmMain_Load(object sender, EventArgs e)
         {
             ShowForm(typeof(frmLogin));
@@ -165,9 +219,22 @@ namespace Hospital
             ribbonPage4.Visible = false;
             ribbonPage5.Visible = false;
             btnBarLogOut.Enabled = false;
+            btnBarCreateAccount.Enabled = false;
+            btnBarDeleteAccount.Enabled = false;
             btnBarChangePassword.Enabled = false;
         }
 
+        public void LoginByBossRole()
+        {
+            ribbonPage2.Visible = true;
+            ribbonPage3.Visible = true;
+            ribbonPage4.Visible = true;
+            ribbonPage5.Visible = false;
+            btnBarCreateAccount.Enabled = true;
+            btnBarDeleteAccount.Enabled = true;
+            ribbonControl1.SelectedPage = ribbonPage2;
+            CloseAllFormCurrentlyOpen();
+        }
 
         public void LoginByHospitalRole()
         {
@@ -175,7 +242,8 @@ namespace Hospital
             ribbonPage3.Visible = true;
             ribbonPage4.Visible = true;
             ribbonPage5.Visible = false;
-
+            btnBarCreateAccount.Enabled = true;
+            btnBarDeleteAccount.Enabled = true;
             ribbonControl1.SelectedPage = ribbonPage2;
             CloseAllFormCurrentlyOpen();
         }
@@ -207,6 +275,8 @@ namespace Hospital
             ribbonPage5.Visible = false;
             btnBarLogin.Enabled = true;
             btnBarLogOut.Enabled = false;
+            btnBarCreateAccount.Enabled = false;
+            btnBarDeleteAccount.Enabled = false;
             btnBarChangePassword.Enabled = false;
 
             btnBarUsingEquip.Enabled = true;

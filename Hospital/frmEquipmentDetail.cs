@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmEquipmentDetail : DevExpress.XtraEditors.XtraForm
+    public partial class frmEquipmentDetail : DevExpress.XtraEditors.XtraForm,IBoss
     {
         private bool isAdding = false;
         public frmEquipmentDetail()
@@ -92,8 +92,11 @@ namespace Hospital
                 string time = ((DataRowView)gET_MEDICINE_EQUIPMENT_DETAILBindingSource[gET_MEDICINE_EQUIPMENT_DETAILBindingSource.Position])["THOIGIAN"].ToString().Trim();
 
                 txtTime.DateTime = CastDateTime(time);
-              
-                ToggleUpdateDeleteButtons(true);
+                if (Program.mGroup != "Boss")
+                {
+                    ToggleUpdateDeleteButtons(true);
+                }
+                
             }
         }
 
@@ -257,6 +260,13 @@ namespace Hospital
 
             return dateTimeValue;
 
+        }
+
+        public void InitialSetting()
+        {
+            ToggleAddReloadButtons(false);
+            ToggleUpdateDeleteButtons(false);
+            ToggleWriteCancelButtons(false);
         }
     }
 }

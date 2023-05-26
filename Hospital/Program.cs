@@ -17,17 +17,17 @@ namespace Hospital
         /// </summary>
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
-        public static String connstr_publisher = "Data Source=DESKTOP-E2I98S5;Initial Catalog=QLBV;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=DESKTOP-0M15LMD\\GHOSTNHD;Initial Catalog=QLBV;Integrated Security=True";
 
         public static SqlDataReader myReader;
-        public static String serverName = "DESKTOP-E2I98S5";
+        public static String serverName = "DESKTOP-0M15LMD\\GHOSTNHD";
         public static String userName = "";
         public static String mLogin = "";
         public static String password = "";
 
         public static String database = "QLBV";
-        public static String remoteLogin = "HTKN";
-        public static String remotePassword = "1234";
+        public static String remoteLogin = "T";
+        public static String remotePassword = "123";
         public static String mLoginDN = "";
         public static String passwordDN = "";
         public static String mGroup = "";

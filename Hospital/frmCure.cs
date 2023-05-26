@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmCure : DevExpress.XtraEditors.XtraForm
+    public partial class frmCure : DevExpress.XtraEditors.XtraForm,IBoss
     {
         private bool isAdding = false;
         public frmCure()
@@ -93,7 +93,11 @@ namespace Hospital
                 cmbDoctor.SelectedIndex = 0;
                 return;
             }
-            ToggleUpdateDeleteButtons(true);
+            if (Program.mGroup != "Boss")
+            {
+                ToggleUpdateDeleteButtons(true);
+            }
+           
             int tempPosition = gET_ALL_DETAIL_CUREBindingSource.Position;
             txtPatientName.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])[1].ToString().Trim();
             txtPatientId.Text = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[tempPosition])["MABN"].ToString().Trim();
@@ -311,6 +315,13 @@ namespace Hospital
             string doctorId = ((DataRowView)gET_ALL_DETAIL_CUREBindingSource[gET_ALL_DETAIL_CUREBindingSource.Position])["MABS"].ToString().Trim();
             return doctorId == Program.userName;
             
+        }
+
+        public void InitialSetting()
+        {
+            ToggleAddReloadButtons(false);
+            ToggleUpdateDeleteButtons(false);
+            ToggleWriteCancelButtons(false);
         }
     }
 }

@@ -74,6 +74,18 @@
     <Compile Include="frmAreaWorkingDetail.Designer.cs">
       <DependentUpon>frmAreaWorkingDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBed.Designer.cs">
+      <DependentUpon>frmBed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCure.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +146,30 @@
     <Compile Include="frmRegisterLivingRoom.Designer.cs">
       <DependentUpon>frmRegisterLivingRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRoomAndArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRoomAndArea.Designer.cs">
+      <DependentUpon>frmRoomAndArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStaffList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStaffList.Designer.cs">
+      <DependentUpon>frmStaffList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTaoTK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaoTK.Designer.cs">
+      <DependentUpon>frmTaoTK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTheoDoiBenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTheoDoiBenhNhan.Designer.cs">
+      <DependentUpon>frmTheoDoiBenhNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTreatment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +182,13 @@
     <Compile Include="frmUsingEquipment.Designer.cs">
       <DependentUpon>frmUsingEquipment.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXoaTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXoaTaiKhoan.Designer.cs">
+      <DependentUpon>frmXoaTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IBoss.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLBVDataSet.Designer.cs">
@@ -153,6 +196,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBVDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RoleClass.cs" />
     <Compile Include="XrptUsingEquipment.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -161,6 +205,12 @@
     </Compile>
     <EmbeddedResource Include="frmAreaWorkingDetail.resx">
       <DependentUpon>frmAreaWorkingDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBed.resx">
+      <DependentUpon>frmBed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCure.resx">
       <DependentUpon>frmCure.cs</DependentUpon>
@@ -192,11 +242,26 @@
     <EmbeddedResource Include="frmRegisterLivingRoom.resx">
       <DependentUpon>frmRegisterLivingRoom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRoomAndArea.resx">
+      <DependentUpon>frmRoomAndArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStaffList.resx">
+      <DependentUpon>frmStaffList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaoTK.resx">
+      <DependentUpon>frmTaoTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTheoDoiBenhNhan.resx">
+      <DependentUpon>frmTheoDoiBenhNhan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTreatment.resx">
       <DependentUpon>frmTreatment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsingEquipment.resx">
       <DependentUpon>frmUsingEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXoaTaiKhoan.resx">
+      <DependentUpon>frmXoaTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

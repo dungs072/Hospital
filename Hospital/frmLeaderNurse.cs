@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmLeaderNurse : DevExpress.XtraEditors.XtraForm
+    public partial class frmLeaderNurse : DevExpress.XtraEditors.XtraForm,IBoss
     {
         public frmLeaderNurse()
         {
@@ -48,13 +48,19 @@ namespace Hospital
         private void gET_CURE_AREAGridControl_Click(object sender, EventArgs e)
         {
             HandleClickCureArea();
+           
+
         }
         private void HandleClickCureArea()
         {
             if (gET_CURE_AREABindingSource.Count == 0) { return; }
             string data = ((DataRowView)gET_CURE_AREABindingSource[gET_CURE_AREABindingSource.Position])["TENYT"].ToString().Trim();
-            ToggleCancelRegister(data != "");
-            ToggleRegister(data == "");
+            if (Program.mGroup != "Boss")
+            {
+                ToggleCancelRegister(data != "");
+                ToggleRegister(data == "");
+            }
+           
             txtAreaId.Text = ((DataRowView)gET_CURE_AREABindingSource[gET_CURE_AREABindingSource.Position])[0].ToString().Trim();
             txtAreaName.Text = ((DataRowView)gET_CURE_AREABindingSource[gET_CURE_AREABindingSource.Position])[1].ToString().Trim();
             txtNurse.Text = data;
@@ -110,6 +116,13 @@ namespace Hospital
         {
             gET_CURE_AREATableAdapter.Fill(qLBVDataSet.GET_CURE_AREA);
             gET_NURSE_NOT_LEADERTableAdapter.Fill(qLBVDataSet.GET_NURSE_NOT_LEADER);
+        }
+
+        public void InitialSetting()
+        {
+            ToggleRegister(false);
+            ToggleCancelRegister(false);
+            ToggleReloadButton(false);
         }
     }
 }

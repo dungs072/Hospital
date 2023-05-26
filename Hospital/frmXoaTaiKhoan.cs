@@ -22,12 +22,13 @@ namespace Hospital
         {
             // TODO: This line of code loads data into the 'qLBVDataSet.SP_DS_NHANVIEN_CO_TAI_KHOAN' table. You can move, or remove it, as needed.
             this.sP_DS_NHANVIEN_CO_TAI_KHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.sP_DS_NHANVIEN_CO_TAI_KHOANTableAdapter.Fill(this.qLBVDataSet.SP_DS_NHANVIEN_CO_TAI_KHOAN, Program.userName);
+            this.sP_DS_NHANVIEN_CO_TAI_KHOANTableAdapter.Fill(this.qLBVDataSet.SP_DS_NHANVIEN_CO_TAI_KHOAN, Program.userName,Program.mGroup);
 
         }
 
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
+            if (bdsNhanVienCoTK.Count == 0) { return; }
             string loginname = "";
             string username = "";
             DataRowView drv = (DataRowView)bdsNhanVienCoTK[bdsNhanVienCoTK.Position];
@@ -43,7 +44,7 @@ namespace Hospital
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Thực thi database thất bại " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thực thi database thất bại " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Program.myReader.Read();
@@ -66,18 +67,13 @@ namespace Hospital
             }
             Program.myReader.Read();
             Program.myReader.Close();
-            MessageBox.Show("Xóa tài khoản của nhân viên" + username + " thành công", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show("Xóa tài khoản của nhân viên có mã " + username + " thành công", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Information);
 
             this.sP_DS_NHANVIEN_CO_TAI_KHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.sP_DS_NHANVIEN_CO_TAI_KHOANTableAdapter.Fill(this.qLBVDataSet.SP_DS_NHANVIEN_CO_TAI_KHOAN, Program.userName);
+            this.sP_DS_NHANVIEN_CO_TAI_KHOANTableAdapter.Fill(this.qLBVDataSet.SP_DS_NHANVIEN_CO_TAI_KHOAN, Program.userName,Program.mGroup);
             return;
 
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-           
-        }
     }
 }

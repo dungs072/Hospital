@@ -37,15 +37,13 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnTHEM = new DevExpress.XtraBars.BarButtonItem();
-            this.btnGHI = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXOA = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnLAMMOI = new DevExpress.XtraBars.BarButtonItem();
-            this.bar2 = new DevExpress.XtraBars.Bar();
-            this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnGHI = new DevExpress.XtraBars.BarButtonItem();
             this.btnSUA = new DevExpress.XtraBars.BarButtonItem();
             this.btnCANCEL = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
@@ -53,41 +51,52 @@
             this.tableAdapterManager = new Hospital.QLBVDataSetTableAdapters.TableAdapterManager();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.nHANVIENGridControl = new DevExpress.XtraGrid.GridControl();
-            this.bdsBacSi = new System.Windows.Forms.BindingSource(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gET_FULL_DOCTORSGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gET_FULL_DOCTORSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHO1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTEN1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDIENTHOAI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTRINHDO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sP_BENHNHAN_KHONG_THEO_DOIGridControl = new DevExpress.XtraGrid.GridControl();
             this.sP_BENHNHAN_KHONG_THEO_DOIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.bdsBenhNhanCoBS = new System.Windows.Forms.BindingSource(this.components);
-            this.sP_BACSIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sP_BACSITableAdapter = new Hospital.QLBVDataSetTableAdapters.SP_BACSITableAdapter();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panelNhapLieu = new System.Windows.Forms.Panel();
-            this.txtMaBacSiTheoDoi = new System.Windows.Forms.TextBox();
-            this.tENTextBox1 = new System.Windows.Forms.TextBox();
-            this.hOTextBox1 = new System.Windows.Forms.TextBox();
-            this.txtMaBenhNhan = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.nHANVIENTableAdapter = new Hospital.QLBVDataSetTableAdapters.NHANVIENTableAdapter();
-            this.bENHNHANTableAdapter = new Hospital.QLBVDataSetTableAdapters.BENHNHANTableAdapter();
-            this.bENHNHANGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.sP_BENHNHAN_KHONG_THEO_DOITableAdapter = new Hospital.QLBVDataSetTableAdapters.SP_BENHNHAN_KHONG_THEO_DOITableAdapter();
             this.colMABN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLOAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMABSTD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHO1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTEN1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPHAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDIENTHOAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCCCD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMACV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bdsBenhNhanCoBS = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelNhapLieu = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtMaBacSiTheoDoi = new System.Windows.Forms.TextBox();
+            this.txtLastname = new System.Windows.Forms.TextBox();
+            this.txtFirstname = new System.Windows.Forms.TextBox();
+            this.txtMaBenhNhan = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nHANVIENTableAdapter = new Hospital.QLBVDataSetTableAdapters.NHANVIENTableAdapter();
+            this.bENHNHANTableAdapter = new Hospital.QLBVDataSetTableAdapters.BENHNHANTableAdapter();
+            this.sP_BENHNHAN_KHONG_THEO_DOITableAdapter = new Hospital.QLBVDataSetTableAdapters.SP_BENHNHAN_KHONG_THEO_DOITableAdapter();
+            this.btnXOA = new DevExpress.XtraBars.BarButtonItem();
+            this.gET_FULL_DOCTORSTableAdapter = new Hospital.QLBVDataSetTableAdapters.GET_FULL_DOCTORSTableAdapter();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gET_PATIENT_HAVE_STALK_DOCTORTableAdapter = new Hospital.QLBVDataSetTableAdapters.GET_PATIENT_HAVE_STALK_DOCTORTableAdapter();
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMABN1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHO2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTEN2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNGAYSINH1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLOAI1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBACSITHEODOI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBACSITIEPNHAN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMABSTD1 = new DevExpress.XtraGrid.Columns.GridColumn();
             mABNLabel = new System.Windows.Forms.Label();
             hOLabel1 = new System.Windows.Forms.Label();
             tENLabel1 = new System.Windows.Forms.Label();
@@ -96,17 +105,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.QLBVDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nHANVIENGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsBacSi)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gET_FULL_DOCTORSGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gET_FULL_DOCTORSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_BENHNHAN_KHONG_THEO_DOIGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_BENHNHAN_KHONG_THEO_DOIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBenhNhanCoBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_BACSIBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panelNhapLieu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bENHNHANGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gET_PATIENT_HAVE_STALK_DOCTORGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,44 +126,41 @@
             mABNLabel.AutoSize = true;
             mABNLabel.Location = new System.Drawing.Point(32, 105);
             mABNLabel.Name = "mABNLabel";
-            mABNLabel.Size = new System.Drawing.Size(58, 19);
+            mABNLabel.Size = new System.Drawing.Size(115, 19);
             mABNLabel.TabIndex = 10;
-            mABNLabel.Text = "MABN:";
+            mABNLabel.Text = "Mã bệnh nhân:";
             // 
             // hOLabel1
             // 
             hOLabel1.AutoSize = true;
-            hOLabel1.Location = new System.Drawing.Point(51, 174);
+            hOLabel1.Location = new System.Drawing.Point(35, 176);
             hOLabel1.Name = "hOLabel1";
-            hOLabel1.Size = new System.Drawing.Size(38, 19);
+            hOLabel1.Size = new System.Drawing.Size(35, 19);
             hOLabel1.TabIndex = 12;
-            hOLabel1.Text = "HO:";
+            hOLabel1.Text = "Họ:";
             // 
             // tENLabel1
             // 
             tENLabel1.AutoSize = true;
-            tENLabel1.Location = new System.Drawing.Point(263, 173);
+            tENLabel1.Location = new System.Drawing.Point(324, 179);
             tENLabel1.Name = "tENLabel1";
-            tENLabel1.Size = new System.Drawing.Size(45, 19);
+            tENLabel1.Size = new System.Drawing.Size(42, 19);
             tENLabel1.TabIndex = 14;
-            tENLabel1.Text = "TEN:";
+            tENLabel1.Text = "Tên:";
             // 
             // mABSTDLabel
             // 
             mABSTDLabel.AutoSize = true;
-            mABSTDLabel.Location = new System.Drawing.Point(236, 105);
+            mABSTDLabel.Location = new System.Drawing.Point(29, 245);
             mABSTDLabel.Name = "mABSTDLabel";
-            mABSTDLabel.Size = new System.Drawing.Size(77, 19);
+            mABSTDLabel.Size = new System.Drawing.Size(118, 19);
             mABSTDLabel.TabIndex = 16;
-            mABSTDLabel.Text = "MABSTD:";
-            mABSTDLabel.Click += new System.EventHandler(this.mABSTDLabel_Click);
+            mABSTDLabel.Text = "Bác sĩ theo dõi:";
             // 
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar1,
-            this.bar2,
-            this.bar3});
+            this.bar1});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -164,82 +172,48 @@
             this.btnSUA,
             this.btnCANCEL,
             this.barButtonItem5,
-            this.btnXOA,
-            this.btnLAMMOI});
-            this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 8;
-            this.barManager1.StatusBar = this.bar3;
+            this.btnLAMMOI,
+            this.btnDelete});
+            this.barManager1.MaxItemId = 11;
             // 
             // bar1
             // 
             this.bar1.BarName = "Tools";
             this.bar1.DockCol = 0;
-            this.bar1.DockRow = 1;
+            this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnTHEM, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGHI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXOA, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLAMMOI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
             // btnTHEM
             // 
-            this.btnTHEM.Caption = "THÊM";
+            this.btnTHEM.Caption = "Đăng kí theo dõi";
             this.btnTHEM.Id = 0;
             this.btnTHEM.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTHEM.ImageOptions.Image")));
             this.btnTHEM.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTHEM.ImageOptions.LargeImage")));
             this.btnTHEM.Name = "btnTHEM";
             this.btnTHEM.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTHEM_ItemClick);
             // 
-            // btnGHI
+            // btnDelete
             // 
-            this.btnGHI.Caption = "GHI";
-            this.btnGHI.Id = 1;
-            this.btnGHI.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGHI.ImageOptions.Image")));
-            this.btnGHI.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGHI.ImageOptions.LargeImage")));
-            this.btnGHI.Name = "btnGHI";
-            this.btnGHI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGHI_ItemClick);
-            // 
-            // btnXOA
-            // 
-            this.btnXOA.Caption = "XÓA";
-            this.btnXOA.Id = 6;
-            this.btnXOA.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXOA.ImageOptions.Image")));
-            this.btnXOA.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXOA.ImageOptions.LargeImage")));
-            this.btnXOA.Name = "btnXOA";
-            this.btnXOA.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXOA_ItemClick);
+            this.btnDelete.Caption = "Hủy đăng kí theo dõi";
+            this.btnDelete.Id = 8;
+            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
+            this.btnDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.LargeImage")));
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
             // btnLAMMOI
             // 
-            this.btnLAMMOI.Caption = "LÀM MỚI";
+            this.btnLAMMOI.Caption = "Reload";
             this.btnLAMMOI.Id = 7;
             this.btnLAMMOI.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLAMMOI.ImageOptions.Image")));
             this.btnLAMMOI.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLAMMOI.ImageOptions.LargeImage")));
             this.btnLAMMOI.Name = "btnLAMMOI";
             this.btnLAMMOI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLAMMOI_ItemClick);
-            // 
-            // bar2
-            // 
-            this.bar2.BarName = "Main menu";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.OptionsBar.MultiLine = true;
-            this.bar2.OptionsBar.UseWholeRow = true;
-            this.bar2.Text = "Main menu";
-            // 
-            // bar3
-            // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
             // 
             // barDockControlTop
             // 
@@ -247,38 +221,41 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1312, 55);
+            this.barDockControlTop.Size = new System.Drawing.Size(1312, 34);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 663);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 866);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1312, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1312, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 55);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 34);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 608);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 832);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1312, 55);
+            this.barDockControlRight.Location = new System.Drawing.Point(1312, 34);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 608);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 832);
+            // 
+            // btnGHI
+            // 
+            this.btnGHI.Id = 9;
+            this.btnGHI.Name = "btnGHI";
             // 
             // btnSUA
             // 
-            this.btnSUA.Caption = "SỬA";
-            this.btnSUA.Id = 2;
+            this.btnSUA.Id = 10;
             this.btnSUA.Name = "btnSUA";
-            this.btnSUA.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSUA_ItemClick);
             // 
             // btnCANCEL
             // 
@@ -300,59 +277,81 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BACSITableAdapter = null;
             this.tableAdapterManager.BENHNHANTableAdapter = null;
             this.tableAdapterManager.CHITIETCHUATRITableAdapter = null;
-            this.tableAdapterManager.CHITIETGIOLAMVIECTableAdapter = null;
             this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
             this.tableAdapterManager.CHITIETOTableAdapter = null;
             this.tableAdapterManager.CHITIETSUDUNGVTTableAdapter = null;
-            this.tableAdapterManager.CHUCVUTableAdapter = null;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.GIUONGTableAdapter = null;
             this.tableAdapterManager.KHUCHUATRITableAdapter = null;
             this.tableAdapterManager.LOAICHUATRITableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.PHONGTableAdapter = null;
-            this.tableAdapterManager.TUANTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = null;
+            this.tableAdapterManager.YTATableAdapter = null;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.sP_BENHNHAN_KHONG_THEO_DOIGridControl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 55);
+            this.panel1.Location = new System.Drawing.Point(0, 34);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1312, 315);
             this.panel1.TabIndex = 6;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.nHANVIENGridControl);
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.panel3);
+            this.panel4.Controls.Add(this.gET_FULL_DOCTORSGridControl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(515, 0);
+            this.panel4.Location = new System.Drawing.Point(777, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(797, 315);
+            this.panel4.Size = new System.Drawing.Size(535, 315);
             this.panel4.TabIndex = 2;
             // 
-            // nHANVIENGridControl
+            // panel3
             // 
-            this.nHANVIENGridControl.DataSource = this.bdsBacSi;
-            this.nHANVIENGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nHANVIENGridControl.Location = new System.Drawing.Point(0, 0);
-            this.nHANVIENGridControl.MainView = this.gridView1;
-            this.nHANVIENGridControl.MenuManager = this.barManager1;
-            this.nHANVIENGridControl.Name = "nHANVIENGridControl";
-            this.nHANVIENGridControl.Size = new System.Drawing.Size(797, 315);
-            this.nHANVIENGridControl.TabIndex = 0;
-            this.nHANVIENGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(509, 51);
+            this.panel3.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(180, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(168, 19);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "DANH SÁCH BÁC SĨ";
+            // 
+            // gET_FULL_DOCTORSGridControl
+            // 
+            this.gET_FULL_DOCTORSGridControl.DataSource = this.gET_FULL_DOCTORSBindingSource;
+            this.gET_FULL_DOCTORSGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gET_FULL_DOCTORSGridControl.Location = new System.Drawing.Point(0, 51);
+            this.gET_FULL_DOCTORSGridControl.MainView = this.gridView1;
+            this.gET_FULL_DOCTORSGridControl.MenuManager = this.barManager1;
+            this.gET_FULL_DOCTORSGridControl.Name = "gET_FULL_DOCTORSGridControl";
+            this.gET_FULL_DOCTORSGridControl.Size = new System.Drawing.Size(509, 268);
+            this.gET_FULL_DOCTORSGridControl.TabIndex = 0;
+            this.gET_FULL_DOCTORSGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // bdsBacSi
+            // gET_FULL_DOCTORSBindingSource
             // 
-            this.bdsBacSi.DataMember = "NHANVIEN";
-            this.bdsBacSi.DataSource = this.QLBVDataSet;
+            this.gET_FULL_DOCTORSBindingSource.DataMember = "GET_FULL_DOCTORS";
+            this.gET_FULL_DOCTORSBindingSource.DataSource = this.QLBVDataSet;
             // 
             // gridView1
             // 
@@ -360,13 +359,65 @@
             this.colMANV,
             this.colHO1,
             this.colTEN1,
-            this.colPHAI,
-            this.colDIACHI,
             this.colDIENTHOAI,
-            this.colCCCD,
-            this.colMACV});
-            this.gridView1.GridControl = this.nHANVIENGridControl;
+            this.colTRINHDO});
+            this.gridView1.GridControl = this.gET_FULL_DOCTORSGridControl;
             this.gridView1.Name = "gridView1";
+            // 
+            // colMANV
+            // 
+            this.colMANV.Caption = "Mã nhân viên";
+            this.colMANV.FieldName = "MANV";
+            this.colMANV.MinWidth = 30;
+            this.colMANV.Name = "colMANV";
+            this.colMANV.OptionsColumn.AllowEdit = false;
+            this.colMANV.Visible = true;
+            this.colMANV.VisibleIndex = 0;
+            this.colMANV.Width = 112;
+            // 
+            // colHO1
+            // 
+            this.colHO1.Caption = "Họ";
+            this.colHO1.FieldName = "HO";
+            this.colHO1.MinWidth = 30;
+            this.colHO1.Name = "colHO1";
+            this.colHO1.OptionsColumn.AllowEdit = false;
+            this.colHO1.Visible = true;
+            this.colHO1.VisibleIndex = 1;
+            this.colHO1.Width = 112;
+            // 
+            // colTEN1
+            // 
+            this.colTEN1.Caption = "Tên";
+            this.colTEN1.FieldName = "TEN";
+            this.colTEN1.MinWidth = 30;
+            this.colTEN1.Name = "colTEN1";
+            this.colTEN1.OptionsColumn.AllowEdit = false;
+            this.colTEN1.Visible = true;
+            this.colTEN1.VisibleIndex = 2;
+            this.colTEN1.Width = 112;
+            // 
+            // colDIENTHOAI
+            // 
+            this.colDIENTHOAI.Caption = "Điện thoại";
+            this.colDIENTHOAI.FieldName = "DIENTHOAI";
+            this.colDIENTHOAI.MinWidth = 30;
+            this.colDIENTHOAI.Name = "colDIENTHOAI";
+            this.colDIENTHOAI.OptionsColumn.AllowEdit = false;
+            this.colDIENTHOAI.Visible = true;
+            this.colDIENTHOAI.VisibleIndex = 3;
+            this.colDIENTHOAI.Width = 112;
+            // 
+            // colTRINHDO
+            // 
+            this.colTRINHDO.Caption = "Trình độ";
+            this.colTRINHDO.FieldName = "TRINHDO";
+            this.colTRINHDO.MinWidth = 30;
+            this.colTRINHDO.Name = "colTRINHDO";
+            this.colTRINHDO.OptionsColumn.AllowEdit = false;
+            this.colTRINHDO.Visible = true;
+            this.colTRINHDO.VisibleIndex = 4;
+            this.colTRINHDO.Width = 112;
             // 
             // sP_BENHNHAN_KHONG_THEO_DOIGridControl
             // 
@@ -376,10 +427,11 @@
             this.sP_BENHNHAN_KHONG_THEO_DOIGridControl.MainView = this.gridView3;
             this.sP_BENHNHAN_KHONG_THEO_DOIGridControl.MenuManager = this.barManager1;
             this.sP_BENHNHAN_KHONG_THEO_DOIGridControl.Name = "sP_BENHNHAN_KHONG_THEO_DOIGridControl";
-            this.sP_BENHNHAN_KHONG_THEO_DOIGridControl.Size = new System.Drawing.Size(515, 315);
+            this.sP_BENHNHAN_KHONG_THEO_DOIGridControl.Size = new System.Drawing.Size(777, 315);
             this.sP_BENHNHAN_KHONG_THEO_DOIGridControl.TabIndex = 1;
             this.sP_BENHNHAN_KHONG_THEO_DOIGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
+            this.sP_BENHNHAN_KHONG_THEO_DOIGridControl.Click += new System.EventHandler(this.sP_BENHNHAN_KHONG_THEO_DOIGridControl_Click);
             // 
             // sP_BENHNHAN_KHONG_THEO_DOIBindingSource
             // 
@@ -393,42 +445,87 @@
             this.colHO,
             this.colTEN,
             this.colNGAYSINH,
-            this.colLOAI,
-            this.colMABSTD});
+            this.colLOAI});
             this.gridView3.GridControl = this.sP_BENHNHAN_KHONG_THEO_DOIGridControl;
             this.gridView3.Name = "gridView3";
+            this.gridView3.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colLOAI, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
-            // bdsBenhNhanCoBS
+            // colMABN
             // 
-            this.bdsBenhNhanCoBS.DataMember = "FK_BENHNHAN_NHANVIEN";
-            this.bdsBenhNhanCoBS.DataSource = this.bdsBacSi;
+            this.colMABN.Caption = "Mã bệnh nhân";
+            this.colMABN.FieldName = "MABN";
+            this.colMABN.MinWidth = 30;
+            this.colMABN.Name = "colMABN";
+            this.colMABN.OptionsColumn.AllowEdit = false;
+            this.colMABN.Visible = true;
+            this.colMABN.VisibleIndex = 0;
+            this.colMABN.Width = 183;
             // 
-            // sP_BACSIBindingSource
+            // colHO
             // 
-            this.sP_BACSIBindingSource.DataMember = "SP_BACSI";
-            this.sP_BACSIBindingSource.DataSource = this.QLBVDataSet;
+            this.colHO.Caption = "Họ";
+            this.colHO.FieldName = "HO";
+            this.colHO.MinWidth = 30;
+            this.colHO.Name = "colHO";
+            this.colHO.OptionsColumn.AllowEdit = false;
+            this.colHO.Visible = true;
+            this.colHO.VisibleIndex = 1;
+            this.colHO.Width = 183;
             // 
-            // sP_BACSITableAdapter
+            // colTEN
             // 
-            this.sP_BACSITableAdapter.ClearBeforeFill = true;
+            this.colTEN.Caption = "Tên";
+            this.colTEN.FieldName = "TEN";
+            this.colTEN.MinWidth = 30;
+            this.colTEN.Name = "colTEN";
+            this.colTEN.OptionsColumn.AllowEdit = false;
+            this.colTEN.Visible = true;
+            this.colTEN.VisibleIndex = 2;
+            this.colTEN.Width = 183;
+            // 
+            // colNGAYSINH
+            // 
+            this.colNGAYSINH.Caption = "Ngày sinh";
+            this.colNGAYSINH.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYSINH.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colNGAYSINH.FieldName = "NGAYSINH";
+            this.colNGAYSINH.MinWidth = 30;
+            this.colNGAYSINH.Name = "colNGAYSINH";
+            this.colNGAYSINH.OptionsColumn.AllowEdit = false;
+            this.colNGAYSINH.Visible = true;
+            this.colNGAYSINH.VisibleIndex = 3;
+            this.colNGAYSINH.Width = 183;
+            // 
+            // colLOAI
+            // 
+            this.colLOAI.Caption = "Loại";
+            this.colLOAI.FieldName = "LOAI";
+            this.colLOAI.MinWidth = 30;
+            this.colLOAI.Name = "colLOAI";
+            this.colLOAI.OptionsColumn.AllowEdit = false;
+            this.colLOAI.Visible = true;
+            this.colLOAI.VisibleIndex = 4;
+            this.colLOAI.Width = 116;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panelNhapLieu);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 370);
+            this.panel2.Location = new System.Drawing.Point(0, 349);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(515, 293);
+            this.panel2.Size = new System.Drawing.Size(515, 517);
             this.panel2.TabIndex = 16;
             // 
             // panelNhapLieu
             // 
+            this.panelNhapLieu.Controls.Add(this.textBox1);
             this.panelNhapLieu.Controls.Add(mABSTDLabel);
             this.panelNhapLieu.Controls.Add(this.txtMaBacSiTheoDoi);
             this.panelNhapLieu.Controls.Add(tENLabel1);
-            this.panelNhapLieu.Controls.Add(this.tENTextBox1);
+            this.panelNhapLieu.Controls.Add(this.txtLastname);
             this.panelNhapLieu.Controls.Add(hOLabel1);
-            this.panelNhapLieu.Controls.Add(this.hOTextBox1);
+            this.panelNhapLieu.Controls.Add(this.txtFirstname);
             this.panelNhapLieu.Controls.Add(mABNLabel);
             this.panelNhapLieu.Controls.Add(this.txtMaBenhNhan);
             this.panelNhapLieu.Controls.Add(this.label2);
@@ -436,49 +533,61 @@
             this.panelNhapLieu.Enabled = false;
             this.panelNhapLieu.Location = new System.Drawing.Point(0, 0);
             this.panelNhapLieu.Name = "panelNhapLieu";
-            this.panelNhapLieu.Size = new System.Drawing.Size(515, 293);
+            this.panelNhapLieu.Size = new System.Drawing.Size(515, 517);
             this.panelNhapLieu.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource, "MABSTD", true));
+            this.textBox1.Location = new System.Drawing.Point(354, 245);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(139, 27);
+            this.textBox1.TabIndex = 18;
+            // 
+            // gET_PATIENT_HAVE_STALK_DOCTORBindingSource
+            // 
+            this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource.DataMember = "GET_PATIENT_HAVE_STALK_DOCTOR";
+            this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource.DataSource = this.QLBVDataSet;
             // 
             // txtMaBacSiTheoDoi
             // 
-            this.txtMaBacSiTheoDoi.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sP_BENHNHAN_KHONG_THEO_DOIBindingSource, "MABSTD", true));
-            this.txtMaBacSiTheoDoi.Location = new System.Drawing.Point(319, 102);
+            this.txtMaBacSiTheoDoi.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource, "BACSITHEODOI", true));
+            this.txtMaBacSiTheoDoi.Location = new System.Drawing.Point(153, 242);
             this.txtMaBacSiTheoDoi.Name = "txtMaBacSiTheoDoi";
-            this.txtMaBacSiTheoDoi.Size = new System.Drawing.Size(100, 27);
+            this.txtMaBacSiTheoDoi.Size = new System.Drawing.Size(179, 27);
             this.txtMaBacSiTheoDoi.TabIndex = 17;
-           
             // 
-            // tENTextBox1
+            // txtLastname
             // 
-            this.tENTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sP_BENHNHAN_KHONG_THEO_DOIBindingSource, "TEN", true));
-            this.tENTextBox1.Location = new System.Drawing.Point(319, 170);
-            this.tENTextBox1.Name = "tENTextBox1";
-            this.tENTextBox1.Size = new System.Drawing.Size(95, 27);
-            this.tENTextBox1.TabIndex = 15;
+            this.txtLastname.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource, "TEN", true));
+            this.txtLastname.Location = new System.Drawing.Point(372, 176);
+            this.txtLastname.Name = "txtLastname";
+            this.txtLastname.Size = new System.Drawing.Size(121, 27);
+            this.txtLastname.TabIndex = 15;
             // 
-            // hOTextBox1
+            // txtFirstname
             // 
-            this.hOTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sP_BENHNHAN_KHONG_THEO_DOIBindingSource, "HO", true));
-            this.hOTextBox1.Location = new System.Drawing.Point(95, 171);
-            this.hOTextBox1.Name = "hOTextBox1";
-            this.hOTextBox1.Size = new System.Drawing.Size(100, 27);
-            this.hOTextBox1.TabIndex = 13;
+            this.txtFirstname.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource, "HO", true));
+            this.txtFirstname.Location = new System.Drawing.Point(153, 173);
+            this.txtFirstname.Name = "txtFirstname";
+            this.txtFirstname.Size = new System.Drawing.Size(152, 27);
+            this.txtFirstname.TabIndex = 13;
             // 
             // txtMaBenhNhan
             // 
-            this.txtMaBenhNhan.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sP_BENHNHAN_KHONG_THEO_DOIBindingSource, "MABN", true));
-            this.txtMaBenhNhan.Location = new System.Drawing.Point(96, 102);
+            this.txtMaBenhNhan.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource, "MABN", true));
+            this.txtMaBenhNhan.Location = new System.Drawing.Point(153, 102);
             this.txtMaBenhNhan.Name = "txtMaBenhNhan";
-            this.txtMaBenhNhan.Size = new System.Drawing.Size(100, 27);
+            this.txtMaBenhNhan.Size = new System.Drawing.Size(110, 27);
             this.txtMaBenhNhan.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(127, 38);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(113, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(257, 24);
+            this.label2.Size = new System.Drawing.Size(284, 24);
             this.label2.TabIndex = 9;
             this.label2.Text = "THÔNG TIN VỀ BỆNH NHÂN";
             // 
@@ -490,189 +599,166 @@
             // 
             this.bENHNHANTableAdapter.ClearBeforeFill = true;
             // 
-            // bENHNHANGridControl
-            // 
-            this.bENHNHANGridControl.DataSource = this.bdsBenhNhanCoBS;
-            this.bENHNHANGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bENHNHANGridControl.Location = new System.Drawing.Point(515, 370);
-            this.bENHNHANGridControl.MainView = this.gridView2;
-            this.bENHNHANGridControl.MenuManager = this.barManager1;
-            this.bENHNHANGridControl.Name = "bENHNHANGridControl";
-            this.bENHNHANGridControl.Size = new System.Drawing.Size(797, 293);
-            this.bENHNHANGridControl.TabIndex = 20;
-            this.bENHNHANGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            this.bENHNHANGridControl.FocusedViewChanged += new DevExpress.XtraGrid.ViewFocusEventHandler(this.bENHNHANGridControl_FocusedViewChanged);
-            // 
-            // gridView2
-            // 
-            this.gridView2.GridControl = this.bENHNHANGridControl;
-            this.gridView2.Name = "gridView2";
-            // 
             // sP_BENHNHAN_KHONG_THEO_DOITableAdapter
             // 
             this.sP_BENHNHAN_KHONG_THEO_DOITableAdapter.ClearBeforeFill = true;
             // 
-            // colMABN
+            // btnXOA
             // 
-            this.colMABN.Caption = "MÃ BỆNH NHÂN";
-            this.colMABN.FieldName = "MABN";
-            this.colMABN.MinWidth = 30;
-            this.colMABN.Name = "colMABN";
-            this.colMABN.OptionsColumn.AllowEdit = false;
-            this.colMABN.Visible = true;
-            this.colMABN.VisibleIndex = 0;
-            this.colMABN.Width = 112;
+            this.btnXOA.Name = "btnXOA";
             // 
-            // colHO
+            // gET_FULL_DOCTORSTableAdapter
             // 
-            this.colHO.Caption = "HỌ";
-            this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 30;
-            this.colHO.Name = "colHO";
-            this.colHO.OptionsColumn.AllowEdit = false;
-            this.colHO.Visible = true;
-            this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 112;
+            this.gET_FULL_DOCTORSTableAdapter.ClearBeforeFill = true;
             // 
-            // colTEN
+            // panel5
             // 
-            this.colTEN.Caption = "TÊN";
-            this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 30;
-            this.colTEN.Name = "colTEN";
-            this.colTEN.OptionsColumn.AllowEdit = false;
-            this.colTEN.Visible = true;
-            this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 112;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(515, 349);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(797, 57);
+            this.panel5.TabIndex = 25;
             // 
-            // colNGAYSINH
+            // label1
             // 
-            this.colNGAYSINH.Caption = "NGÀY SINH";
-            this.colNGAYSINH.FieldName = "NGAYSINH";
-            this.colNGAYSINH.MinWidth = 30;
-            this.colNGAYSINH.Name = "colNGAYSINH";
-            this.colNGAYSINH.OptionsColumn.AllowEdit = false;
-            this.colNGAYSINH.Visible = true;
-            this.colNGAYSINH.VisibleIndex = 3;
-            this.colNGAYSINH.Width = 112;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(271, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(350, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "DANH SÁCH BỆNH NHÂN ĐƯỢC THEO DÕI";
             // 
-            // colLOAI
+            // gET_PATIENT_HAVE_STALK_DOCTORTableAdapter
             // 
-            this.colLOAI.Caption = "LOẠI";
-            this.colLOAI.FieldName = "LOAI";
-            this.colLOAI.MinWidth = 30;
-            this.colLOAI.Name = "colLOAI";
-            this.colLOAI.OptionsColumn.AllowEdit = false;
-            this.colLOAI.Visible = true;
-            this.colLOAI.VisibleIndex = 4;
-            this.colLOAI.Width = 112;
+            this.gET_PATIENT_HAVE_STALK_DOCTORTableAdapter.ClearBeforeFill = true;
             // 
-            // colMABSTD
+            // gET_PATIENT_HAVE_STALK_DOCTORGridControl
             // 
-            this.colMABSTD.Caption = "MÃ BÁC SĨ THEO DÕI";
-            this.colMABSTD.FieldName = "MABSTD";
-            this.colMABSTD.MinWidth = 30;
-            this.colMABSTD.Name = "colMABSTD";
-            this.colMABSTD.OptionsColumn.AllowEdit = false;
-            this.colMABSTD.Visible = true;
-            this.colMABSTD.VisibleIndex = 5;
-            this.colMABSTD.Width = 112;
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.DataSource = this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource;
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.Location = new System.Drawing.Point(515, 406);
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.MainView = this.gridView2;
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.MenuManager = this.barManager1;
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.Name = "gET_PATIENT_HAVE_STALK_DOCTORGridControl";
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.Size = new System.Drawing.Size(797, 460);
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.TabIndex = 29;
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            this.gET_PATIENT_HAVE_STALK_DOCTORGridControl.Click += new System.EventHandler(this.gET_PATIENT_HAVE_STALK_DOCTORGridControl_Click);
             // 
-            // colMANV
+            // gridView2
             // 
-            this.colMANV.Caption = "MÃ BÁC SĨ";
-            this.colMANV.FieldName = "MANV";
-            this.colMANV.MinWidth = 30;
-            this.colMANV.Name = "colMANV";
-            this.colMANV.OptionsColumn.AllowEdit = false;
-            this.colMANV.Visible = true;
-            this.colMANV.VisibleIndex = 0;
-            this.colMANV.Width = 112;
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMABN1,
+            this.colHO2,
+            this.colTEN2,
+            this.colNGAYSINH1,
+            this.colLOAI1,
+            this.colBACSITHEODOI,
+            this.colBACSITIEPNHAN,
+            this.colMABSTD1});
+            this.gridView2.GridControl = this.gET_PATIENT_HAVE_STALK_DOCTORGridControl;
+            this.gridView2.Name = "gridView2";
             // 
-            // colHO1
+            // colMABN1
             // 
-            this.colHO1.Caption = "HỌ ";
-            this.colHO1.FieldName = "HO";
-            this.colHO1.MinWidth = 30;
-            this.colHO1.Name = "colHO1";
-            this.colHO1.OptionsColumn.AllowEdit = false;
-            this.colHO1.Visible = true;
-            this.colHO1.VisibleIndex = 1;
-            this.colHO1.Width = 112;
+            this.colMABN1.Caption = "Mã bệnh nhân";
+            this.colMABN1.FieldName = "MABN";
+            this.colMABN1.MinWidth = 30;
+            this.colMABN1.Name = "colMABN1";
+            this.colMABN1.OptionsColumn.AllowEdit = false;
+            this.colMABN1.Visible = true;
+            this.colMABN1.VisibleIndex = 0;
+            this.colMABN1.Width = 112;
             // 
-            // colTEN1
+            // colHO2
             // 
-            this.colTEN1.Caption = "TÊN";
-            this.colTEN1.FieldName = "TEN";
-            this.colTEN1.MinWidth = 30;
-            this.colTEN1.Name = "colTEN1";
-            this.colTEN1.OptionsColumn.AllowEdit = false;
-            this.colTEN1.Visible = true;
-            this.colTEN1.VisibleIndex = 2;
-            this.colTEN1.Width = 112;
+            this.colHO2.Caption = "Họ";
+            this.colHO2.FieldName = "HO";
+            this.colHO2.MinWidth = 30;
+            this.colHO2.Name = "colHO2";
+            this.colHO2.OptionsColumn.AllowEdit = false;
+            this.colHO2.Visible = true;
+            this.colHO2.VisibleIndex = 1;
+            this.colHO2.Width = 112;
             // 
-            // colPHAI
+            // colTEN2
             // 
-            this.colPHAI.Caption = "PHÁI";
-            this.colPHAI.FieldName = "PHAI";
-            this.colPHAI.MinWidth = 30;
-            this.colPHAI.Name = "colPHAI";
-            this.colPHAI.OptionsColumn.AllowEdit = false;
-            this.colPHAI.Visible = true;
-            this.colPHAI.VisibleIndex = 3;
-            this.colPHAI.Width = 112;
+            this.colTEN2.Caption = "Tên";
+            this.colTEN2.FieldName = "TEN";
+            this.colTEN2.MinWidth = 30;
+            this.colTEN2.Name = "colTEN2";
+            this.colTEN2.OptionsColumn.AllowEdit = false;
+            this.colTEN2.Visible = true;
+            this.colTEN2.VisibleIndex = 2;
+            this.colTEN2.Width = 112;
             // 
-            // colDIACHI
+            // colNGAYSINH1
             // 
-            this.colDIACHI.Caption = "ĐỊA CHỈ";
-            this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 30;
-            this.colDIACHI.Name = "colDIACHI";
-            this.colDIACHI.OptionsColumn.AllowEdit = false;
-            this.colDIACHI.Visible = true;
-            this.colDIACHI.VisibleIndex = 4;
-            this.colDIACHI.Width = 112;
+            this.colNGAYSINH1.Caption = "Ngày sinh";
+            this.colNGAYSINH1.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYSINH1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colNGAYSINH1.FieldName = "NGAYSINH";
+            this.colNGAYSINH1.MinWidth = 30;
+            this.colNGAYSINH1.Name = "colNGAYSINH1";
+            this.colNGAYSINH1.OptionsColumn.AllowEdit = false;
+            this.colNGAYSINH1.Visible = true;
+            this.colNGAYSINH1.VisibleIndex = 3;
+            this.colNGAYSINH1.Width = 112;
             // 
-            // colDIENTHOAI
+            // colLOAI1
             // 
-            this.colDIENTHOAI.Caption = "ĐIỆN THOẠI";
-            this.colDIENTHOAI.FieldName = "DIENTHOAI";
-            this.colDIENTHOAI.MinWidth = 30;
-            this.colDIENTHOAI.Name = "colDIENTHOAI";
-            this.colDIENTHOAI.OptionsColumn.AllowEdit = false;
-            this.colDIENTHOAI.Visible = true;
-            this.colDIENTHOAI.VisibleIndex = 5;
-            this.colDIENTHOAI.Width = 112;
+            this.colLOAI1.Caption = "Loại";
+            this.colLOAI1.FieldName = "LOAI";
+            this.colLOAI1.MinWidth = 30;
+            this.colLOAI1.Name = "colLOAI1";
+            this.colLOAI1.OptionsColumn.AllowEdit = false;
+            this.colLOAI1.Visible = true;
+            this.colLOAI1.VisibleIndex = 4;
+            this.colLOAI1.Width = 112;
             // 
-            // colCCCD
+            // colBACSITHEODOI
             // 
-            this.colCCCD.Caption = "CCCD";
-            this.colCCCD.FieldName = "CCCD";
-            this.colCCCD.MinWidth = 30;
-            this.colCCCD.Name = "colCCCD";
-            this.colCCCD.OptionsColumn.AllowEdit = false;
-            this.colCCCD.Visible = true;
-            this.colCCCD.VisibleIndex = 6;
-            this.colCCCD.Width = 112;
+            this.colBACSITHEODOI.Caption = "Bác sĩ theo dõi";
+            this.colBACSITHEODOI.FieldName = "BACSITHEODOI";
+            this.colBACSITHEODOI.MinWidth = 30;
+            this.colBACSITHEODOI.Name = "colBACSITHEODOI";
+            this.colBACSITHEODOI.OptionsColumn.AllowEdit = false;
+            this.colBACSITHEODOI.Visible = true;
+            this.colBACSITHEODOI.VisibleIndex = 5;
+            this.colBACSITHEODOI.Width = 112;
             // 
-            // colMACV
+            // colBACSITIEPNHAN
             // 
-            this.colMACV.Caption = "MÃ CHỨC VỊ";
-            this.colMACV.FieldName = "MACV";
-            this.colMACV.MinWidth = 30;
-            this.colMACV.Name = "colMACV";
-            this.colMACV.OptionsColumn.AllowEdit = false;
-            this.colMACV.Visible = true;
-            this.colMACV.VisibleIndex = 7;
-            this.colMACV.Width = 112;
+            this.colBACSITIEPNHAN.Caption = "Bác sĩ tiếp nhận";
+            this.colBACSITIEPNHAN.FieldName = "BACSITIEPNHAN";
+            this.colBACSITIEPNHAN.MinWidth = 30;
+            this.colBACSITIEPNHAN.Name = "colBACSITIEPNHAN";
+            this.colBACSITIEPNHAN.OptionsColumn.AllowEdit = false;
+            this.colBACSITIEPNHAN.Visible = true;
+            this.colBACSITIEPNHAN.VisibleIndex = 6;
+            this.colBACSITIEPNHAN.Width = 112;
+            // 
+            // colMABSTD1
+            // 
+            this.colMABSTD1.Caption = "Mã bác sĩ theo dõi";
+            this.colMABSTD1.FieldName = "MABSTD";
+            this.colMABSTD1.MinWidth = 30;
+            this.colMABSTD1.Name = "colMABSTD1";
+            this.colMABSTD1.OptionsColumn.AllowEdit = false;
+            this.colMABSTD1.Width = 112;
             // 
             // frmTheoDoiBenhNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1312, 683);
-            this.Controls.Add(this.bENHNHANGridControl);
+            this.ClientSize = new System.Drawing.Size(1312, 866);
+            this.Controls.Add(this.gET_PATIENT_HAVE_STALK_DOCTORGridControl);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
@@ -680,24 +766,28 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmTheoDoiBenhNhan";
-            this.Text = "THEO DÕI BỆNH NHÂN";
+            this.Text = "Đăng kí theo dõi bệnh nhân";
             this.Load += new System.EventHandler(this.frmTheoDoiBenhNhan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLBVDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nHANVIENGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsBacSi)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gET_FULL_DOCTORSGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gET_FULL_DOCTORSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_BENHNHAN_KHONG_THEO_DOIGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_BENHNHAN_KHONG_THEO_DOIBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBenhNhanCoBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_BACSIBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panelNhapLieu.ResumeLayout(false);
             this.panelNhapLieu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bENHNHANGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gET_PATIENT_HAVE_STALK_DOCTORBindingSource)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gET_PATIENT_HAVE_STALK_DOCTORGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -711,8 +801,6 @@
         private DevExpress.XtraBars.BarButtonItem btnTHEM;
         private DevExpress.XtraBars.BarButtonItem btnGHI;
         private DevExpress.XtraBars.BarButtonItem btnSUA;
-        private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
@@ -720,45 +808,57 @@
         private QLBVDataSet QLBVDataSet;
         private QLBVDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.BindingSource sP_BACSIBindingSource;
-        private QLBVDataSetTableAdapters.SP_BACSITableAdapter sP_BACSITableAdapter;
+       // private QLBVDataSetTableAdapters.SP_BACSITableAdapter sP_BACSITableAdapter;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelNhapLieu;
-        private System.Windows.Forms.BindingSource bdsBacSi;
         private QLBVDataSetTableAdapters.NHANVIENTableAdapter nHANVIENTableAdapter;
-        private DevExpress.XtraGrid.GridControl nHANVIENGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.BindingSource bdsBenhNhanCoBS;
         private QLBVDataSetTableAdapters.BENHNHANTableAdapter bENHNHANTableAdapter;
-        private DevExpress.XtraGrid.GridControl bENHNHANGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private System.Windows.Forms.BindingSource sP_BENHNHAN_KHONG_THEO_DOIBindingSource;
         private QLBVDataSetTableAdapters.SP_BENHNHAN_KHONG_THEO_DOITableAdapter sP_BENHNHAN_KHONG_THEO_DOITableAdapter;
         private DevExpress.XtraGrid.GridControl sP_BENHNHAN_KHONG_THEO_DOIGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMaBacSiTheoDoi;
-        private System.Windows.Forms.TextBox tENTextBox1;
-        private System.Windows.Forms.TextBox hOTextBox1;
+        private System.Windows.Forms.TextBox txtLastname;
+        private System.Windows.Forms.TextBox txtFirstname;
         private System.Windows.Forms.TextBox txtMaBenhNhan;
         private DevExpress.XtraBars.BarButtonItem btnCANCEL;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
-        private DevExpress.XtraBars.BarButtonItem btnXOA;
         private DevExpress.XtraBars.BarButtonItem btnLAMMOI;
-        private DevExpress.XtraGrid.Columns.GridColumn colMANV;
-        private DevExpress.XtraGrid.Columns.GridColumn colHO1;
-        private DevExpress.XtraGrid.Columns.GridColumn colTEN1;
-        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIENTHOAI;
-        private DevExpress.XtraGrid.Columns.GridColumn colCCCD;
-        private DevExpress.XtraGrid.Columns.GridColumn colMACV;
         private DevExpress.XtraGrid.Columns.GridColumn colMABN;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
         private DevExpress.XtraGrid.Columns.GridColumn colLOAI;
-        private DevExpress.XtraGrid.Columns.GridColumn colMABSTD;
+        private DevExpress.XtraBars.BarButtonItem btnXOA;
+        private DevExpress.XtraBars.BarButtonItem btnDelete;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.BindingSource gET_FULL_DOCTORSBindingSource;
+        private QLBVDataSetTableAdapters.GET_FULL_DOCTORSTableAdapter gET_FULL_DOCTORSTableAdapter;
+        private DevExpress.XtraGrid.GridControl gET_FULL_DOCTORSGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMANV;
+        private DevExpress.XtraGrid.Columns.GridColumn colHO1;
+        private DevExpress.XtraGrid.Columns.GridColumn colTEN1;
+        private DevExpress.XtraGrid.Columns.GridColumn colDIENTHOAI;
+        private DevExpress.XtraGrid.Columns.GridColumn colTRINHDO;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource gET_PATIENT_HAVE_STALK_DOCTORBindingSource;
+        private QLBVDataSetTableAdapters.GET_PATIENT_HAVE_STALK_DOCTORTableAdapter gET_PATIENT_HAVE_STALK_DOCTORTableAdapter;
+        private DevExpress.XtraGrid.GridControl gET_PATIENT_HAVE_STALK_DOCTORGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMABN1;
+        private DevExpress.XtraGrid.Columns.GridColumn colHO2;
+        private DevExpress.XtraGrid.Columns.GridColumn colTEN2;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH1;
+        private DevExpress.XtraGrid.Columns.GridColumn colLOAI1;
+        private DevExpress.XtraGrid.Columns.GridColumn colBACSITHEODOI;
+        private DevExpress.XtraGrid.Columns.GridColumn colBACSITIEPNHAN;
+        private DevExpress.XtraGrid.Columns.GridColumn colMABSTD1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

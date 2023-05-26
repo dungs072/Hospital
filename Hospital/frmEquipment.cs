@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Hospital
 {
-    public partial class frmEquipment : DevExpress.XtraEditors.XtraForm
+    public partial class frmEquipment : DevExpress.XtraEditors.XtraForm,IBoss
     {
         private bool isAdding = false;
         private int position = 0;
@@ -149,7 +149,7 @@ namespace Hospital
                     }
                     else
                     {
-                        MessageBox.Show("Cập nhật vât tư thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cập nhật vật tư thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
@@ -197,6 +197,13 @@ namespace Hospital
             ToggleGroupBox(false);
             ToggleTables(true);
             ToggleUpdateDeleteButtons(vATTUBindingSource.Count > 0);
+        }
+
+        public void InitialSetting()
+        {
+            ToggleAddReloadButtons(false);
+            ToggleUpdateDeleteButtons(false);
+            ToggleWriteCancelButtons(false);
         }
     }
 }

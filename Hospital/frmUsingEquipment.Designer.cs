@@ -157,6 +157,7 @@ namespace Hospital
             // 
             this.colNGAYSINH.Caption = "Ngày sinh";
             this.colNGAYSINH.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYSINH.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 30;
             this.colNGAYSINH.Name = "colNGAYSINH";
