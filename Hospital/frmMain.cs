@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,11 @@ namespace Hospital
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        private frmProvidePrivilege providePrivilege;
         public frmMain()
         {
             InitializeComponent();
+            frmProvidePrivilege.OnHasPrivilege += OnHasPrivilege;
         }
         public void ShowMenu()
         {
@@ -218,6 +221,7 @@ namespace Hospital
             ribbonPage3.Visible = false;
             ribbonPage4.Visible = false;
             ribbonPage5.Visible = false;
+            ribbonPage6.Visible = false;
             btnBarLogOut.Enabled = false;
             btnBarCreateAccount.Enabled = false;
             btnBarDeleteAccount.Enabled = false;
@@ -242,6 +246,7 @@ namespace Hospital
             ribbonPage3.Visible = true;
             ribbonPage4.Visible = true;
             ribbonPage5.Visible = false;
+            ribbonPage6.Visible = true;
             btnBarCreateAccount.Enabled = true;
             btnBarDeleteAccount.Enabled = true;
             ribbonControl1.SelectedPage = ribbonPage2;
@@ -273,18 +278,131 @@ namespace Hospital
             ribbonPage3.Visible = false;
             ribbonPage4.Visible = false;
             ribbonPage5.Visible = false;
+            ribbonPage6.Visible = false;
             btnBarLogin.Enabled = true;
             btnBarLogOut.Enabled = false;
             btnBarCreateAccount.Enabled = false;
             btnBarDeleteAccount.Enabled = false;
             btnBarChangePassword.Enabled = false;
-
+            LogOff();
             btnBarUsingEquip.Enabled = true;
             btnBarRegisterArea.Enabled = true;
             CloseAllFormCurrentlyOpen();
             ShowForm(typeof(frmLogin));
+            id.Text = "Mã nhân viên = None" ;
+            fullname.Text = "Họ và tên = None";
+            group.Text = "Nhóm = None" ;
+        }
+        private void LogOff()
+        {
+            Program.conn.Close();
         }
 
-    
+        private void btnBarBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            providePrivilege = new frmProvidePrivilege(true);
+            providePrivilege.StartPosition = FormStartPosition.CenterScreen;
+            providePrivilege.ShowDialog();
+          
+        }
+
+        private void btnBarRestore_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            providePrivilege = new frmProvidePrivilege(false);
+            providePrivilege.StartPosition = FormStartPosition.CenterScreen;
+            providePrivilege.ShowDialog();
+
+        }
+        
+        private void OnHasPrivilege(bool isBackup)
+        {
+            providePrivilege.Close();
+            if(isBackup)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Title = "Save File"; // Set the dialog title
+                saveFileDialog.Filter = "Bak Files (*.bak)|*.bak|All Files (*.*)|*.*"; // Specify the file filter
+                DialogResult result = saveFileDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    string selectedFilePath = saveFileDialog.FileName;
+                    if (Program.Connect() == 0) { return; }
+                    string cmd = string.Format("EXEC BACK_UP_DATABASE '{0}'", selectedFilePath);
+                    int resultl = Program.ExecSqlNonQuery(cmd);
+                    if (resultl == 0)
+                    {
+                        MessageBox.Show("Sao lưu dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sao lưu dữ liệu thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Title = "Select File"; // Set the dialog title
+                openFileDialog.Filter = "Text Files (*.bak)|*.bak|All Files (*.*)|*.*"; // Specify the file filter
+
+                DialogResult result = openFileDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    string selectedFilePath = openFileDialog.FileName;
+                    int resultl = KillAllSessionsAndRestoreWithPrivilege(selectedFilePath);
+                    //int resultl = RestoreWithPrivilege(selectedFilePath);
+                    if (resultl == 0)
+                    {
+                        MessageBox.Show("Phục hồi dữ liệu thành công.\nChương trình sẽ tự động khởi động lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Application.Restart();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Phục hồi dữ liệu thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+        }
+        
+        private int KillAllSessionsAndRestoreWithPrivilege(string selectedFilePath)
+        {
+            // Create a connection string
+            string connectionString = string.Format("Server={0};Database={1};User Id=sa;Password=123;", Program.serverName, Program.database);
+
+            // Create a SqlConnection object
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string cmd = "SELECT * FROM GET_SESSIONS";
+            SqlCommand sqlCmd = new SqlCommand(cmd, connection);
+            sqlCmd.CommandType = System.Data.CommandType.Text;
+            sqlCmd.CommandTimeout = 600;//10 mins
+            if (connection.State == System.Data.ConnectionState.Closed) connection.Open();
+            try
+            {
+                SqlDataReader reader = sqlCmd.ExecuteReader();
+                string killStatements = string.Empty;
+                while (reader.Read())
+                {
+                    int sessionId = reader.GetInt16(0);
+                    killStatements += $"KILL {sessionId};\n";
+                }
+                reader.Close();
+                
+                string commandStr = killStatements+string.Format(" USE master; EXEC RESTORE_DATABASE '{0}'", selectedFilePath);
+                sqlCmd = new SqlCommand(commandStr, connection);
+                sqlCmd.ExecuteNonQuery();
+                connection.Close();
+                return 0;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                connection.Close();
+                return ex.State + 1;
+            }
+        }
     }
 }

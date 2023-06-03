@@ -552,6 +552,7 @@ namespace Hospital
             // txtResult
             // 
             this.txtResult.Location = new System.Drawing.Point(106, 278);
+            this.txtResult.MaxLength = 50;
             this.txtResult.Name = "txtResult";
             this.txtResult.Size = new System.Drawing.Size(358, 27);
             this.txtResult.TabIndex = 8;

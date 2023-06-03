@@ -66,6 +66,7 @@
             // txtLoginName
             // 
             this.txtLoginName.Location = new System.Drawing.Point(377, 182);
+            this.txtLoginName.MaxLength = 30;
             this.txtLoginName.Name = "txtLoginName";
             this.txtLoginName.Size = new System.Drawing.Size(176, 27);
             this.txtLoginName.TabIndex = 2;
@@ -91,6 +92,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(377, 237);
+            this.txtPassword.MaxLength = 30;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(176, 27);
@@ -161,6 +163,7 @@
             // txtPassWordXacNhan
             // 
             this.txtPassWordXacNhan.Location = new System.Drawing.Point(378, 293);
+            this.txtPassWordXacNhan.MaxLength = 30;
             this.txtPassWordXacNhan.Name = "txtPassWordXacNhan";
             this.txtPassWordXacNhan.PasswordChar = '*';
             this.txtPassWordXacNhan.Size = new System.Drawing.Size(176, 27);

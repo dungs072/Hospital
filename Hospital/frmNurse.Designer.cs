@@ -286,6 +286,7 @@ namespace Hospital
             // txtPersonalId
             // 
             this.txtPersonalId.Location = new System.Drawing.Point(489, 331);
+            this.txtPersonalId.MaxLength = 12;
             this.txtPersonalId.Name = "txtPersonalId";
             this.txtPersonalId.Size = new System.Drawing.Size(213, 27);
             this.txtPersonalId.TabIndex = 29;
@@ -302,6 +303,7 @@ namespace Hospital
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Location = new System.Drawing.Point(156, 328);
+            this.txtPhoneNumber.MaxLength = 10;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(219, 27);
             this.txtPhoneNumber.TabIndex = 27;
@@ -318,6 +320,7 @@ namespace Hospital
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(156, 261);
+            this.txtAddress.MaxLength = 75;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(418, 27);
             this.txtAddress.TabIndex = 25;
@@ -343,6 +346,7 @@ namespace Hospital
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(465, 110);
+            this.txtLastName.MaxLength = 30;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(158, 27);
             this.txtLastName.TabIndex = 22;
@@ -359,6 +363,7 @@ namespace Hospital
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(156, 110);
+            this.txtFirstName.MaxLength = 50;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(158, 27);
             this.txtFirstName.TabIndex = 20;
@@ -375,6 +380,7 @@ namespace Hospital
             // txtDoctorId
             // 
             this.txtDoctorId.Location = new System.Drawing.Point(156, 43);
+            this.txtDoctorId.MaxLength = 10;
             this.txtDoctorId.Name = "txtDoctorId";
             this.txtDoctorId.Size = new System.Drawing.Size(158, 27);
             this.txtDoctorId.TabIndex = 18;

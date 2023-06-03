@@ -42,13 +42,7 @@ namespace Hospital
             this.colTENKHU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDANHDINHKHU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gET_BEDS_BASE_ON_ROOMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gET_BEDS_BASE_ON_ROOMTableAdapter = new Hospital.QLBVDataSetTableAdapters.GET_BEDS_BASE_ON_ROOMTableAdapter();
-            this.gET_BEDS_BASE_ON_ROOMGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAGIUONG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOGIUONG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAPHONG1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtBedNumber = new DevExpress.XtraEditors.SpinEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -61,22 +55,28 @@ namespace Hospital
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtRoomId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtBedId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtBedNumber = new DevExpress.XtraEditors.SpinEdit();
+            this.txtRoomId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gET_BEDS_BASE_ON_ROOMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gET_BEDS_BASE_ON_ROOMTableAdapter = new Hospital.QLBVDataSetTableAdapters.GET_BEDS_BASE_ON_ROOMTableAdapter();
+            this.gET_BEDS_BASE_ON_ROOMGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAGIUONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOGIUONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAPHONG1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_ROOMSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_ROOMSGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBedNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_BEDS_BASE_ON_ROOMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_BEDS_BASE_ON_ROOMGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBedNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // qLBVDataSet
@@ -195,69 +195,20 @@ namespace Hospital
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập liệu";
             // 
-            // gET_BEDS_BASE_ON_ROOMBindingSource
+            // txtBedNumber
             // 
-            this.gET_BEDS_BASE_ON_ROOMBindingSource.DataMember = "GET_BEDS_BASE_ON_ROOM";
-            this.gET_BEDS_BASE_ON_ROOMBindingSource.DataSource = this.qLBVDataSet;
-            // 
-            // gET_BEDS_BASE_ON_ROOMTableAdapter
-            // 
-            this.gET_BEDS_BASE_ON_ROOMTableAdapter.ClearBeforeFill = true;
-            // 
-            // gET_BEDS_BASE_ON_ROOMGridControl
-            // 
-            this.gET_BEDS_BASE_ON_ROOMGridControl.DataSource = this.gET_BEDS_BASE_ON_ROOMBindingSource;
-            this.gET_BEDS_BASE_ON_ROOMGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gET_BEDS_BASE_ON_ROOMGridControl.Location = new System.Drawing.Point(407, 332);
-            this.gET_BEDS_BASE_ON_ROOMGridControl.MainView = this.gridView2;
-            this.gET_BEDS_BASE_ON_ROOMGridControl.Name = "gET_BEDS_BASE_ON_ROOMGridControl";
-            this.gET_BEDS_BASE_ON_ROOMGridControl.Size = new System.Drawing.Size(667, 332);
-            this.gET_BEDS_BASE_ON_ROOMGridControl.TabIndex = 3;
-            this.gET_BEDS_BASE_ON_ROOMGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            this.gET_BEDS_BASE_ON_ROOMGridControl.Click += new System.EventHandler(this.gET_BEDS_BASE_ON_ROOMGridControl_Click);
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAGIUONG,
-            this.colSOGIUONG,
-            this.colMAPHONG1});
-            this.gridView2.GridControl = this.gET_BEDS_BASE_ON_ROOMGridControl;
-            this.gridView2.Name = "gridView2";
-            // 
-            // colMAGIUONG
-            // 
-            this.colMAGIUONG.Caption = "Mã giường";
-            this.colMAGIUONG.FieldName = "MAGIUONG";
-            this.colMAGIUONG.MinWidth = 30;
-            this.colMAGIUONG.Name = "colMAGIUONG";
-            this.colMAGIUONG.OptionsColumn.AllowEdit = false;
-            this.colMAGIUONG.Visible = true;
-            this.colMAGIUONG.VisibleIndex = 0;
-            this.colMAGIUONG.Width = 112;
-            // 
-            // colSOGIUONG
-            // 
-            this.colSOGIUONG.Caption = "Số giường";
-            this.colSOGIUONG.FieldName = "SOGIUONG";
-            this.colSOGIUONG.MinWidth = 30;
-            this.colSOGIUONG.Name = "colSOGIUONG";
-            this.colSOGIUONG.OptionsColumn.AllowEdit = false;
-            this.colSOGIUONG.Visible = true;
-            this.colSOGIUONG.VisibleIndex = 1;
-            this.colSOGIUONG.Width = 112;
-            // 
-            // colMAPHONG1
-            // 
-            this.colMAPHONG1.Caption = "Mã phòng";
-            this.colMAPHONG1.FieldName = "MAPHONG";
-            this.colMAPHONG1.MinWidth = 30;
-            this.colMAPHONG1.Name = "colMAPHONG1";
-            this.colMAPHONG1.OptionsColumn.AllowEdit = false;
-            this.colMAPHONG1.Visible = true;
-            this.colMAPHONG1.VisibleIndex = 2;
-            this.colMAPHONG1.Width = 112;
+            this.txtBedNumber.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtBedNumber.Location = new System.Drawing.Point(146, 208);
+            this.txtBedNumber.MenuManager = this.barManager1;
+            this.txtBedNumber.Name = "txtBedNumber";
+            this.txtBedNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtBedNumber.Size = new System.Drawing.Size(202, 28);
+            this.txtBedNumber.TabIndex = 5;
             // 
             // barManager1
             // 
@@ -378,26 +329,19 @@ namespace Hospital
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 630);
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã phòng:";
-            // 
-            // txtRoomId
-            // 
-            this.txtRoomId.Location = new System.Drawing.Point(146, 54);
-            this.txtRoomId.Name = "txtRoomId";
-            this.txtRoomId.ReadOnly = true;
-            this.txtRoomId.Size = new System.Drawing.Size(202, 27);
-            this.txtRoomId.TabIndex = 1;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 212);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 19);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Số giường:";
             // 
             // txtBedId
             // 
             this.txtBedId.Location = new System.Drawing.Point(146, 130);
+            this.txtBedId.MaxLength = 5;
             this.txtBedId.Name = "txtBedId";
             this.txtBedId.Size = new System.Drawing.Size(202, 27);
             this.txtBedId.TabIndex = 3;
@@ -411,29 +355,86 @@ namespace Hospital
             this.label2.TabIndex = 2;
             this.label2.Text = "Mã giường:";
             // 
-            // label3
+            // txtRoomId
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 212);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Số giường:";
+            this.txtRoomId.Location = new System.Drawing.Point(146, 54);
+            this.txtRoomId.Name = "txtRoomId";
+            this.txtRoomId.ReadOnly = true;
+            this.txtRoomId.Size = new System.Drawing.Size(202, 27);
+            this.txtRoomId.TabIndex = 1;
             // 
-            // txtBedNumber
+            // label1
             // 
-            this.txtBedNumber.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtBedNumber.Location = new System.Drawing.Point(146, 208);
-            this.txtBedNumber.MenuManager = this.barManager1;
-            this.txtBedNumber.Name = "txtBedNumber";
-            this.txtBedNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtBedNumber.Size = new System.Drawing.Size(202, 28);
-            this.txtBedNumber.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Mã phòng:";
+            // 
+            // gET_BEDS_BASE_ON_ROOMBindingSource
+            // 
+            this.gET_BEDS_BASE_ON_ROOMBindingSource.DataMember = "GET_BEDS_BASE_ON_ROOM";
+            this.gET_BEDS_BASE_ON_ROOMBindingSource.DataSource = this.qLBVDataSet;
+            // 
+            // gET_BEDS_BASE_ON_ROOMTableAdapter
+            // 
+            this.gET_BEDS_BASE_ON_ROOMTableAdapter.ClearBeforeFill = true;
+            // 
+            // gET_BEDS_BASE_ON_ROOMGridControl
+            // 
+            this.gET_BEDS_BASE_ON_ROOMGridControl.DataSource = this.gET_BEDS_BASE_ON_ROOMBindingSource;
+            this.gET_BEDS_BASE_ON_ROOMGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gET_BEDS_BASE_ON_ROOMGridControl.Location = new System.Drawing.Point(407, 332);
+            this.gET_BEDS_BASE_ON_ROOMGridControl.MainView = this.gridView2;
+            this.gET_BEDS_BASE_ON_ROOMGridControl.Name = "gET_BEDS_BASE_ON_ROOMGridControl";
+            this.gET_BEDS_BASE_ON_ROOMGridControl.Size = new System.Drawing.Size(667, 332);
+            this.gET_BEDS_BASE_ON_ROOMGridControl.TabIndex = 3;
+            this.gET_BEDS_BASE_ON_ROOMGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            this.gET_BEDS_BASE_ON_ROOMGridControl.Click += new System.EventHandler(this.gET_BEDS_BASE_ON_ROOMGridControl_Click);
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAGIUONG,
+            this.colSOGIUONG,
+            this.colMAPHONG1});
+            this.gridView2.GridControl = this.gET_BEDS_BASE_ON_ROOMGridControl;
+            this.gridView2.Name = "gridView2";
+            // 
+            // colMAGIUONG
+            // 
+            this.colMAGIUONG.Caption = "Mã giường";
+            this.colMAGIUONG.FieldName = "MAGIUONG";
+            this.colMAGIUONG.MinWidth = 30;
+            this.colMAGIUONG.Name = "colMAGIUONG";
+            this.colMAGIUONG.OptionsColumn.AllowEdit = false;
+            this.colMAGIUONG.Visible = true;
+            this.colMAGIUONG.VisibleIndex = 0;
+            this.colMAGIUONG.Width = 112;
+            // 
+            // colSOGIUONG
+            // 
+            this.colSOGIUONG.Caption = "Số giường";
+            this.colSOGIUONG.FieldName = "SOGIUONG";
+            this.colSOGIUONG.MinWidth = 30;
+            this.colSOGIUONG.Name = "colSOGIUONG";
+            this.colSOGIUONG.OptionsColumn.AllowEdit = false;
+            this.colSOGIUONG.Visible = true;
+            this.colSOGIUONG.VisibleIndex = 1;
+            this.colSOGIUONG.Width = 112;
+            // 
+            // colMAPHONG1
+            // 
+            this.colMAPHONG1.Caption = "Mã phòng";
+            this.colMAPHONG1.FieldName = "MAPHONG";
+            this.colMAPHONG1.MinWidth = 30;
+            this.colMAPHONG1.Name = "colMAPHONG1";
+            this.colMAPHONG1.OptionsColumn.AllowEdit = false;
+            this.colMAPHONG1.Visible = true;
+            this.colMAPHONG1.VisibleIndex = 2;
+            this.colMAPHONG1.Width = 112;
             // 
             // frmBed
             // 
@@ -456,11 +457,11 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBedNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_BEDS_BASE_ON_ROOMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gET_BEDS_BASE_ON_ROOMGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBedNumber.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

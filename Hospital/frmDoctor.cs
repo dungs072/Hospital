@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -88,12 +89,25 @@ namespace Hospital
                     sqlCmd.ExecuteNonQuery();
                     Program.conn.Close();
                     gET_FULL_DOCTORSTableAdapter.Fill(qLBVDataSet.GET_FULL_DOCTORS);
+                    HandleClick(false);
                     MessageBox.Show("Xóa bác sĩ thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if(ex.Message.Contains("FK_CHITIETCHUATRI_BACSI"))
+                    {
+                        MessageBox.Show("Bác sĩ này đã có dữ liệu chữa bệnh cho bệnh nhân", "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if(ex.Message.Contains("FK_BENHNHAN_BACSI"))
+                    {
+                        MessageBox.Show("Bác sĩ này đã có dữ liệu tiếp nhận hoặc theo dõi cho bệnh nhân", "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }    
+                    else
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
                     Program.conn.Close();
                 }
             }
@@ -104,6 +118,7 @@ namespace Hospital
             NormalToggle(false);
             ToggleUpdateDeleteButtons(false);
             isAdding = false;
+
         }
 
         private void btnWrite_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -133,6 +148,16 @@ namespace Hospital
                 MessageBox.Show("Không được bỏ trống mã căn cước công dân của bác sĩ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            if (!ValidatePhoneNumber(txtPhoneNumber.Text))
+            {
+                MessageBox.Show("Số điện thoại không đúng định dạng ở Việt Nam", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (txtPersonalId.Text.Length != 12)
+            {
+                MessageBox.Show("Số căn cước công dân không đúng định dạng ở Việt Nam", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             string cmd = "";
             if (isAdding)
             {
@@ -154,6 +179,7 @@ namespace Hospital
                 sqlCmd.ExecuteNonQuery();
                 Program.conn.Close();
                 gET_FULL_DOCTORSTableAdapter.Fill(qLBVDataSet.GET_FULL_DOCTORS);
+                HandleClick(false);
                 if (isAdding)
                 {
                     MessageBox.Show("Thêm bác sĩ thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -168,7 +194,7 @@ namespace Hospital
             {
                 if (ex.Message.Contains("PK"))
                 {
-                    MessageBox.Show("Mã bác sĩ không được trùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Mã nhân viên không được trùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if(ex.Message.Contains("UK_CCCD"))
                 {
@@ -176,7 +202,7 @@ namespace Hospital
                 }
                 else if (ex.Message.Contains("UK_SDT"))
                 {
-                    MessageBox.Show("Số điện thoại không được trùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Số điện thoại không được trùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -185,6 +211,20 @@ namespace Hospital
                
                 Program.conn.Close();
             }
+        }
+        private bool ValidatePhoneNumber(string phoneNumber)
+        {
+            // Pattern for validating phone number in Vietnam
+            string pattern = @"^(0[2-9]|84[2-9])(\d{8}|\d{9})$";
+
+            // Create a Regex object with the pattern
+            Regex regex = new Regex(pattern);
+
+            // Use the Match method to check if the phone number matches the pattern
+            Match match = regex.Match(phoneNumber);
+
+            // Return true if there is a match, indicating a valid phone number
+            return match.Success;
         }
 
         private void btnCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

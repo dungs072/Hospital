@@ -37,28 +37,28 @@ namespace Hospital
             this.lOAICHUATRIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lOAICHUATRITableAdapter = new Hospital.QLBVDataSetTableAdapters.LOAICHUATRITableAdapter();
             this.tableAdapterManager = new Hospital.QLBVDataSetTableAdapters.TableAdapterManager();
+            this.cHITIETCHUATRITableAdapter = new Hospital.QLBVDataSetTableAdapters.CHITIETCHUATRITableAdapter();
             this.lOAICHUATRIGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOAI_CT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtTypeId = new DevExpress.XtraEditors.TextEdit();
             this.txtTypeName = new DevExpress.XtraEditors.TextEdit();
+            this.txtTypeId = new DevExpress.XtraEditors.TextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnUpdate = new DevExpress.XtraBars.BarButtonItem();
             this.btnWrite = new DevExpress.XtraBars.BarButtonItem();
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
             this.btnCancel = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.cHITIETCHUATRIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cHITIETCHUATRITableAdapter = new Hospital.QLBVDataSetTableAdapters.CHITIETCHUATRITableAdapter();
             mALOAI_CTLabel = new System.Windows.Forms.Label();
             tENLOAILabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.qLBVDataSet)).BeginInit();
@@ -66,11 +66,29 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.lOAICHUATRIGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTypeId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTypeName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTypeId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETCHUATRIBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // mALOAI_CTLabel
+            // 
+            mALOAI_CTLabel.AutoSize = true;
+            mALOAI_CTLabel.Location = new System.Drawing.Point(27, 62);
+            mALOAI_CTLabel.Name = "mALOAI_CTLabel";
+            mALOAI_CTLabel.Size = new System.Drawing.Size(65, 19);
+            mALOAI_CTLabel.TabIndex = 0;
+            mALOAI_CTLabel.Text = "Mã loại:";
+            // 
+            // tENLOAILabel
+            // 
+            tENLOAILabel.AutoSize = true;
+            tENLOAILabel.Location = new System.Drawing.Point(27, 137);
+            tENLOAILabel.Name = "tENLOAILabel";
+            tENLOAILabel.Size = new System.Drawing.Size(72, 19);
+            tENLOAILabel.TabIndex = 2;
+            tENLOAILabel.Text = "Tên loại:";
             // 
             // qLBVDataSet
             // 
@@ -89,6 +107,7 @@ namespace Hospital
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BACSITableAdapter = null;
             this.tableAdapterManager.BENHNHANTableAdapter = null;
             this.tableAdapterManager.CHITIETCHUATRITableAdapter = this.cHITIETCHUATRITableAdapter;
             this.tableAdapterManager.CHITIETLAMVIECKHUCHUATRITableAdapter = null;
@@ -101,6 +120,11 @@ namespace Hospital
             this.tableAdapterManager.PHONGTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Hospital.QLBVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VATTUTableAdapter = null;
+            this.tableAdapterManager.YTATableAdapter = null;
+            // 
+            // cHITIETCHUATRITableAdapter
+            // 
+            this.cHITIETCHUATRITableAdapter.ClearBeforeFill = true;
             // 
             // lOAICHUATRIGridControl
             // 
@@ -158,39 +182,23 @@ namespace Hospital
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập liệu";
             // 
-            // mALOAI_CTLabel
+            // txtTypeName
             // 
-            mALOAI_CTLabel.AutoSize = true;
-            mALOAI_CTLabel.Location = new System.Drawing.Point(27, 62);
-            mALOAI_CTLabel.Name = "mALOAI_CTLabel";
-            mALOAI_CTLabel.Size = new System.Drawing.Size(65, 19);
-            mALOAI_CTLabel.TabIndex = 0;
-            mALOAI_CTLabel.Text = "Mã loại:";
+            this.txtTypeName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOAICHUATRIBindingSource, "TENLOAI", true));
+            this.txtTypeName.Location = new System.Drawing.Point(180, 133);
+            this.txtTypeName.Name = "txtTypeName";
+            this.txtTypeName.Properties.MaxLength = 50;
+            this.txtTypeName.Size = new System.Drawing.Size(269, 28);
+            this.txtTypeName.TabIndex = 3;
             // 
             // txtTypeId
             // 
             this.txtTypeId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOAICHUATRIBindingSource, "MALOAI_CT", true));
             this.txtTypeId.Location = new System.Drawing.Point(180, 58);
             this.txtTypeId.Name = "txtTypeId";
+            this.txtTypeId.Properties.MaxLength = 5;
             this.txtTypeId.Size = new System.Drawing.Size(269, 28);
             this.txtTypeId.TabIndex = 1;
-            // 
-            // tENLOAILabel
-            // 
-            tENLOAILabel.AutoSize = true;
-            tENLOAILabel.Location = new System.Drawing.Point(27, 137);
-            tENLOAILabel.Name = "tENLOAILabel";
-            tENLOAILabel.Size = new System.Drawing.Size(72, 19);
-            tENLOAILabel.TabIndex = 2;
-            tENLOAILabel.Text = "Tên loại:";
-            // 
-            // txtTypeName
-            // 
-            this.txtTypeName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOAICHUATRIBindingSource, "TENLOAI", true));
-            this.txtTypeName.Location = new System.Drawing.Point(180, 133);
-            this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.Size = new System.Drawing.Size(269, 28);
-            this.txtTypeName.TabIndex = 3;
             // 
             // barManager1
             // 
@@ -210,6 +218,75 @@ namespace Hospital
             this.btnCancel,
             this.btnDelete});
             this.barManager1.MaxItemId = 7;
+            // 
+            // bar1
+            // 
+            this.bar1.BarName = "Tools";
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUpdate, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnWrite, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCancel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar1.Text = "Tools";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Caption = "Thêm";
+            this.btnAdd.Id = 0;
+            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
+            this.btnAdd.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.LargeImage")));
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Caption = "Xóa";
+            this.btnDelete.Id = 6;
+            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
+            this.btnDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.LargeImage")));
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Caption = "Sửa";
+            this.btnUpdate.Id = 2;
+            this.btnUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.ImageOptions.Image")));
+            this.btnUpdate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.ImageOptions.LargeImage")));
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdate_ItemClick);
+            // 
+            // btnWrite
+            // 
+            this.btnWrite.Caption = "Ghi";
+            this.btnWrite.Id = 3;
+            this.btnWrite.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWrite.ImageOptions.Image")));
+            this.btnWrite.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnWrite.ImageOptions.LargeImage")));
+            this.btnWrite.Name = "btnWrite";
+            this.btnWrite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWrite_ItemClick);
+            // 
+            // btnReload
+            // 
+            this.btnReload.Caption = "Reload";
+            this.btnReload.Id = 4;
+            this.btnReload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReload.ImageOptions.Image")));
+            this.btnReload.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReload.ImageOptions.LargeImage")));
+            this.btnReload.Name = "btnReload";
+            this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Caption = "Cancel";
+            this.btnCancel.Id = 5;
+            this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
+            this.btnCancel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.LargeImage")));
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancel_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -243,29 +320,6 @@ namespace Hospital
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 617);
             // 
-            // bar1
-            // 
-            this.bar1.BarName = "Tools";
-            this.bar1.DockCol = 0;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUpdate, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnWrite, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCancel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.bar1.Text = "Tools";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Caption = "Thêm";
-            this.btnAdd.Id = 0;
-            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnAdd.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
-            // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "Xóa";
@@ -274,59 +328,10 @@ namespace Hospital
             this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
             this.barButtonItem2.Name = "barButtonItem2";
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Caption = "Sửa";
-            this.btnUpdate.Id = 2;
-            this.btnUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.btnUpdate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdate_ItemClick);
-            // 
-            // btnWrite
-            // 
-            this.btnWrite.Caption = "Ghi";
-            this.btnWrite.Id = 3;
-            this.btnWrite.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.btnWrite.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.btnWrite.Name = "btnWrite";
-            this.btnWrite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWrite_ItemClick);
-            // 
-            // btnReload
-            // 
-            this.btnReload.Caption = "Reload";
-            this.btnReload.Id = 4;
-            this.btnReload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
-            this.btnReload.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
-            this.btnReload.Name = "btnReload";
-            this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Caption = "Cancel";
-            this.btnCancel.Id = 5;
-            this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
-            this.btnCancel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancel_ItemClick);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Caption = "Xóa";
-            this.btnDelete.Id = 6;
-            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image1")));
-            this.btnDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage1")));
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
-            // 
             // cHITIETCHUATRIBindingSource
             // 
             this.cHITIETCHUATRIBindingSource.DataMember = "FK_CHITIETCHUATRI_LOAICHUATRI";
             this.cHITIETCHUATRIBindingSource.DataSource = this.lOAICHUATRIBindingSource;
-            // 
-            // cHITIETCHUATRITableAdapter
-            // 
-            this.cHITIETCHUATRITableAdapter.ClearBeforeFill = true;
             // 
             // frmTreatment
             // 
@@ -348,8 +353,8 @@ namespace Hospital
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTypeId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTypeName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTypeId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETCHUATRIBindingSource)).EndInit();
             this.ResumeLayout(false);

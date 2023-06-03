@@ -274,6 +274,7 @@ namespace Hospital
             // 
             this.txtAreaName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.kHUCHUATRIBindingSource, "TEN", true));
             this.txtAreaName.Location = new System.Drawing.Point(349, 101);
+            this.txtAreaName.MaxLength = 50;
             this.txtAreaName.Name = "txtAreaName";
             this.txtAreaName.Size = new System.Drawing.Size(231, 27);
             this.txtAreaName.TabIndex = 5;

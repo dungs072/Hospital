@@ -56,6 +56,7 @@ namespace Hospital
             this.btnBarDeleteAccount = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -73,7 +74,10 @@ namespace Hospital
             this.id = new System.Windows.Forms.ToolStripStatusLabel();
             this.fullname = new System.Windows.Forms.ToolStripStatusLabel();
             this.group = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnBarBackup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBarRestore = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -106,17 +110,20 @@ namespace Hospital
             this.btnBarBed,
             this.btnBarRegisterStalkDoctor,
             this.btnBarCreateAccount,
-            this.btnBarDeleteAccount});
+            this.btnBarDeleteAccount,
+            this.btnBarBackup,
+            this.btnBarRestore});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 29;
+            this.ribbonControl1.MaxItemId = 33;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2,
             this.ribbonPage3,
             this.ribbonPage4,
-            this.ribbonPage5});
+            this.ribbonPage5,
+            this.ribbonPage6});
             this.ribbonControl1.Size = new System.Drawing.Size(1235, 244);
             // 
             // btnBarLogin
@@ -325,6 +332,13 @@ namespace Hospital
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "CÁ NHÂN";
             // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnBarCreateAccount);
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnBarDeleteAccount);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "TÀI KHOẢN";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -446,12 +460,37 @@ namespace Hospital
             this.group.Size = new System.Drawing.Size(66, 25);
             this.group.Text = "Nhóm:";
             // 
-            // ribbonPageGroup8
+            // ribbonPage6
             // 
-            this.ribbonPageGroup8.ItemLinks.Add(this.btnBarCreateAccount);
-            this.ribbonPageGroup8.ItemLinks.Add(this.btnBarDeleteAccount);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.Text = "TÀI KHOẢN";
+            this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup9});
+            this.ribbonPage6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage6.ImageOptions.Image")));
+            this.ribbonPage6.Name = "ribbonPage6";
+            this.ribbonPage6.Text = "Dữ liệu";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnBarBackup);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnBarRestore);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            // 
+            // btnBarBackup
+            // 
+            this.btnBarBackup.Caption = "Sao lưu dữ liệu";
+            this.btnBarBackup.Id = 30;
+            this.btnBarBackup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarBackup.ImageOptions.Image")));
+            this.btnBarBackup.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarBackup.ImageOptions.LargeImage")));
+            this.btnBarBackup.Name = "btnBarBackup";
+            this.btnBarBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarBackup_ItemClick);
+            // 
+            // btnBarRestore
+            // 
+            this.btnBarRestore.Caption = "Phục hồi dữ liệu";
+            this.btnBarRestore.Id = 31;
+            this.btnBarRestore.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBarRestore.ImageOptions.Image")));
+            this.btnBarRestore.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBarRestore.ImageOptions.LargeImage")));
+            this.btnBarRestore.Name = "btnBarRestore";
+            this.btnBarRestore.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBarRestore_ItemClick);
             // 
             // frmMain
             // 
@@ -520,6 +559,10 @@ namespace Hospital
         private DevExpress.XtraBars.BarButtonItem btnBarCreateAccount;
         private DevExpress.XtraBars.BarButtonItem btnBarDeleteAccount;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem btnBarBackup;
+        private DevExpress.XtraBars.BarButtonItem btnBarRestore;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
     }
 }
 

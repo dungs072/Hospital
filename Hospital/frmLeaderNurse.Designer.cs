@@ -179,7 +179,7 @@ namespace Hospital
             this.colMANV.OptionsColumn.AllowEdit = false;
             this.colMANV.Visible = true;
             this.colMANV.VisibleIndex = 0;
-            this.colMANV.Width = 112;
+            this.colMANV.Width = 220;
             // 
             // colHOTEN
             // 
@@ -190,7 +190,7 @@ namespace Hospital
             this.colHOTEN.OptionsColumn.AllowEdit = false;
             this.colHOTEN.Visible = true;
             this.colHOTEN.VisibleIndex = 1;
-            this.colHOTEN.Width = 112;
+            this.colHOTEN.Width = 304;
             // 
             // colPHAI
             // 
@@ -201,7 +201,7 @@ namespace Hospital
             this.colPHAI.OptionsColumn.AllowEdit = false;
             this.colPHAI.Visible = true;
             this.colPHAI.VisibleIndex = 2;
-            this.colPHAI.Width = 112;
+            this.colPHAI.Width = 192;
             // 
             // colDIENTHOAI
             // 
@@ -212,7 +212,7 @@ namespace Hospital
             this.colDIENTHOAI.OptionsColumn.AllowEdit = false;
             this.colDIENTHOAI.Visible = true;
             this.colDIENTHOAI.VisibleIndex = 3;
-            this.colDIENTHOAI.Width = 112;
+            this.colDIENTHOAI.Width = 192;
             // 
             // colNGHIEPVU
             // 
@@ -223,7 +223,7 @@ namespace Hospital
             this.colNGHIEPVU.OptionsColumn.AllowEdit = false;
             this.colNGHIEPVU.Visible = true;
             this.colNGHIEPVU.VisibleIndex = 4;
-            this.colNGHIEPVU.Width = 112;
+            this.colNGHIEPVU.Width = 194;
             // 
             // panel5
             // 
@@ -255,7 +255,7 @@ namespace Hospital
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1164, 336);
+            this.panel2.Size = new System.Drawing.Size(1137, 336);
             this.panel2.TabIndex = 0;
             // 
             // gET_CURE_AREAGridControl
@@ -265,7 +265,7 @@ namespace Hospital
             this.gET_CURE_AREAGridControl.Location = new System.Drawing.Point(0, 48);
             this.gET_CURE_AREAGridControl.MainView = this.gridView1;
             this.gET_CURE_AREAGridControl.Name = "gET_CURE_AREAGridControl";
-            this.gET_CURE_AREAGridControl.Size = new System.Drawing.Size(1162, 286);
+            this.gET_CURE_AREAGridControl.Size = new System.Drawing.Size(1135, 286);
             this.gET_CURE_AREAGridControl.TabIndex = 1;
             this.gET_CURE_AREAGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -320,7 +320,7 @@ namespace Hospital
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1162, 48);
+            this.panel4.Size = new System.Drawing.Size(1135, 48);
             this.panel4.TabIndex = 0;
             // 
             // label1
@@ -328,7 +328,7 @@ namespace Hospital
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(499, 12);
+            this.label1.Location = new System.Drawing.Point(485, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 19);
             this.label1.TabIndex = 0;

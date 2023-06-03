@@ -249,6 +249,7 @@ namespace Hospital
             this.txtLastName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bENHNHANBindingSource, "TEN", true));
             this.txtLastName.Location = new System.Drawing.Point(159, 152);
             this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Properties.MaxLength = 30;
             this.txtLastName.Size = new System.Drawing.Size(206, 28);
             this.txtLastName.TabIndex = 5;
             // 
@@ -257,6 +258,7 @@ namespace Hospital
             this.txtFirstName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bENHNHANBindingSource, "HO", true));
             this.txtFirstName.Location = new System.Drawing.Point(159, 84);
             this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Properties.MaxLength = 50;
             this.txtFirstName.Size = new System.Drawing.Size(206, 28);
             this.txtFirstName.TabIndex = 3;
             // 
@@ -265,6 +267,7 @@ namespace Hospital
             this.txtPatientId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bENHNHANBindingSource, "MABN", true));
             this.txtPatientId.Location = new System.Drawing.Point(159, 26);
             this.txtPatientId.Name = "txtPatientId";
+            this.txtPatientId.Properties.MaxLength = 10;
             this.txtPatientId.Size = new System.Drawing.Size(206, 28);
             this.txtPatientId.TabIndex = 1;
             // 
