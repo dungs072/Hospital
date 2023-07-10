@@ -166,6 +166,7 @@ namespace Hospital
             }
             else
             {
+
                 string oldId = ((DataRowView)gET_FULL_DOCTORSBindingSource[gET_FULL_DOCTORSBindingSource.Position])["MANV"].ToString().Trim();
                 cmd = string.Format("EXEC SP_WRITE_INFOR_DOCTOR '{0}',N'{1}',N'{2}',N'{3}',N'{4}','{5}','{6}',N'{7}','{8}'",
                     txtDoctorId.Text, txtFirstName.Text, txtLastName.Text, cmbSex.Text, txtAddress.Text, txtPhoneNumber.Text, txtPersonalId.Text, cmbEducation.Text,oldId);

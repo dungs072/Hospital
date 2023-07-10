@@ -131,6 +131,11 @@ namespace Hospital
 
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if(pHONGBindingSource.Count>0)
+            {
+                MessageBox.Show("Khu bạn muốn xóa đã có phòng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (cHITIETLAMVIECKHUCHUATRIBindingSource.Count > 0)
             {
                 MessageBox.Show("Khu bạn muốn xóa đã có nhân viên đăng kí làm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

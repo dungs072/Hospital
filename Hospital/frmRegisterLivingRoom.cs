@@ -32,11 +32,17 @@ namespace Hospital
             this.pHONGTableAdapter.Fill(this.qLBVDataSet.PHONG);
             // TODO: This line of code loads data into the 'qLBVDataSet.KHUCHUATRI' table. You can move, or remove it, as needed.
             this.kHUCHUATRITableAdapter.Fill(this.qLBVDataSet.KHUCHUATRI);
+            
             if (cmbRoom.SelectedValue != null)
             {
                 this.sP_GET_VACANT_ROOMTableAdapter.Fill(this.qLBVDataSet.SP_GET_VACANT_ROOM, cmbRoom.SelectedValue.ToString());
             }
-         
+            if(cmbArea3.SelectedValue!=null)
+            {
+                sP_GET_DETAIL_LIVING_ROOMTableAdapter.Fill(qLBVDataSet.SP_GET_DETAIL_LIVING_ROOM, int.Parse(cmbArea3.SelectedValue.ToString()));
+            }
+            
+
             ToggleOnGroupBoxEnterData(false);
             ToggleRegisterReloadButtons(true);
             ToggleCancelWriteButtons(false);
@@ -51,6 +57,7 @@ namespace Hospital
             if (cmbRoom.Text == "")
             {
                 this.sP_GET_VACANT_ROOMTableAdapter.Fill(this.qLBVDataSet.SP_GET_VACANT_ROOM, "");
+
             }
             if (cmbRoom.SelectedValue != null)
             {
@@ -346,6 +353,7 @@ namespace Hospital
         private void btnBarReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             pATIENT_NOT_REGISTER_LIVING_ROOMTableAdapter.Fill(qLBVDataSet.PATIENT_NOT_REGISTER_LIVING_ROOM);
+            
             if (cmbRoom.SelectedValue != null)
             {
                 sP_GET_VACANT_ROOMTableAdapter.Fill(qLBVDataSet.SP_GET_VACANT_ROOM, cmbRoom.SelectedValue.ToString());
@@ -354,7 +362,7 @@ namespace Hospital
             {
                 sP_GET_DETAIL_LIVING_ROOMTableAdapter.Fill(qLBVDataSet.SP_GET_DETAIL_LIVING_ROOM, int.Parse(cmbArea3.SelectedValue.ToString()));
             }
-            
+
         }
         private int CheckTimeIsValid(string patientId, string startTime, string endTime)
         {

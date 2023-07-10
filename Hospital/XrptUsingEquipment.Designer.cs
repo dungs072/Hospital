@@ -205,7 +205,7 @@ namespace Hospital
             this.label1.StyleName = "Title";
             this.label1.StylePriority.UseFont = false;
             this.label1.StylePriority.UseTextAlignment = false;
-            this.label1.Text = "HÓA ĐƠN SỬ DỤNG VẬT TƯ";
+            this.label1.Text = "THỐNG KÊ SỬ DỤNG VẬT TƯ";
             this.label1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // GroupHeader1
@@ -307,7 +307,7 @@ namespace Hospital
             this.tableCell4.StylePriority.UseBorderColor = false;
             this.tableCell4.StylePriority.UseBorders = false;
             this.tableCell4.StylePriority.UseTextAlignment = false;
-            this.tableCell4.Text = "Tổng tiền";
+            this.tableCell4.Text = "Thành giá";
             this.tableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell4.Weight = 0.27442981426532453D;
             // 

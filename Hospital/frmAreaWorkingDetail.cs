@@ -289,7 +289,7 @@ namespace Hospital
         {
             if (!CanCancelRegister())
             {
-                MessageBox.Show("Không thể hủy đăng kí này bởi vì đã ghi nhận thời gian làm việc trong tuần", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể hủy đăng kí này bởi vì đã có thời gian kết thúc làm và thời gian kết thúc làm đã quá ngày hiện tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             DialogResult result = MessageBox.Show("Bạn có chắc muốn hủy đăng kí này chứ", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);

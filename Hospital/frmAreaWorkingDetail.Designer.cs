@@ -129,9 +129,9 @@ namespace Hospital
             this.panel3.Controls.Add(this.gET_STAFFGridControl);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(554, 0);
+            this.panel3.Location = new System.Drawing.Point(760, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(552, 308);
+            this.panel3.Size = new System.Drawing.Size(346, 308);
             this.panel3.TabIndex = 1;
             // 
             // gET_STAFFGridControl
@@ -141,7 +141,7 @@ namespace Hospital
             this.gET_STAFFGridControl.Location = new System.Drawing.Point(0, 54);
             this.gET_STAFFGridControl.MainView = this.gridView2;
             this.gET_STAFFGridControl.Name = "gET_STAFFGridControl";
-            this.gET_STAFFGridControl.Size = new System.Drawing.Size(550, 252);
+            this.gET_STAFFGridControl.Size = new System.Drawing.Size(344, 252);
             this.gET_STAFFGridControl.TabIndex = 1;
             this.gET_STAFFGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -229,7 +229,7 @@ namespace Hospital
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(550, 54);
+            this.panel5.Size = new System.Drawing.Size(344, 54);
             this.panel5.TabIndex = 0;
             // 
             // label2
@@ -237,7 +237,7 @@ namespace Hospital
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(190, 13);
+            this.label2.Location = new System.Drawing.Point(87, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 19);
             this.label2.TabIndex = 1;
@@ -252,7 +252,7 @@ namespace Hospital
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(554, 308);
+            this.panel2.Size = new System.Drawing.Size(760, 308);
             this.panel2.TabIndex = 0;
             // 
             // kHUCHUATRIGridControl
@@ -262,7 +262,7 @@ namespace Hospital
             this.kHUCHUATRIGridControl.Location = new System.Drawing.Point(0, 54);
             this.kHUCHUATRIGridControl.MainView = this.gridView1;
             this.kHUCHUATRIGridControl.Name = "kHUCHUATRIGridControl";
-            this.kHUCHUATRIGridControl.Size = new System.Drawing.Size(552, 252);
+            this.kHUCHUATRIGridControl.Size = new System.Drawing.Size(758, 252);
             this.kHUCHUATRIGridControl.TabIndex = 1;
             this.kHUCHUATRIGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -310,7 +310,7 @@ namespace Hospital
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(552, 54);
+            this.panel4.Size = new System.Drawing.Size(758, 54);
             this.panel4.TabIndex = 0;
             // 
             // label1
@@ -318,7 +318,7 @@ namespace Hospital
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(215, 13);
+            this.label1.Location = new System.Drawing.Point(318, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 19);
             this.label1.TabIndex = 0;

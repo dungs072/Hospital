@@ -173,7 +173,7 @@ namespace Hospital
                 {
                     gET_ALL_DETAIL_CURETableAdapter.Fill(qLBVDataSet.GET_ALL_DETAIL_CURE);
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    SetCureDetailData();
                 }
                 else
                 {
